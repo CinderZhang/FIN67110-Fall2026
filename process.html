@@ -1,0 +1,127 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>The process, drawn · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='index.html'>FIN 67110</a><a href='schedule.html'>Schedule</a><a href='grading.html'>Grading</a><a href='project.html'>Project</a><a href='syllabus.html'>Syllabus</a><a href='decks/index.html'>Decks</a></div>
+<h1 id="the-process-drawn">The process, drawn</h1>
+<p><em>Generated from <code>Fall2026/PROCESS.md</code>, which owns these charts. Every box is a lab or a step on a page; every edge is a hand-off a page states.</em></p>
+<h2 id="1-the-term--the-students-path">1. The term — the student's path</h2>
+<pre class="mermaid">flowchart LR
+    W1[&quot;Week 1 · Session 1&lt;br/&gt;Ready to build&lt;br/&gt;prep lab, no points&quot;]
+    W2[&quot;Week 2 · S2 S3&lt;br/&gt;The paper's desk&lt;br/&gt;make it yours&quot;]
+    W3[&quot;Week 3 · S4 S5&lt;br/&gt;The verifier&lt;br/&gt;the desk's hands · teams form&quot;]
+    W4[&quot;Week 4 · S6 S7&lt;br/&gt;The investor's desk&lt;br/&gt;live record begins&quot;]
+    W5[&quot;Week 5 · S8 S9&lt;br/&gt;The institution's desk&lt;br/&gt;team proposal&quot;]
+    W6[&quot;Week 6 · S10&lt;br/&gt;Break your desk&lt;br/&gt;note exchange · Thanksgiving&quot;]
+    W7[&quot;Week 7 · S11 S12&lt;br/&gt;Write for your client&lt;br/&gt;consulting&quot;]
+    W8[&quot;Week 8 · S13 S14&lt;br/&gt;Present, live run&lt;br/&gt;project due Friday&quot;]
+    W1 --&gt; W2 --&gt; W3 --&gt; W4 --&gt; W5 --&gt; W6 --&gt; W7 --&gt; W8
+    C1([Checkpoint 1&lt;br/&gt;desk runs on a partner's pick]) -.-&gt; W2
+    C2([Checkpoint 2&lt;br/&gt;verifier catches the seeded error]) -.-&gt; W3
+    C3([Checkpoint 3&lt;br/&gt;team proposal: the client]) -.-&gt; W5
+    C4([Checkpoint 4&lt;br/&gt;the draft]) -.-&gt; W7
+    P([Project · 30%&lt;br/&gt;desk · live record · audits · paper · presentation]) -.-&gt; W8
+</pre>
+<p>Weights, tiers and the fail rule: <a href="grading.html">the grading page</a>. Dates: <a href="schedule.html">the schedule</a>.</p>
+<h2 id="2-the-lab-chain--what-each-lab-builds-and-hands-on">2. The lab chain — what each lab builds and hands on</h2>
+<pre class="mermaid">flowchart TD
+    L01[&quot;Lab 01 Ready to build&lt;br/&gt;→ a setup a partner saw work&quot;]
+    L02[&quot;Lab 02 The desk's steps&lt;br/&gt;→ ticker to filings, facts, ratios; no model&quot;]
+    L03[&quot;Lab 03 The app&lt;br/&gt;→ the four roles, a Costco report, the audit, a report on a partner's pick&quot;]
+    L04[&quot;Lab 04 The verifier&lt;br/&gt;→ saved runs, a verified report, marks&quot;]
+    L05[&quot;Lab 05 The desk's hands&lt;br/&gt;→ the data reader, the context table, a team&quot;]
+    L06[&quot;Lab 06 The investor's desk&lt;br/&gt;→ a view with one number, the reaction check&quot;]
+    L07[&quot;Lab 07 Your investor view&lt;br/&gt;→ hit-rate table, first live report&quot;]
+    L08[&quot;Lab 08 The institution's desk&lt;br/&gt;→ mandate.md, positions, five numbers&quot;]
+    L09[&quot;Lab 09 Your portfolio under a mandate&lt;br/&gt;→ the client-layer change you chose,&lt;br/&gt;partner-picked runs, the proposal&quot;]
+    L10[&quot;Lab 10 Break your desk&lt;br/&gt;→ the attack table, two reports swapped&quot;]
+    L11[&quot;Lab 11 Write for your client&lt;br/&gt;→ paper.md: three tables, client paragraph, decision log&quot;]
+    L12[&quot;Lab 12 Consulting&lt;br/&gt;→ marks exchanged and fixed, the draft filed&quot;]
+    L13[&quot;Lab 13 · 14 Present&lt;br/&gt;→ eleven minutes, the live run, one question each&quot;]
+    L01 --&gt; L02
+    L02 -- &quot;Walmart run, the key in .env, before S3&quot; --&gt; L03
+    L03 -- &quot;fix the role, make it yours,&lt;br/&gt;gross-margin probe before S4&quot; --&gt; L04
+    L04 --&gt; L05 --&gt; L06 --&gt; L07 --&gt; L08
+    L08 --&gt; L09
+    L09 -- &quot;own-note audits before S10&quot; --&gt; L10
+    L10 -- &quot;peer audits, stale copy before S11&quot; --&gt; L11
+    L11 --&gt; L12 --&gt; L13
+    L03 -. &quot;Checkpoint 1&quot; .-&gt; L04
+    L05 -. &quot;Checkpoint 2&quot; .-&gt; L06
+    L09 -. &quot;Checkpoint 3&quot; .-&gt; L10
+    L12 -. &quot;Checkpoint 4&quot; .-&gt; L13
+    L07 == &quot;live reports, Weeks 4 to 7&quot; ==&gt; L11
+    L10 == &quot;the other team's reports&quot; ==&gt; L11
+</pre>
+<p>Every edge is stated on a student page: each lab's "You arrive with" names the inputs, and each
+week page's "Before Session N" list is the hand-off.</p>
+<h2 id="3-inside-a-lab--the-two-clocks">3. Inside a lab — the two clocks</h2>
+<p>The Tuesday lab (teach, then build on the training case):</p>
+<pre class="mermaid">flowchart LR
+    O[&quot;0-10&lt;br/&gt;Open: tools alive,&lt;br/&gt;defend, gap check&quot;] --&gt; T[&quot;10-45&lt;br/&gt;Teach: the concept,&lt;br/&gt;the worked example in digits&quot;]
+    T --&gt; D[&quot;45-80 · D · the question,&lt;br/&gt;the same for everyone&quot;] --&gt; R[&quot;R · what you work from&quot;] --&gt; I[&quot;I · send the request&lt;br/&gt;word for word&quot;]
+    I --&gt; F[&quot;While it runs:&lt;br/&gt;gap list in a second chat&quot;] --&gt; V[&quot;V · the known answer:&lt;br/&gt;match, or debug with your AI&quot;]
+    V --&gt; RF[&quot;80-87&lt;br/&gt;Learn on your own ·&lt;br/&gt;Reflect to a partner&quot;] --&gt; B[&quot;87-90&lt;br/&gt;Before Thursday:&lt;br/&gt;the list on the week page&quot;]
+</pre>
+<p>The Thursday lab (make it yours, prove it on an input you did not choose):</p>
+<pre class="mermaid">flowchart LR
+    O[&quot;0-10&lt;br/&gt;Open&quot;] --&gt; M[&quot;10-70&lt;br/&gt;Make it yours: the design that is the student's,&lt;br/&gt;then the partner's pick: run unchanged&lt;br/&gt;on a release nobody on the page named&quot;]
+    M --&gt; P[&quot;the pick's report&quot;]
+    P --&gt; A[&quot;Partner checks the report&lt;br/&gt;against the filings&quot;] --&gt; RF[&quot;70-80&lt;br/&gt;Reflect&quot;] --&gt; CK[&quot;80-90&lt;br/&gt;Checkout: submit individually&lt;br/&gt;or one upload per team&quot;]
+</pre>
+<p>Exceptions the instructor calls in the room: Session 3's partner pick is called at minute 40; Session 10's
+note exchange is at minute 80; Session 12 is consulting, six minutes a team, inside the Thursday
+block. </p>
+<h2 id="4-the-data-path--one-ticker-through-the-desk">4. The data path — one ticker through the desk</h2>
+<pre class="mermaid">flowchart TD
+    E[&quot;SEC EDGAR&lt;br/&gt;ticker → CIK · the filing list · the latest 10-K, 10-Q&lt;br/&gt;and earnings 8-K · the XBRL company facts · the Accepted time&quot;] --&gt; DL[&quot;the desk's tools, in code&lt;br/&gt;filings reader · facts · calculator&quot;]
+    DL --&gt; RA[&quot;Research Analyst&lt;br/&gt;business model, position, catalysts,&lt;br/&gt;recent developments, quoting&quot;]
+    DL --&gt; FA[&quot;Financial Analyst&lt;br/&gt;the core claims, ratios with arithmetic,&lt;br/&gt;peers, each with filing and line or tag&quot;]
+    RA --&gt; IA[&quot;Investment Advisor&lt;br/&gt;thesis · Buy / Hold / Sell · the deciding number&quot;]
+    FA --&gt; IA
+    RA --&gt; SM[&quot;Strategy Manager&lt;br/&gt;JSON tasks · the five parts · sends back once · compiles&quot;]
+    FA --&gt; SM
+    IA --&gt; SM
+    SM --&gt; N[&quot;the report, five parts&lt;br/&gt;first line: the filings read&quot;]
+    N --&gt; VF[&quot;Verifier (separate call)&lt;br/&gt;sees only the report, the filing texts and the facts&lt;br/&gt;code: tag-sourced numbers against the facts, exactly · quoted lines in the text · ratios recomputed&lt;br/&gt;model: the line states that number, period, definition&lt;br/&gt;blind by design: the right number for the wrong claim · the Advisor's thesis&quot;]
+    VF --&gt; VN[&quot;the verified report&lt;br/&gt;marks: correct · wrong · unsupported&quot;]
+    LS[&quot;LSEG Workspace&lt;br/&gt;pulled by the student's own code&quot;] --&gt; RD[&quot;the data reader&lt;br/&gt;five quarters · daily closes&quot;]
+    WR[&quot;WRDS · CRSP&lt;br/&gt;history&quot;] --&gt; RD
+    RD -- &quot;one close to the valuation, in code;&lt;br/&gt;the table appended by code; no role sees the rest&quot; --&gt; CT[&quot;P/E · the quarter in context&quot;]
+    VN --&gt; CT
+    VN --&gt; IV[&quot;Investor role&lt;br/&gt;gets the verified report and one public number,&lt;br/&gt;the last close before the release&lt;br/&gt;→ more or less than the price, one number with its source;&lt;br/&gt;a view whose number is unverified is not saved&quot;]
+    IV --&gt; RX[&quot;reaction check, in code&lt;br/&gt;last close before → first close after&lt;br/&gt;or: reaction not yet available&quot;]
+    IV -- &quot;direction, conviction&quot; --&gt; PM[&quot;Portfolio Manager, in code&lt;br/&gt;mandate.md → positions →&lt;br/&gt;relative return net of fee, weekly&quot;]
+    RD -- &quot;closes&quot; --&gt; PM
+    VN --&gt; BS[&quot;Brightspace · Live record&lt;br/&gt;the report, within 24 hours of Accepted&quot;]
+    BS --&gt; AU[&quot;the report audit&lt;br/&gt;by hand: two own, two from another team&lt;br/&gt;(missing claims are the human's to see)&quot;]
+    AU --&gt; PA[&quot;paper.md&lt;br/&gt;live-record table · audit table · client table&quot;]
+    RX --&gt; PA
+    PM --&gt; PA
+    PA --&gt; PR[&quot;the presentation&lt;br/&gt;eleven minutes · the instructor's pick, live&quot;]
+    PR --&gt; SB[&quot;the Project upload&lt;br/&gt;one Markdown file, permalinks to desk, audits, paper&quot;]
+    K([known answers, read on the day:&lt;br/&gt;the filings on EDGAR, each number at its line&lt;br/&gt;the instructor's live run of the same steps&lt;br/&gt;the exchange's official closes&lt;br/&gt;the mandate's five numbers]) -. &quot;every box is checked against one&quot; .-&gt; VN
+</pre>
+<p>Licensed values never enter a model: <a href="reference/data.html">the data page</a>. The core claims:
+<a href="reference/audit-checklist.html">the audit checklist</a>.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main><script type='module'>import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true, flowchart:{useMaxWidth:false}, theme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'neutral'});</script></body></html>

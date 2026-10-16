@@ -1,0 +1,138 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Lab 03 — The App · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
+<h1 id="lab-03--the-app">Lab 03 — The App</h1>
+<p><strong>One thing today: add the four roles to your steps with your model key, read the first report, audit it by hand, and prove the desk on a company your partner picks.</strong></p>
+<p><strong>You arrive with:</strong> your seven steps running on COST and WMT, pushed; your model API key in
+<code>.env</code> (a developer key, not a chat subscription); the report audit read; your gap list.</p>
+<h2 id="open--the-paired-review-10-minutes">Open — the paired review (10 minutes)</h2>
+<ol>
+<li><strong>Tools alive.</strong> Terminal in your work folder; your steps print the Costco facts; <code>check_env.py</code>
+   prints the first four characters of your key; your AI agent answers.</li>
+<li><strong>Defend.</strong> Show your partner step 4 on WMT. Partner asks: which revenue tag, and why that one?</li>
+<li><strong>Gap check.</strong> Write one line: which of the four roles you expect to get a number wrong, and
+   why.</li>
+</ol>
+<h2 id="d--the-question-the-same-for-everyone">D — the question, the same for everyone</h2>
+<blockquote>
+<p>On the steps you built, can four model roles write a five-part report whose numbers survive an
+audit against the filings, and does the same desk hold up on a company you did not choose?</p>
+</blockquote>
+<h2 id="r--what-you-work-from">R — what you work from</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Your steps and their saved folders</td>
+<td>your repository</td>
+</tr>
+<tr>
+<td>The roles and the template</td>
+<td>Francis &amp; Zhang (2026), Section 3.1, Figure 1, Figure 2</td>
+</tr>
+<tr>
+<td>The checklist</td>
+<td><a href="../reference/audit-checklist.html">The report audit</a>: correct, wrong, unsupported, missing</td>
+</tr>
+<tr>
+<td>Your model API key</td>
+<td>in your <code>.env</code> from Lab 01</td>
+</tr>
+<tr>
+<td>A company you did not choose</td>
+<td>your partner picks it: any U.S. company that reported this month. Start here: <a href="https://www.sec.gov/edgar/search/#/q=%22Exhibit%2099.1%22&amp;forms=8-K">EDGAR full-text search</a>; the desk takes its ticker</td>
+</tr>
+</tbody>
+</table>
+<h2 id="i--build-the-app-then-audit-it">I — build the app, then audit it</h2>
+<ol>
+<li>Send your AI coding agent this request word for word, filling the brackets:</li>
+</ol>
+<blockquote>
+<p>Add the four roles of Francis &amp; Zhang (2026), Figure 1, on top of my seven steps, using the
+official Python SDK of [your model provider: for example OpenAI, Anthropic or Google] with my
+key read as API_KEY from .env. Each role is a separate model call with its own instructions
+that receives only what the Strategy Manager sends it, as JSON with the task, the context and
+the expected output: (1) Research Analyst — business model, competitive position, catalysts
+and recent developments, from the 10-K's business and MD&amp;A sections and the earnings
+release, every claim quoting its line; (2) Financial Analyst — the statement analysis from
+step 4's facts and step 5's ratios, the quarter from step 6, the peers from step 7, every
+number with its filing and its line or tag and period, every ratio with its arithmetic, the
+definition stated wherever a filing offers two; it may ask the calculator for more ratios
+but never compute in the model; (3) Investment Advisor — a thesis and Buy, Hold or Sell,
+with the one number that decides it, from the two roles' outputs and nothing else; (4)
+Strategy Manager — check that the five parts are present and consistent (Overview; Market
+Positioning and Growth Outlook; Valuation Insights; Future Developments and Strategic
+Recommendations; Investment Recommendation), send any failing part back to its role once,
+then compile the report. Print each role's name as it runs. Save the report as Markdown in
+the run's folder, with the filings read and their accession numbers on the first line and
+the run time on the second, and print its path. Nothing in the code names a company. Tell me
+the exact command to run the desk on a ticker with peers and a price.</p>
+</blockquote>
+<ol start="2">
+<li>Run it: <code>COST --peers WMT,TGT,BJ --price P</code>, with Tuesday's close. <em>Expect:</em> seven steps, then four role names,
+   then the path of a five-part report.</li>
+<li><strong>While it runs:</strong> read the <a href="../reference/audit-checklist.html">report audit</a> again, then work one
+   item from your gap list in a second AI chat. Never collected.</li>
+<li><strong>Audit, by hand.</strong> Copy the audit table from the checklist into a new Markdown file in your
+   repository. Fill it for your Costco report from the filings: the eleven core claims first, then
+   every other number in the Financial Analyst's part, then the template and the recommendation
+   rows. No AI for the marks: this is the human sign-off. Count the errors (wrong plus
+   unsupported) and the missing claims, and write both at the top.</li>
+<li><strong>The partner's pick.</strong> Your partner names the company. Run the same command on its ticker,
+   with peers you choose. <em>Expect:</em> a five-part report about that company, every number with its
+   source, the latest quarter from the release it filed this month.
+   Not running by 9:15? Use the <a href="index.html#the-fallback">fallback</a>: it counts.</li>
+</ol>
+<h2 id="v--prove-it-on-the-known-answer">V — prove it on the known answer</h2>
+<p>Your Costco report states the eleven core claims, each with its source and each equal to
+what your Lab 02 steps printed and the filing shows; P/E on the close you gave it; and each peer's
+operating margin on the same definition as Costco's. Where it does not, your audit table says which
+role, and Week 3's prework fixes that role.</p>
+<p><strong>The partner's pick.</strong> Your partner checks two core claims of that report against its filings,
+by hand, and writes both marks at the top of the file. A report that quotes a line the filing does
+not contain is unsupported, however plausible. You audit all eleven yourself before Session 4.</p>
+<h2 id="the-human-sign-off--learn-on-your-own">The human sign-off — Learn on your own</h2>
+<ol>
+<li>What is it? Read the first screen of Anthropic's open-source financial-services agents,
+   including the Earnings Reviewer: <a href="https://github.com/anthropics/financial-services">github.com/anthropics/financial-services</a>.
+   Find the sentence about human sign-off.</li>
+<li>How does it work there: what do those agents refuse to do on their own?</li>
+<li>Explain it: what does that repository's agent have that your desk lacked today?</li>
+</ol>
+<h2 id="reflect">Reflect</h2>
+<p>Explain to your partner: 1. which error a reader would have trusted most, and why; 2. which role
+you will change first, and what you will tell it.</p>
+<h2 id="checkout--checkpoint-1">Checkout — Checkpoint 1</h2>
+<p>Before the end of class, in Brightspace → <strong>Checkpoint 1</strong>: a permalink (commit link) to your
+repository holding your desk and the report on your partner's pick (a fallback report counts).</p>
+<p><strong>Before Session 4 — do these:</strong> the list on the <a href="../week-03/index.html">Week 3 page</a>, about 45 minutes.</p>
+<p><strong>Next:</strong> Lab 04 adds a verifier that checks a saved report against the filings it read.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main></body></html>

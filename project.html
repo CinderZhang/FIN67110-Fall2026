@@ -1,0 +1,162 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>The project · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='index.html'>FIN 67110</a><a href='schedule.html'>Schedule</a><a href='grading.html'>Grading</a><a href='project.html'>Project</a><a href='syllabus.html'>Syllabus</a><a href='decks/index.html'>Decks</a></div>
+<h1 id="the-project">The project</h1>
+<p>One desk, one client, one live season, one team. Due date: the <a href="schedule.html">schedule</a>.
+Points and tiers: <a href="grading.html">grading</a>.</p>
+<h2 id="the-question-the-same-for-everyone">The question, the same for everyone</h2>
+<blockquote>
+<p><strong>Can an AI research desk your team built read any company's filings and its earnings release
+correctly, serve one client's decision, and prove it live?</strong></p>
+</blockquote>
+<h2 id="teams">Teams</h2>
+<p>Three students; with 29 enrolled, one team of two. Teams form by the end of Session 5 (the
+<a href="schedule.html">schedule</a>): choose freely, and the instructor places anyone unplaced at the end of
+that session. The team list is posted in Brightspace → Course data after Session 5. A team that loses a member keeps every obligation, and each
+remaining member answers a question. How the team works together, and where it
+keeps its files, is the team's business.</p>
+<h2 id="the-client">The client</h2>
+<p>Two clients are taught to everyone, in Week 4 and Week 5. Your team names one at Checkpoint 3.
+The parts, the ranking and the calendar are the same for every team. The client changes only the
+desk's last layer and what its output is compared against.</p>
+<table>
+<thead>
+<tr>
+<th>Client</th>
+<th>What the desk's last layer produces</th>
+<th>Compared against</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>An investor seeking absolute return</td>
+<td>A view on the report: worth more or less than the price, with the evidence</td>
+<td>What the price already said, as taught in Week 4</td>
+</tr>
+<tr>
+<td>An institution with a mandate</td>
+<td>A position inside the mandate's limits, net of the fee it charges</td>
+<td>The benchmark the mandate names, as taught in Week 5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-you-submit-five-parts-one-brightspace-upload">What you submit: five parts, one Brightspace upload</h2>
+<p>Upload one Markdown file to <strong>Project</strong> that links to parts 1, 3 and 4 on github.com, wherever
+your team keeps them, and names your session from the posted order. Use permanent links, which freeze each file as it was
+when you submitted: on github.com, open the file, choose "..." then "Copy permalink". Its shape:</p>
+<pre><code class="language-text"># Project — Team Ledger (pete123, maria45, jchen)
+1. Desk: https://github.com/pete123/fin67110-desk/tree/3f2a9c1
+2. Live record: in Brightspace
+3. Audits: https://github.com/pete123/fin67110-desk/blob/3f2a9c1/audits.md
+4. Paper: https://github.com/pete123/fin67110-desk/blob/3f2a9c1/paper.md
+5. We present in Session 13.
+</code></pre>
+<ol>
+<li><strong>The desk.</strong> The code for the four roles with their tools, the verifier, the data reader and
+   the client layer. It runs on any company from its ticker, reading the filings and the earnings
+   release itself. The repository's README states the exact command.</li>
+<li><strong>The live record.</strong> Already in Brightspace. Nothing to resubmit. The rule is below.</li>
+<li><strong>The audits.</strong> The <a href="reference/audit-checklist.html">report audit</a> of two of your own live
+   reports and of two reports from another team (swap with any team, as files, in Session 10),
+   each against the filings the desk read: four tables, with the error and missing counts at the
+   top of each. List your own two first; the reader checks the first one.</li>
+<li><strong>The paper,</strong> in Markdown, at most 3,000 words, not counting tables:
+   - the question and the client;
+   - how the desk works, with one diagram of the four roles, the verifier, the tools and the client
+     layer;
+   - the live record: a table of every report, its release, its filing time, its upload time, and
+     whether it was inside the window;
+   - the audits: both counts for all four reports, and why you chose the two of your own;
+   - what the desk told the client, what happened afterward, and what four weeks can and cannot
+     show. Conclusions cover the reports you audited and the desk you built, nothing wider;
+   - the decision log: what your AI agents got wrong, how you caught it, and what you would not
+     delegate again, with the attack table from Week 6. Shape, not your answer: "Our Financial
+     Analyst read the non-GAAP EPS as GAAP on the first live report. The verifier marked it
+     unsupported because the quoted line was not in the release. We now have both figures reported,
+     each labeled."</li>
+<li><strong>The presentation,</strong> eleven minutes, in Session 13 or 14 (the order is posted in Brightspace),
+   then three minutes of questions, one per member, from the instructor or the room, on a number
+   shown in the talk. Inside the eleven minutes, the instructor puts on the screen a U.S. company
+   that filed an earnings release on EDGAR in the past 30 days, with its ticker, its Exhibit 99.1
+   URL and its "Accepted" time, and the team runs its desk on that ticker, live, on its own laptop. One retry
+   if the network fails.</li>
+</ol>
+<h2 id="the-live-record">The live record</h2>
+<p><strong>The rule in one line:</strong> a report every week in Weeks 4 to 7; one missed week costs nothing;
+two missed weeks keep the team out of the top tier; no report ever is the fail rule. Week 6, Thanksgiving
+week, is the week most teams will miss, and that is fine.</p>
+<p>A week runs Monday to Sunday; the <a href="schedule.html">schedule</a> gives the dates of Weeks 4 to 7. In
+each, your team's desk runs on at least one company whose earnings release was filed that week,
+and the report goes to Brightspace → <strong>Live record</strong> within 24 hours of the release's filing time
+on EDGAR, the "Accepted" time on the filing's index page (the <a href="week-03/index.html">Week 3 page</a>
+shows one). The report names the filings it read, that release among them. Which companies report that week: start here,
+<a href="https://www.nasdaq.com/market-activity/earnings">the Nasdaq earnings calendar</a>, then find the
+release on <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany">EDGAR</a> (8-K, Exhibit 99.1).
+More reports are welcome and never required. Brightspace keeps every submission with its timestamp:
+that is the record that your desk read a real release in real time. Week 8 has no live obligation;
+Brightspace outages are on the <a href="grading.html#absences-and-outages">grading page</a>.</p>
+<h2 id="how-it-is-ranked">How it is ranked</h2>
+<p>First, the fail rule on the <a href="grading.html#the-project-ranked-once">grading page</a> is checked. Every
+other project is read. "Ran live" is a gate: a team with a report inside its window in fewer than
+three of the four weeks cannot reach the top tier. The others are ordered by the remaining four
+questions in sequence: each question sorts the teams into those that meet it and those that do
+not, and the next question orders within each group.</p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>The question the reader asks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ran live (the gate)</td>
+<td>A report inside its 24-hour window in at least three of Weeks 4 to 7, each naming the release it read; the Brightspace timestamp against the EDGAR "Accepted" time decides.</td>
+</tr>
+<tr>
+<td>Audits hold</td>
+<td>The reader checks the first of your own audit tables against the filings, and may check any other. One wrong mark is a slip. Two or more wrong marks in one table fail this question.</td>
+</tr>
+<tr>
+<td>The desk is general</td>
+<td>It ran on the instructor's pick in the presentation, the report was about that company, and one of its core claims, spot-checked by the reader, carried a line the filing contains.</td>
+</tr>
+<tr>
+<td>Honest reading</td>
+<td>Does the paper say what the live record, the audits and the client comparison support, including nothing, and no more?</td>
+</tr>
+<tr>
+<td>Each member can explain it</td>
+<td>Did every member present answer their question on a number shown in the talk?</td>
+</tr>
+</tbody>
+</table>
+<p>The top tier is at least the top third of the projects that pass the fail rule, rounded up (for
+example 4 of 10). If fewer projects than that pass the gate, only those that pass are in the top tier. Ranking waits for any
+part extended by an excused absence. Teams still level after the four questions are all placed in the top tier, even where that
+exceeds a third. <strong>How your desk's calls turned out, in returns or in beats, is never a
+criterion.</strong> A desk that was wrong for its client every week, reported honestly, can rank at the
+top.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main></body></html>

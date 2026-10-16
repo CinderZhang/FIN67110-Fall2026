@@ -1,0 +1,153 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Lab 01 — Ready to Build · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
+<h1 id="lab-01--ready-to-build">Lab 01 — Ready to Build</h1>
+<p><strong>One thing today: leave with a setup your partner has seen work, and Figure 1 in your head.</strong></p>
+<p><strong>You arrive with:</strong> the prerequisites on the <a href="../grading.html#prerequisites--your-setup-is-yours">grading page</a>
+done, or the exact error text of the one that is not; the paper read; your one sentence on what
+the study did not check.</p>
+<h2 id="open--the-paired-review-10-minutes">Open — the paired review (10 minutes)</h2>
+<ol>
+<li><strong>Tools alive.</strong> Terminal open in your work folder; <code>python --version</code> prints 3.11 or higher;
+   Orca is open on that folder with Codex and Antigravity each answering in it. Nothing typed
+   into either yet.</li>
+<li><strong>Meet your partner.</strong> Name, the job you want after the MSF, and your one sentence on what the
+   paper did not check. Partner repeats it back.</li>
+<li><strong>Gap check.</strong> On paper, one line each: what is a model, what is a harness, what is an agent.
+   Mark the one you could not write. That line starts your gap list; it grows all term.</li>
+</ol>
+<h2 id="d--the-question-the-same-for-everyone">D — the question, the same for everyone</h2>
+<blockquote>
+<p>Can your agent write a program in your folder that reads a key from a file, and can you keep
+that key off GitHub?</p>
+</blockquote>
+<h2 id="r--what-you-work-from">R — what you work from</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The prerequisites</td>
+<td><a href="../grading.html#prerequisites--your-setup-is-yours">Grading page</a></td>
+</tr>
+<tr>
+<td>Your partner</td>
+<td>the seat next to you</td>
+</tr>
+<tr>
+<td>The readings</td>
+<td><a href="index.html">Week 1 page</a>, "Read and watch this week"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="i--prove-each-item-to-your-partner">I — prove each item to your partner</h2>
+<p>You show, your partner watches, then you switch. Keep the order: a failing item blocks the ones
+after it.</p>
+<ol>
+<li><strong>Python.</strong> <code>python --version</code> (on Windows, <code>py --version</code> if <code>python</code> is not found).
+   <em>Expect:</em> 3.11 or higher.</li>
+<li><strong>The agent writes a file.</strong> In your agent, in your work folder, send: "Create a file named
+   hello.md containing today's date and the name of the model you are." <em>Expect:</em> <code>hello.md</code>
+   appears in the folder; open it. An agent that answers in chat but creates no file is not
+   running in this folder.</li>
+<li><strong>The agent writes so you can check it.</strong> In each agent, send: "Add this line to the
+   instruction file you read at the start of every session in this folder, creating the file if
+   there is none, and tell me its name: When you explain something to me, write 80% of the way to
+   ASD-STE100, and keep every number, condition and hedge." Then ask it what a <code>.gitignore</code> file
+   does. <em>Expect:</em> the file it named is in the folder, and the answer comes in short sentences,
+   one claim each. Why: the <a href="index.html#make-your-agents-write-so-you-can-check-them">Week 1 page</a>.</li>
+<li><strong>The key and the fence.</strong> Send your agent word for word, filling the brackets:</li>
+</ol>
+<blockquote>
+<p>Create a .env file in this folder with two placeholder lines, API_KEY=paste-here and
+SEC_USER_AGENT="[your name] [your Purdue email]", and a .gitignore that excludes .env. Then
+write a short Python program, check_env.py, that loads .env, prints the first four characters
+of API_KEY followed by "...", and prints SEC_USER_AGENT. Tell me the exact command to install
+any package it needs and the exact command to run it.</p>
+</blockquote>
+<p>Open <code>.env</code> (in a terminal in your work folder, <code>notepad .env</code> on Windows or <code>open -e .env</code> on
+   a Mac), paste your model provider's key where your agent said, and save it under the same name, never
+   <code>.env.txt</code>. Run the install command, then the run command. <em>Expect:</em> four characters of your
+   key, three dots, then your User-Agent. This proves the file is read, not that the key works:
+   Session 3 makes the first paid call.
+5. <strong>GitHub.</strong> Put the folder in your public repository (<code>git push</code>, or on github.com
+   <strong>Add file → Upload files</strong>, one file at a time). Open the repository on github.com in a
+   private browser window, logged out. <em>Expect:</em> <code>check_env.py</code> and <code>hello.md</code> are there and
+   <code>.env</code> is not. The repository is public, so this check is the one that keeps your key yours.
+6. <strong>While an install runs:</strong> read the Anthropic page from the Week 1 page. Never collected.
+7. Something not working? Debug with your AI: paste the exact command and the exact error text.
+   Your partner reads the error with you before you ask the room.</p>
+<h2 id="v--prove-it-on-the-known-answer">V — prove it on the known answer</h2>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Partner's initials</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>python --version</code> prints 3.11 or higher</td>
+<td></td>
+</tr>
+<tr>
+<td><code>hello.md</code> created by the agent, in the folder</td>
+<td></td>
+</tr>
+<tr>
+<td><code>check_env.py</code> prints four characters, dots, then the User-Agent</td>
+<td></td>
+</tr>
+<tr>
+<td>The repository on github.com holds the program and not <code>.env</code></td>
+<td></td>
+</tr>
+<tr>
+<td>The repository opens logged out, and <code>.env</code> is not in it</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Your partner initials each row on paper as they see it. Then you switch.</p>
+<h2 id="model-harness-agent--learn-on-your-own">Model, harness, agent — Learn on your own</h2>
+<ol>
+<li>What are they (a model answers text with text; a harness is the program around it: the loop,
+   the tools, the memory and the checks; an agent is the two given a goal)?</li>
+<li>How does it work in Figure 1 (which boxes are model calls, and which box is the loop)?</li>
+<li>Explain it: to your partner, in two minutes, without the screen.</li>
+</ol>
+<h2 id="reflect">Reflect</h2>
+<p>Explain to your partner: 1. what the paper did not check, and why that gap is this course;
+2. which of your five rows took longest, and what you would tell a classmate to do first.</p>
+<h2 id="checkout--session-1">Checkout — Session 1</h2>
+<p>Before the end of class, in Brightspace → <strong>Session 1 checkout</strong>: the link to your
+repository and your partner's name. Completion only.</p>
+<p><strong>Before Session 2 — do these:</strong> the list on the <a href="../week-02/index.html">Week 2 page</a>, about 60 minutes.</p>
+<p><strong>Next:</strong> Session 2 builds the four-role desk from Figure 1 and runs it on Costco.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main></body></html>

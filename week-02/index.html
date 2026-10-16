@@ -1,0 +1,175 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Week 2 — The Desk, Then Make It Yours · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
+<h1 id="week-2--the-desk-then-make-it-yours">Week 2 — The Desk, Then Make It Yours</h1>
+<p><strong>Mission.</strong> Tuesday you build the desk's steps, the data side of Francis &amp; Zhang (2026): from a
+ticker to the filings, the facts and the ratios, with no model yet, and every number matched to
+Costco's 10-K after the instructor has run the same steps on the screen. Thursday you add the four
+roles with your model key: the app, its first five-part report, your audit of it by hand, and the
+proof on a company your partner picks.</p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>The paper's desk wrote reports that blinded readers rated beside Value Line's. Nobody in the study
+checked whether the numbers inside were right, and a plausible wrong number is worse than a blank,
+because nobody checks what looks right. A junior on any desk does two jobs on earnings day: produce
+the report, and be the reason it can be trusted. You build the first with your agents. The second
+is yours, by hand, and it is what this course grades.</p>
+<h2 id="you-arrive-with">You arrive with</h2>
+<p>Your setup checked by a partner in Lab 01, the paper read, and your answer to whether Figure 1 is
+a workflow or an agent. Your model API key is needed Thursday, not Tuesday.</p>
+<h2 id="outcomes">Outcomes</h2>
+<ul>
+<li>Build the desk's seven steps with your AI agents, no model: a ticker in, the filings and the
+  XBRL facts pulled, the ratios computed in code, every number matched to the 10-K.</li>
+<li>Add the four roles on those steps with your model key: a five-part report out.</li>
+<li>Audit a report's numbers against the filings with the <a href="../reference/audit-checklist.html">report audit</a>,
+  and name a definition trap.</li>
+<li>Run your desk on a company you did not choose, and defend its report to a partner.</li>
+</ul>
+<h2 id="the-sessions">The sessions</h2>
+<ul>
+<li><strong>Session 2</strong> — <a href="lab-02-desk-on-one-page.html">Lab 02: The desk's steps</a>. The instructor demos the
+  seven steps on the screen; you build them. No model key.</li>
+<li><strong>Session 3</strong> — <a href="lab-03-make-it-yours.html">Lab 03: The app</a>. The four roles, the report, the audit.
+  Checkpoint 1 is in class.</li>
+</ul>
+<h2 id="read-this-week">Read this week</h2>
+<ul>
+<li><strong>Francis &amp; Zhang (2026)</strong>, Section 3.1 again, with Figure 1 and Figure 2's Report A open: the
+  roles, their tools, the JSON hand-off, the five-part template. About 20 minutes. Write one line:
+  which of the paper's tools does your desk get for free from EDGAR?</li>
+<li>The <a href="../reference/audit-checklist.html">report audit</a>, about 10 minutes.</li>
+<li><strong>Kim, A. G., Muhn, M., &amp; Nikolaev, V. V. (2024).</strong> <em>Financial Statement Analysis with Large
+  Language Models.</em> <a href="https://arxiv.org/abs/2407.17866">arXiv:2407.17866</a>. Read the abstract and
+  the first results table, about 20 minutes. Their model called the direction of the next year's
+  earnings change right 60.35% of the time, about 7 percentage points better than analysts. Write
+  one sentence: what would make that edge shrink on companies and years the model never saw?</li>
+</ul>
+<h2 id="teaching-1--the-papers-desk">Teaching 1 — the paper's desk</h2>
+<p>The paper's input is a ticker. The Strategy Manager turns it into tasks and sends each to a role as
+JSON: the task, the context the role may use, the output expected. The Research Analyst reads the
+filings for the business model, competitive position, catalysts and recent developments. The
+Financial Analyst does the statement analysis: growth, margins, returns, leverage, cash flow, and a
+comparison with peers. The Investment Advisor synthesizes the two into a thesis and a Buy, Hold or
+Sell. The Manager checks the five parts of the template are present and consistent, sends a draft
+back once if not, then compiles the report. Nothing in that loop is intelligent. It is a checklist
+in code, and it is where a desk is made trustworthy or not: the model decides what a sentence
+says; the harness decides what the model is shown, what it must return, and what happens when it
+returns something incomplete.</p>
+<p>The paper's tools are a filings reader, web search and a calculator. The desk is therefore two
+things, and this week builds them in that order: the steps, which are code and need no model, and
+the roles, which are model calls on what the steps produced. EDGAR gives you the filings reader for
+nothing: the company's filing list, the 10-K and 10-Q documents, the earnings release attached to
+the 8-K, and the statements as data through the XBRL company-facts API, every number carrying the
+tag, the period and the filing it came from. The calculator is your code. Web search is optional
+this term; nothing graded needs it. Two consequences follow. A desk that works on Costco works on
+Walmart only if nothing in the harness names Costco: the ticker is an argument, the roles name no
+company, and the known answer lives in your test. And when a number is wrong, the fix is almost
+always in a role's instructions or in what the harness checks, not in a smarter model.</p>
+<p>The five parts, from the paper's Report A: Overview; Market Positioning and Growth Outlook;
+Valuation Insights; Future Developments and Strategic Recommendations; Investment Recommendation.</p>
+<h2 id="teaching-2--the-financial-analysts-numbers">Teaching 2 — the Financial Analyst's numbers</h2>
+<p>The Financial Analyst is where desks fail, because a model asked for a number produces one whether
+or not the filing holds it. The rule: every number comes with the filing and the line, or the XBRL
+tag and period, it came from, and every ratio shows its arithmetic. The check: a person, or a
+separate role, opens the filing at that line. The <a href="../reference/audit-checklist.html">report audit</a>
+fixes eleven core claims for everyone, eight from the latest 10-K and three from the latest
+earnings release, so that any two desks in the room can be compared.</p>
+<p>Definitions are the quiet failure, and the tags carry them. Costco's income statement
+shows net sales and membership fees on separate lines; total revenue is their sum. Gross margin on
+net sales, (net sales − merchandise costs) ÷ net sales, and gross margin on total revenue, (total
+revenue − merchandise costs) ÷ total revenue, are both arithmetic on the same filing, and they
+differ. Only one is what Costco and its analysts call gross margin. The XBRL facts carry the same
+trap: a retailer with membership and other income can report total revenues under <code>Revenues</code> and
+net sales under <code>RevenueFromContractWithCustomerExcludingAssessedTax</code>, two numbers for the same
+year. A desk that compares one company's total revenue with another's net sales has compared two
+definitions. An analyst names the definition beside the number.</p>
+<h2 id="worked-example--costco-from-what-it-filed-last">Worked example — Costco, from what it filed last</h2>
+<p>The worked example is a run, not a table. In Session 2 the instructor runs the seven steps
+on Costco on the screen, one step at a time, and every number comes from what Costco filed last:
+<a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0000909832&amp;type=10-K&amp;dateb=&amp;owner=include&amp;count=10">the 10-K filing list</a>,
+<a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0000909832&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40">the 8-K filing list</a>,
+and <a href="https://data.sec.gov/api/xbrl/companyfacts/CIK0000909832.json">the XBRL company facts</a>. Each
+number is then found in the filing, at the line the step names. The run is the known answer and the
+filing is its judge. This page states no figure, because Costco's figures change every time it
+files; the steps and the checks do not. The check for each step is in
+<a href="lab-02-desk-on-one-page.html#v--prove-it-on-the-known-answer">Lab 02</a>; the eleven core claims and
+their definitions are on the <a href="../reference/audit-checklist.html">report audit</a>, eight from the latest
+10-K and three from the latest earnings release, the 8-K's Exhibit 99.1. If you miss the session,
+your own steps and the filings are the same check.</p>
+<p>Valuation needs a price the filings do not carry. Give the desk one, the last close before the
+release with its date, from the exchange or LSEG Workspace, and the Financial Analyst computes P/E
+as that price ÷ diluted EPS. In Week 3 your own data reader supplies the price.</p>
+<p>The peers are Walmart, Target and BJ's Wholesale, each read from its own latest 10-K. Their fiscal
+years end months away from Costco's, so the peer table names the year of each figure, and every
+margin in it is on one definition. A desk that prints Costco's numbers for Walmart is not reading.</p>
+<p>Two traps the steps meet on the way, both real. A filer moves between tags across years, so a
+reader that takes the first revenue tag it finds can print a year that ended a year ago. The test:
+every period end in step 4 equals the 10-K's fiscal year end. The fix: among the candidate tags,
+choose the one whose latest year is newest. And the newest 8-K is often not the earnings release.
+Companies file 8-Ks for monthly sales, officer changes and shareholder votes, so the earnings 8-K
+is the newest one that reports Item 2.02.</p>
+<h2 id="the-fallback">The fallback</h2>
+<p>If your desk does not run by the end of a checkpoint session, or your model provider is down, the
+course still gets a report. Open a chat with any model, paste the income statement, balance sheet
+and cash flow statement from the latest 10-K and the text of the latest earnings release, and send
+the four roles' tasks from the Lab 02 request as one message. Save the answer as a Markdown file
+with the company and the filings named on its first line and "fallback" on its second, and push
+it. A fallback report counts for Checkpoint 1 and for the live record; it is audited like any
+other, and the paper says which reports were fallbacks.</p>
+<h2 id="what-make-it-yours-means">What "make it yours" means</h2>
+<p>Your desk was built from two requests everyone sent. From Week 3 you own its design. The
+things that are yours: the model and provider each role calls; the words of each role's
+instructions; the peers the Financial Analyst compares against and the ratios it adds; what the
+Manager refuses to compile; the shape of the report within the five parts. The things that are
+never yours: a company name anywhere in the code, or a number the filings do not state. The test
+of ownership is simple: your partner names a company that reported this month, you run the same
+command on its ticker, and the report is about that company, with every number carrying its line.</p>
+<h2 id="before-session-2--about-60-minutes">Before Session 2 — about 60 minutes</h2>
+<ol>
+<li>Finish any Lab 01 row your partner did not initial. Debug with your AI.</li>
+<li>Watch the Karpathy talk (link on the <a href="../week-01/index.html">Week 1 page</a>). Write one line:
+   where is the autonomy slider in your own agent?</li>
+<li>Read Section 3.1 and Figure 2 of the paper, the <a href="../reference/audit-checklist.html">report audit</a>
+   and the Kim, Muhn &amp; Nikolaev abstract (above).</li>
+<li>Open Costco's 10-K (the filing index above) at the income statement. Find net income
+   attributable to Costco and diluted earnings per share. Then open the XBRL company facts (link
+   above) in the browser and search the page for <code>EarningsPerShareDiluted</code>: the same number, with
+   its period and filing.</li>
+</ol>
+<h2 id="before-session-3--about-45-minutes">Before Session 3 — about 45 minutes</h2>
+<ol>
+<li>If your steps did not all run in class, get them running with your AI.</li>
+<li>Run them on WMT with peers of your choice. <em>Check:</em> step 4's total revenue and
+   operating income are the figures on the income statement of Walmart's latest 10-K, for its
+   latest fiscal year; the revenue tag printed holds total revenues, not net sales; and the
+   operating margin your calculator prints is the one you get by hand from those two lines.</li>
+<li>Push your steps and both saved folders' facts to your repository (<code>git push</code>, or on github.com
+   <strong>Add file → Upload files</strong>, one file at a time; never the <code>.env</code> file).</li>
+<li>Put your model API key in <code>.env</code> and confirm <code>check_env.py</code> prints its first four characters:
+   Thursday makes the first paid call.</li>
+</ol>
+<p><strong>Next:</strong> in Week 3 you add a separate verifier and give the desk hands: LSEG prices and
+point-in-time quarters beyond the filings.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main></body></html>

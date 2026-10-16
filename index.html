@@ -1,0 +1,116 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>FIN 67110 Mastering AI for Finance — The Research Desk · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='index.html'>FIN 67110</a><a href='schedule.html'>Schedule</a><a href='grading.html'>Grading</a><a href='project.html'>Project</a><a href='syllabus.html'>Syllabus</a><a href='decks/index.html'>Decks</a></div>
+<h1 id="fin-67110-mastering-ai-for-finance--the-research-desk">FIN 67110 Mastering AI for Finance — The Research Desk</h1>
+<p>Purdue University, Daniels School of Business · Fall 2026 · Dr. Cinder Zhang</p>
+<h2 id="what-this-course-is">What this course is</h2>
+<p>You build an AI equity-research desk with your own AI coding agent and run it live through an
+earnings season. The desk follows a published design: the four-agent system in Francis &amp; Zhang
+(2026), <em>Can AI match professional analysts? Evidence from a multi-agent system</em>, Finance
+Research Letters 103, 110127. Readers in that study rated the AI's reports as good as professional
+analysts'. Nobody checked whether the numbers were right. You will. Then you make the desk serve a
+client and prove, on releases you did not choose, that it works on any company.</p>
+<h2 id="the-question-the-same-for-everyone">The question, the same for everyone</h2>
+<blockquote>
+<p><strong>Can an AI research desk you build read any company's earnings release correctly, serve one
+client's decision, and prove it live?</strong></p>
+</blockquote>
+<h2 id="how-it-works">How it works</h2>
+<ul>
+<li>You build the desk yourself, with your AI coding agent, from the paper's flowchart. No code is
+  handed out.</li>
+<li>Every tool you build runs on any company. Companies are test inputs: in class your partner picks
+  the release, and during the season your team's desk runs on whatever reports that week.</li>
+<li>Tuesday is half teaching and half lab on the training case, Costco, where the answers are known.
+  Thursday is a full lab: you make the same capability your own and prove it on a release you did
+  not choose.</li>
+<li>From Week 4 the desk serves a client: first an investor who wants absolute return, then an
+  institution that must beat a benchmark under a mandate. Your team builds for one of them.</li>
+<li>One team <a href="project.html">project</a> answers the question with your desk, its live record and its
+  audits.</li>
+<li><strong>You use AI to learn and to discover.</strong> Unlike a traditional course, no page here walks you
+  through a screen, a database or a library. When a page points you somewhere, your AI helps you
+  find it, reach it and understand it; every lab ends with three questions you work out with your
+  AI and then explain to a partner without the screen. The known answers tell you whether what
+  you found is right. The one-line prompts on the week pages are for you; nothing collects them.</li>
+</ul>
+<p>Checkpoints are submitted at a lab's checkout.</p>
+<h2 id="the-term-on-one-page">The term on one page</h2>
+<pre class="mermaid">flowchart LR
+    A[&quot;Week 1&lt;br/&gt;ready to build&quot;] --&gt; B[&quot;Week 2&lt;br/&gt;the desk, made yours&quot;] --&gt; C[&quot;Week 3&lt;br/&gt;the verifier,&lt;br/&gt;the desk's hands,&lt;br/&gt;teams&quot;]
+    C --&gt; D[&quot;Week 4&lt;br/&gt;the investor's desk&lt;br/&gt;live record begins&quot;] --&gt; E[&quot;Week 5&lt;br/&gt;the institution's desk&lt;br/&gt;your client chosen&quot;]
+    E --&gt; F[&quot;Week 6&lt;br/&gt;break your desk&quot;] --&gt; G[&quot;Week 7&lt;br/&gt;write for your client&quot;] --&gt; H[&quot;Week 8&lt;br/&gt;present, live&quot;]
+</pre>
+<p>Every Tuesday teaches and builds on the training case; every Thursday you make it yours and prove
+it on a release you did not choose. The whole path, lab by lab and inside each lab, with every
+check beside its box, is drawn on <a href="process.html">the process page</a>.</p>
+<h2 id="start-here">Start here</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dates</td>
+<td><a href="schedule.html">Schedule</a></td>
+</tr>
+<tr>
+<td>Points and policies</td>
+<td><a href="grading.html">Grading</a></td>
+</tr>
+<tr>
+<td>What to bring to Session 1</td>
+<td><a href="grading.html#prerequisites--your-setup-is-yours">Prerequisites</a>, then <a href="week-01/index.html">Week 1: Before Session 1</a></td>
+</tr>
+<tr>
+<td>The weeks</td>
+<td><a href="week-01/index.html">1</a> · <a href="week-02/index.html">2</a> · <a href="week-03/index.html">3</a> · <a href="week-04/index.html">4</a> · <a href="week-05/index.html">5</a> · <a href="week-06/index.html">6</a> · <a href="week-07/index.html">7</a> · <a href="week-08/index.html">8</a></td>
+</tr>
+<tr>
+<td>The project</td>
+<td><a href="project.html">Project</a></td>
+</tr>
+<tr>
+<td>Reference</td>
+<td><a href="reference/data.html">Data</a> · <a href="reference/audit-checklist.html">Audit checklist</a> · <a href="reference/readings.html">Readings</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-method">The method</h2>
+<p>Every lab runs on DRIVER. Its shape is <strong>D · [R-I-V-E] · R</strong>: you own the edges, your AI works
+the middle, and you stay on the loop. <strong>D</strong>iscover and define the question before any AI sees it.
+<strong>R</strong>epresent the approach. <strong>I</strong>mplement with your AI. <strong>V</strong>alidate against a known answer.
+<strong>E</strong>volve what you built into something reusable. <strong>R</strong>eflect by explaining it to a person
+without the screen: if you cannot, you do not understand it yet. The method in one essay:
+<a href="https://cinderzhang.substack.com/p/the-middle-is-for-the-machine-the">The Middle Is for the Machine. The Edges Are for You.</a>
+(Zhang, 2026).</p>
+<h2 id="where-things-live">Where things live</h2>
+<p>This site is the course. Brightspace receives everything submitted and holds the class-only items:
+the team list and the presentation order. Your public GitHub repository holds your code and reports;
+your team keeps the project where it chooses, and the project upload links to it.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main><script type='module'>import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true, flowchart:{useMaxWidth:false}, theme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'neutral'});</script></body></html>

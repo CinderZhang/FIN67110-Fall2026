@@ -1,0 +1,85 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Data — EDGAR, the two required sources, what your reader must return, and the known answers · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
+<h1 id="data--edgar-the-two-required-sources-what-your-reader-must-return-and-the-known-answers">Data — EDGAR, the two required sources, what your reader must return, and the known answers</h1>
+<p>Finding data and reaching it from code is part of the job. An analyst on any desk learns what the
+firm pays for and how to pull it, and you learn it the way this course learns everything: ask your
+AI how to register, where a field lives, how to export, how the Python library opens a session,
+and check what it tells you against the known answers below. Two sources are required because they
+are the standards you will meet on a desk and in research; beyond them, use whatever you can get.</p>
+<h2 id="required">Required</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>What it is for here</th>
+<th>How you get it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SEC EDGAR</strong></td>
+<td>the filings and the statements as data: the free, public source every desk reads first</td>
+<td>No account. The ticker-to-CIK file (<a href="https://www.sec.gov/files/company_tickers.json">company_tickers.json</a>), the <a href="https://data.sec.gov/submissions/CIK0000909832.json">submissions API</a> for a company's filing list, the documents themselves, and the <a href="https://data.sec.gov/api/xbrl/companyfacts/CIK0000909832.json">XBRL company facts</a> (ten-digit CIK), every number with its tag, period and filing. EDGAR requires a User-Agent with your name and email on every request (your <code>.env</code>). Tags differ across filers for the same concept: the Week 2 page shows Walmart's two revenue tags</td>
+</tr>
+<tr>
+<td><strong>LSEG Workspace</strong></td>
+<td>live prices and the latest quarterly fundamentals, the desks' standard (Bloomberg is the other)</td>
+<td>Register with your Purdue email, following the <a href="https://guides.lib.purdue.edu/refinitivworkspace">Libraries' Workspace guide</a>. LSEG approves registrations itself and it can take days: <strong>register in Week 1.</strong> The Python library (<a href="https://pypi.org/project/lseg-data/">lseg-data</a>) talks to the desktop app; where Purdue's license gives only the web version, its export is the route, and the instructor posts which</td>
+</tr>
+<tr>
+<td><strong>WRDS</strong> (CRSP, Compustat)</td>
+<td>history for backtests and base rates, the research standard</td>
+<td>Request an account with your Purdue email through the <a href="https://guides.lib.purdue.edu/WRDS">Libraries' WRDS guide</a>; the course has a class account if yours is slow. The <a href="https://pypi.org/project/wrds/">wrds</a> Python package pulls into code</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Also at Purdue:</strong> S&amp;P Capital IQ, through the Parrish Library
+(<a href="https://blogs.lib.purdue.edu/news/2024/04/08/featured-databases-sp-capital-iq">what it is</a>):
+company financials, estimates and transactions, reached through its web screens and Excel
+plug-in rather than a student Python library, so it is an export source. Use it where it has
+what the two above do not. Anything else that returns the known answers is fine too: the desk
+does not care where a number came from.</p>
+<h2 id="what-the-reader-must-return">What the reader must return</h2>
+<p>Three functions, in your own code, for any ticker: the five most recent fiscal quarters reported
+on or before a date and time (period end, revenue, net income, total debt, cash, in millions); the
+official daily closes between two dates; the last close before a date and time, a trading day's
+close being 4:00 PM Eastern. Live, they come from LSEG; for a
+backtest, the same functions read WRDS. How the code gets them is yours: the vendor's Python
+library with its key in <code>.env</code>, or a file you exported and keep outside your work folder. Your AI
+agent writes the reader; your code runs it.</p>
+<h2 id="the-one-rule">The one rule</h2>
+<p>Some sources forbid putting their data into AI tools; WRDS says so in its terms. Read the terms of
+what you use, and where they forbid it, keep the data in code: the desk's design already does
+that, because the context table is appended to the report by code after the roles have run and no
+role is shown it. The raw pulls and export files stay out of the repository; the table your code
+derives travels with the report.</p>
+<h2 id="the-known-answers-your-reader-must-reproduce">The known answers your reader must reproduce</h2>
+<p>A close is the exchange's official close for that date; a quarter's revenue is the figure in
+the 10-Q, 10-K or earnings release that reports it. Before the desk uses your reader, check one
+close and one quarter it prints against those sources. A source that returns something else (an
+adjusted close, a standardized field) is telling you what it is; the filing and the exchange
+decide.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main></body></html>

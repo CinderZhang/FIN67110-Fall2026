@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 03 — The App</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<style>
+ .reveal { font-size: 26px; }
+ .reveal h1 { font-size: 1.6em; } .reveal h2 { font-size: 1.2em; color:#8e6f3e; }
+ .reveal blockquote { width: 95%; font-size: 0.72em; text-align:left; }
+ .reveal table { font-size: 0.62em; } .reveal li { font-size: 0.9em; }
+ .footer { position: fixed; bottom: 8px; left: 16px; font-size: 14px; color: #777; }
+ .reveal div.mermaid { width: 100%; margin: 0 auto; font-size: 16px; line-height: 1.5; white-space: normal; text-align: center; }
+ .reveal div.mermaid p { margin: 0; line-height: 1.5; }
+ .reveal div.mermaid svg { max-width: 100%; max-height: 540px; }
+</style></head><body>
+<div class="reveal"><div class="slides">
+<section data-markdown><textarea data-template>
+# Lab 03 — The App
+
+**One thing today: add the four roles to your steps with your model key, read the first report, audit it by hand, and prove the desk on a company your partner picks.**
+
+**You arrive with:** your seven steps running on COST and WMT, pushed; your model API key in
+`.env` (a developer key, not a chat subscription); the report audit read; your gap list.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Open — the paired review (10 minutes)
+
+1. **Tools alive.** Terminal in your work folder; your steps print the Costco facts; `check_env.py`
+   prints the first four characters of your key; your AI agent answers.
+2. **Defend.** Show your partner step 4 on WMT. Partner asks: which revenue tag, and why that one?
+3. **Gap check.** Write one line: which of the four roles you expect to get a number wrong, and
+   why.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## D — the question, the same for everyone
+
+> On the steps you built, can four model roles write a five-part report whose numbers survive an
+> audit against the filings, and does the same desk hold up on a company you did not choose?
+</textarea></section>
+<section data-markdown><textarea data-template>
+## R — what you work from
+
+| Input | Where |
+|---|---|
+| Your steps and their saved folders | your repository |
+| The roles and the template | Francis & Zhang (2026), Section 3.1, Figure 1, Figure 2 |
+| The checklist | [The report audit](../lessons/reference/audit-checklist.md): correct, wrong, unsupported, missing |
+| Your model API key | in your `.env` from Lab 01 |
+| A company you did not choose | your partner picks it: any U.S. company that reported this month. Start here: [EDGAR full-text search](https://www.sec.gov/edgar/search/#/q=%22Exhibit%2099.1%22&forms=8-K); the desk takes its ticker |
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build the app, then audit it
+
+1. Send your AI coding agent this request word for word, filling the brackets:
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build the app, then audit it (continued)
+
+   > Add the four roles of Francis & Zhang (2026), Figure 1, on top of my seven steps, using the
+   > official Python SDK of [your model provider: for example OpenAI, Anthropic or Google] with my
+   > key read as API_KEY from .env. Each role is a separate model call with its own instructions
+   > that receives only what the Strategy Manager sends it, as JSON with the task, the context and
+   > the expected output: (1) Research Analyst — business model, competitive position, catalysts
+   > and recent developments, from the 10-K's business and MD&A sections and the earnings
+   > release, every claim quoting its line; (2) Financial Analyst — the statement analysis from
+   > step 4's facts and step 5's ratios, the quarter from step 6, the peers from step 7, every
+   > number with its filing and its line or tag and period, every ratio with its arithmetic, the
+   > definition stated wherever a filing offers two; it may ask the calculator for more ratios
+   > but never compute in the model; (3) Investment Advisor — a thesis and Buy, Hold or Sell,
+   > with the one number that decides it, from the two roles' outputs and nothing else; (4)
+   > Strategy Manager — check that the five parts are present and consistent (Overview; Market
+   > Positioning and Growth Outlook; Valuation Insights; Future Developments and Strategic
+   > Recommendations; Investment Recommendation), send any failing part back to its role once,
+   > then compile the report. Print each role's name as it runs. Save the report as Markdown in
+   > the run's folder, with the filings read and their accession numbers on the first line and
+   > the run time on the second, and print its path. Nothing in the code names a company. Tell me
+   > the exact command to run the desk on a ticker with peers and a price.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build the app, then audit it (continued)
+
+2. Run it: `COST --peers WMT,TGT,BJ --price P`, with Tuesday's close. *Expect:* seven steps, then four role names,
+   then the path of a five-part report.
+3. **While it runs:** read the [report audit](../lessons/reference/audit-checklist.md) again, then work one
+   item from your gap list in a second AI chat. Never collected.
+4. **Audit, by hand.** Copy the audit table from the checklist into a new Markdown file in your
+   repository. Fill it for your Costco report from the filings: the eleven core claims first, then
+   every other number in the Financial Analyst's part, then the template and the recommendation
+   rows. No AI for the marks: this is the human sign-off. Count the errors (wrong plus
+   unsupported) and the missing claims, and write both at the top.
+5. **The partner's pick.** Your partner names the company. Run the same command on its ticker,
+   with peers you choose. *Expect:* a five-part report about that company, every number with its
+   source, the latest quarter from the release it filed this month.
+   Not running by 9:15? Use the [fallback](../lessons/week-02/README.md#the-fallback): it counts.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## V — prove it on the known answer
+
+Your Costco report states the eleven core claims, each with its source and each equal to
+what your Lab 02 steps printed and the filing shows; P/E on the close you gave it; and each peer's
+operating margin on the same definition as Costco's. Where it does not, your audit table says which
+role, and Week 3's prework fixes that role.
+
+**The partner's pick.** Your partner checks two core claims of that report against its filings,
+by hand, and writes both marks at the top of the file. A report that quotes a line the filing does
+not contain is unsupported, however plausible. You audit all eleven yourself before Session 4.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## The human sign-off — Learn on your own
+
+1. What is it? Read the first screen of Anthropic's open-source financial-services agents,
+   including the Earnings Reviewer: [github.com/anthropics/financial-services](https://github.com/anthropics/financial-services).
+   Find the sentence about human sign-off.
+2. How does it work there: what do those agents refuse to do on their own?
+3. Explain it: what does that repository's agent have that your desk lacked today?
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Reflect
+
+Explain to your partner: 1. which error a reader would have trusted most, and why; 2. which role
+you will change first, and what you will tell it.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Checkout — Checkpoint 1
+
+Before the end of class, in Brightspace → **Checkpoint 1**: a permalink (commit link) to your
+repository holding your desk and the report on your partner's pick (a fallback report counts).
+
+**Before Session 4 — do these:** the list on the [Week 3 page](../lessons/week-03/README.md), about 45 minutes.
+
+**Next:** Lab 04 adds a verifier that checks a saved report against the filings it read.
+</textarea></section>
+</div></div>
+<div class="footer">FIN 67110 · Lab 03 — The App</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+<script>
+// Charts are authored as ```mermaid blocks on the pages; the markdown plugin leaves them as code.
+// Each is drawn by mermaid.render, which measures in a scratch node outside reveal's scaled slides
+// (measuring inside them clips the labels), and the finished SVG replaces the code block.
+mermaid.initialize({ startOnLoad: false });
+Reveal.initialize({ hash: true, slideNumber: true, plugins: [ RevealMarkdown ] }).then(async () => {
+  const codes = [...document.querySelectorAll('.reveal code.mermaid, .reveal code.language-mermaid')];
+  for (let i = 0; i < codes.length; i++) {
+    const { svg } = await mermaid.render('chart' + i, codes[i].textContent);
+    const div = document.createElement('div'); div.className = 'mermaid'; div.innerHTML = svg;
+    codes[i].parentElement.replaceWith(div);
+  }
+  Reveal.layout();
+});
+</script>
+</body></html>

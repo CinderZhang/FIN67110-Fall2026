@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 01 — Ready to Build</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<style>
+ .reveal { font-size: 26px; }
+ .reveal h1 { font-size: 1.6em; } .reveal h2 { font-size: 1.2em; color:#8e6f3e; }
+ .reveal blockquote { width: 95%; font-size: 0.72em; text-align:left; }
+ .reveal table { font-size: 0.62em; } .reveal li { font-size: 0.9em; }
+ .footer { position: fixed; bottom: 8px; left: 16px; font-size: 14px; color: #777; }
+ .reveal div.mermaid { width: 100%; margin: 0 auto; font-size: 16px; line-height: 1.5; white-space: normal; text-align: center; }
+ .reveal div.mermaid p { margin: 0; line-height: 1.5; }
+ .reveal div.mermaid svg { max-width: 100%; max-height: 540px; }
+</style></head><body>
+<div class="reveal"><div class="slides">
+<section data-markdown><textarea data-template>
+# Lab 01 — Ready to Build
+
+**One thing today: leave with a setup your partner has seen work, and Figure 1 in your head.**
+
+**You arrive with:** the prerequisites on the [grading page](../lessons/grading.md#prerequisites--your-setup-is-yours)
+done, or the exact error text of the one that is not; the paper read; your one sentence on what
+the study did not check.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Open — the paired review (10 minutes)
+
+1. **Tools alive.** Terminal open in your work folder; `python --version` prints 3.11 or higher;
+   Orca is open on that folder with Codex and Antigravity each answering in it. Nothing typed
+   into either yet.
+2. **Meet your partner.** Name, the job you want after the MSF, and your one sentence on what the
+   paper did not check. Partner repeats it back.
+3. **Gap check.** On paper, one line each: what is a model, what is a harness, what is an agent.
+   Mark the one you could not write. That line starts your gap list; it grows all term.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Learning partners
+
+Each session opens with a paired review. Partners change freely; your partner is your first line
+of support. Verify each other's setup, defend your numbers aloud, and check before asking the
+room. Professional analysts explain their work every day; you start now.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Read and watch this week
+
+- **Francis, A., & Zhang, C. X. (2026).** *Can AI match professional analysts? Evidence from a
+  multi-agent system.* Finance Research Letters, 103, 110127.
+  [doi.org/10.1016/j.frl.2026.110127](https://doi.org/10.1016/j.frl.2026.110127), through the
+  Purdue Libraries login. Read the introduction, Section 3.1 (the architecture) and Section 4
+  (results), about 30 minutes.
+- **Anthropic (2024).** [Building effective agents](https://www.anthropic.com/research/building-effective-agents).
+  Read to the end of "Workflow: prompt chaining", about 15 minutes. Two definitions to keep: a
+  *workflow* runs model calls along a path the code fixes; an *agent* lets the model choose its own
+  steps and tools.
+- **Karpathy, A. (2025).** [Software Is Changing (Again)](https://www.youtube.com/watch?v=LCEmiRjPEtQ),
+  Y Combinator. Watch for two ideas: a prompt is a program, and every AI tool has an autonomy slider
+  that you set.
+- **Zhang, C. (2026).** [The Middle Is for the Machine. The Edges Are for You.](https://cinderzhang.substack.com/p/the-middle-is-for-the-machine-the)
+  The course method, about 15 minutes.
+- **Karpathy, A. (2026).** [His post on reading what models write](https://x.com/karpathy/status/2105819303471976479),
+  on X, about 3 minutes. Ask your model to explain things in ASD-STE100, or "80% of the way to
+  ASD-STE100" because the full standard is strict; then diagrams, web pages and explainer videos,
+  each, he says, better than the last. You put his first tip in your agents' instructions in Lab 01.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Make your agents write so you can check them
+
+Aircraft maintenance manuals are written in a controlled English, ASD-STE100, because the
+technician on the tarmac cannot phone the author: one meaning per word, one instruction per
+sentence, active voice, short sentences, and a hedge kept as a hedge. Karpathy's tip turns it
+around: ask your model to write to you that way, "80% of the way" because the full standard is
+strict. Most of your work this term is reading what agents wrote and deciding whether to trust it,
+and a short sentence with one claim is a sentence you can check. It runs the other way too: a
+role's instructions are read by a model that cannot ask what you meant. One rule comes with it: a
+rewrite keeps every number, condition and "may"; "may have" never becomes "did".
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Four documents you need before Lab 02
+
+A **10-K** is a company's annual report to the SEC, with the audited statements, the business
+description and management's discussion; a **10-Q** is the quarterly version. An **8-K** is filed
+when something material happens; the earnings release is attached to it as **Exhibit 99.1**. And
+**XBRL** is the tagged data behind the statements, which EDGAR serves as a file per company, so
+your code can read a number with its tag, period and filing instead of scraping a page. A
+**User-Agent** is the name and email EDGAR requires from every program that downloads any of them;
+yours goes in `.env` in Lab 01.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Model, harness, agent
+
+| Word | What it is | In your desk |
+|---|---|---|
+| Model | A function: text in, text out. It remembers nothing between calls and cannot open a file. | Each role is one call to it; Thursday of Week 2 |
+| Harness | The program around the model: the loop, the tools it may call, the memory of the task, and the checks on what comes back | Your desk: the filings tools, the calculator, the Manager's loop |
+| Agent | A model and a harness given a goal | The desk, and the coding agent that builds it |
+
+The coding agent on your laptop is an agent whose tools are your files and your terminal. The desk
+you build next week is an agent whose tools are EDGAR's filings and data, a calculator, and the model. Same shape, different
+tools. When something goes wrong, the first question is always which of the two failed: the model
+said something false, or the harness fed it the wrong thing and did not check.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## The paper in five numbers
+
+The authors built a four-agent desk on one model and had it write reports on 50 U.S. companies
+for the third quarter of 2024. Blinded readers compared each with the professional report from
+Value Line.
+
+| Who judged | How many comparisons | Preferred the AI report |
+|---|---|---|
+| Four AI judges | 200 | 71%, ranging from 48% to 96% by judge |
+| MSF students | 45 | 51% |
+| General public | 194 | 77% |
+</textarea></section>
+<section data-markdown><textarea data-template>
+## The paper in five numbers (continued)
+
+Two more results matter for this course. First, neither the AI's buy recommendations nor Value
+Line's beat simply holding all 50 companies equally. Second, nobody in the study checked whether
+the numbers inside the reports were right. The paper says so in its conclusion. That gap is your
+term.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Figure 1, the desk you will build
+
+```mermaid
+flowchart TD
+    M[Strategy Manager<br/>assigns tasks as JSON, checks the five parts,<br/>sends a part back once if not] --> R[Research Analyst<br/>tools: the filings reader<br/>business model, position, catalysts, recent developments]
+    M --> F[Financial Analyst<br/>tools: the filings reader, the XBRL facts, a calculator<br/>statements, ratios, growth, peers, each with its source]
+    M --> A[Investment Advisor<br/>no tools: the two roles' outputs<br/>thesis, Buy / Hold / Sell, the deciding number]
+    R --> M
+    F --> M
+    A --> M
+    M --> N[The report, five parts]
+```
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Figure 1, the desk you will build (continued)
+
+Each box is one call to a model with its own instructions. The **Strategy Manager** is not a
+smarter model. It is a loop with a checklist: send a task as JSON, read what comes back, send it
+back once if a part is missing, then compile the five parts (Overview; Market Positioning and
+Growth Outlook; Valuation Insights; Future Developments and Strategic Recommendations; Investment
+Recommendation). That loop, the instructions, and the tools each role may use are the harness.
+They are what turn a model into a desk.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Worked example — what the Financial Analyst must get right
+
+Open Costco's latest earnings release: on
+[Costco's 8-K filing list](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000909832&type=8-K&dateb=&owner=include&count=40),
+the newest 8-K that reports Item 2.02, then its Exhibit 99.1. The instructor opens the same page on
+the screen. The quarter's claims, and where each lives in the release:
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Worked example — what the Financial Analyst must get right (continued)
+
+| Claim | Where it lives in the release |
+|---|---|
+| Total revenue | the income statement, the quarter's column |
+| Growth versus the same quarter last year | this quarter's total revenue ÷ the same quarter last year − 1, two columns of one table |
+| Operating income | the income statement |
+| Net income | the income statement, attributable to Costco |
+| Diluted earnings per share | the per-share lines, GAAP |
+| Cash and cash equivalents | the balance sheet |
+| Diluted shares | the shares used in the per-share calculation, diluted |
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Worked example — what the Financial Analyst must get right (continued)
+
+A desk that copies the GAAP diluted EPS from its line is right. A desk that adds back an item the
+release discusses, or reports an adjusted EPS as the GAAP figure, has made a number the release's
+line never states: when a release says an item added to EPS, the item is already inside the GAAP
+figure. The year, read from the 10-K, is the Week 2 page's worked example. Next week you see which
+kind your desk is.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## D — the question, the same for everyone
+
+> Can your agent write a program in your folder that reads a key from a file, and can you keep
+> that key off GitHub?
+</textarea></section>
+<section data-markdown><textarea data-template>
+## R — what you work from
+
+| Input | Where |
+|---|---|
+| The prerequisites | [Grading page](../lessons/grading.md#prerequisites--your-setup-is-yours) |
+| Your partner | the seat next to you |
+| The readings | [Week 1 page](../lessons/week-01/README.md), "Read and watch this week" |
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — prove each item to your partner
+
+You show, your partner watches, then you switch. Keep the order: a failing item blocks the ones
+after it.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — prove each item to your partner (continued)
+
+1. **Python.** `python --version` (on Windows, `py --version` if `python` is not found).
+   *Expect:* 3.11 or higher.
+2. **The agent writes a file.** In your agent, in your work folder, send: "Create a file named
+   hello.md containing today's date and the name of the model you are." *Expect:* `hello.md`
+   appears in the folder; open it. An agent that answers in chat but creates no file is not
+   running in this folder.
+3. **The agent writes so you can check it.** In each agent, send: "Add this line to the
+   instruction file you read at the start of every session in this folder, creating the file if
+   there is none, and tell me its name: When you explain something to me, write 80% of the way to
+   ASD-STE100, and keep every number, condition and hedge." Then ask it what a `.gitignore` file
+   does. *Expect:* the file it named is in the folder, and the answer comes in short sentences,
+   one claim each. Why: the [Week 1 page](../lessons/week-01/README.md#make-your-agents-write-so-you-can-check-them).
+4. **The key and the fence.** Send your agent word for word, filling the brackets:
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — prove each item to your partner (continued)
+
+   > Create a .env file in this folder with two placeholder lines, API_KEY=paste-here and
+   > SEC_USER_AGENT="[your name] [your Purdue email]", and a .gitignore that excludes .env. Then
+   > write a short Python program, check_env.py, that loads .env, prints the first four characters
+   > of API_KEY followed by "...", and prints SEC_USER_AGENT. Tell me the exact command to install
+   > any package it needs and the exact command to run it.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — prove each item to your partner (continued)
+
+   Open `.env` (in a terminal in your work folder, `notepad .env` on Windows or `open -e .env` on
+   a Mac), paste your model provider's key where your agent said, and save it under the same name, never
+   `.env.txt`. Run the install command, then the run command. *Expect:* four characters of your
+   key, three dots, then your User-Agent. This proves the file is read, not that the key works:
+   Session 3 makes the first paid call.
+5. **GitHub.** Put the folder in your public repository (`git push`, or on github.com
+   **Add file → Upload files**, one file at a time). Open the repository on github.com in a
+   private browser window, logged out. *Expect:* `check_env.py` and `hello.md` are there and
+   `.env` is not. The repository is public, so this check is the one that keeps your key yours.
+6. **While an install runs:** read the Anthropic page from the Week 1 page. Never collected.
+7. Something not working? Debug with your AI: paste the exact command and the exact error text.
+   Your partner reads the error with you before you ask the room.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## V — prove it on the known answer
+
+| Check | Partner's initials |
+|---|---|
+| `python --version` prints 3.11 or higher | |
+| `hello.md` created by the agent, in the folder | |
+| `check_env.py` prints four characters, dots, then the User-Agent | |
+| The repository on github.com holds the program and not `.env` | |
+| The repository opens logged out, and `.env` is not in it | |
+
+Your partner initials each row on paper as they see it. Then you switch.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Model, harness, agent — Learn on your own
+
+1. What are they (a model answers text with text; a harness is the program around it: the loop,
+   the tools, the memory and the checks; an agent is the two given a goal)?
+2. How does it work in Figure 1 (which boxes are model calls, and which box is the loop)?
+3. Explain it: to your partner, in two minutes, without the screen.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Reflect
+
+Explain to your partner: 1. what the paper did not check, and why that gap is this course;
+2. which of your five rows took longest, and what you would tell a classmate to do first.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Checkout — Session 1
+
+Before the end of class, in Brightspace → **Session 1 checkout**: the link to your
+repository and your partner's name. Completion only.
+
+**Before Session 2 — do these:** the list on the [Week 2 page](../lessons/week-02/README.md), about 60 minutes.
+
+**Next:** Session 2 builds the four-role desk from Figure 1 and runs it on Costco.
+</textarea></section>
+</div></div>
+<div class="footer">FIN 67110 · Lab 01 — Ready to Build</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+<script>
+// Charts are authored as ```mermaid blocks on the pages; the markdown plugin leaves them as code.
+// Each is drawn by mermaid.render, which measures in a scratch node outside reveal's scaled slides
+// (measuring inside them clips the labels), and the finished SVG replaces the code block.
+mermaid.initialize({ startOnLoad: false });
+Reveal.initialize({ hash: true, slideNumber: true, plugins: [ RevealMarkdown ] }).then(async () => {
+  const codes = [...document.querySelectorAll('.reveal code.mermaid, .reveal code.language-mermaid')];
+  for (let i = 0; i < codes.length; i++) {
+    const { svg } = await mermaid.render('chart' + i, codes[i].textContent);
+    const div = document.createElement('div'); div.className = 'mermaid'; div.innerHTML = svg;
+    codes[i].parentElement.replaceWith(div);
+  }
+  Reveal.layout();
+});
+</script>
+</body></html>

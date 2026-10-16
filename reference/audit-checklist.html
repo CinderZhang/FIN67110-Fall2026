@@ -1,0 +1,211 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>The report audit · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
+<h1 id="the-report-audit">The report audit</h1>
+<p>A desk's report is audited against <strong>the filings the desk read</strong>, named on the report's first
+line: the latest 10-K, the latest 10-Q and the latest earnings release (the 8-K's Exhibit 99.1),
+with the XBRL company facts as the statements' data. Record where you found each number.</p>
+<h2 id="the-core-claims-fixed-for-everyone">The core claims, fixed for everyone</h2>
+<p>Eight from the latest 10-K, three from the latest earnings release. Every desk states them, so any
+two desks can be compared.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Claim</th>
+<th>Where it lives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Total revenue, latest fiscal year</td>
+<td>income statement; the revenue tag for that period</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Revenue growth versus the prior year</td>
+<td>computed from the two years in the same filing</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Operating income and operating margin</td>
+<td>income statement; margin = operating income ÷ total revenue</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Net income attributable to the company</td>
+<td>income statement</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Diluted earnings per share, GAAP</td>
+<td>per-share section</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Return on average equity</td>
+<td>net income ÷ the average of this year's and last year's stockholders' equity, balance sheet</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Debt to equity</td>
+<td>long-term debt including its current portion ÷ stockholders' equity, balance sheet</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Free cash flow</td>
+<td>cash from operations − additions to property and equipment, cash flow statement</td>
+</tr>
+<tr>
+<td>9</td>
+<td>The latest quarter's revenue</td>
+<td>the earnings release, income statement</td>
+</tr>
+<tr>
+<td>10</td>
+<td>The quarter's growth versus the same quarter last year</td>
+<td>computed from the release's two columns</td>
+</tr>
+<tr>
+<td>11</td>
+<td>The quarter's diluted EPS, GAAP</td>
+<td>the release, per-share section</td>
+</tr>
+</tbody>
+</table>
+<p>Then <strong>every other number</strong> in the Financial Analyst's part (peers, extra ratios, P/E), each with
+the same marks. Then two rows for the report itself: <strong>the template</strong> (the five parts present:
+Overview; Market Positioning and Growth Outlook; Valuation Insights; Future Developments and
+Strategic Recommendations; Investment Recommendation) and <strong>the recommendation</strong> (Buy, Hold or Sell
+names a number the report states, and the thesis uses numbers the audit marked correct).</p>
+<h2 id="how-to-mark-a-claim">How to mark a claim</h2>
+<ul>
+<li><strong>Correct</strong> — the report's number matches the filing after rounding to what the report shows. A
+  computed claim is correct if its inputs are in the filing and the arithmetic holds.</li>
+<li><strong>Wrong</strong> — it does not match. Write the filing's number beside it.</li>
+<li><strong>Unsupported</strong> — the report gives a number the filings do not contain: a guess, a different
+  period, or a different definition presented as this one.</li>
+<li><strong>Missing</strong> — the report does not state the claim. A non-GAAP EPS figure, even labeled, does not
+  count as claim 5 or 11; if the report states only that, mark the claim missing.</li>
+<li><strong>Not in filings</strong> — the filings do not state the claim and the report gives no number for it.
+  This counts for nobody. A number the report invents for such a claim is <strong>unsupported</strong>.</li>
+</ul>
+<p>Report two counts: <strong>errors</strong> (wrong plus unsupported) and <strong>missing</strong>. A desk can look accurate by
+saying less, so a comparison of two reports always shows both counts.</p>
+<p><strong>Start here:</strong> the company's filings on SEC EDGAR
+(<a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany">the company search</a>) and its XBRL
+company facts (<code>data.sec.gov/api/xbrl/companyfacts/CIK##########.json</code>, ten digits). For Costco:
+the <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0000909832&amp;type=10-K&amp;dateb=&amp;owner=include&amp;count=10">10-K filing list</a>,
+the <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0000909832&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40">8-K filing list</a>
+(the latest earnings release is the newest 8-K that reports Item 2.02), and the
+<a href="https://data.sec.gov/api/xbrl/companyfacts/CIK0000909832.json">company facts</a>.</p>
+<h2 id="filled-example--the-shape-not-your-answer">Filled example — the shape, not your answer</h2>
+<p>A first-take report on Costco, audited against the filings named on its first line. Your
+table carries the report's figure and the filing's; this one shows in words what each mark looks
+like, so it holds for any year's filings.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Report said</th>
+<th>Filing says</th>
+<th>Mark</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>total revenue in billions, rounded</td>
+<td>the same figure in millions</td>
+<td>Correct</td>
+<td>10-K income statement</td>
+</tr>
+<tr>
+<td>2</td>
+<td>revenue growth</td>
+<td>this year's total revenue ÷ last year's − 1, both in the same filing: the same</td>
+<td>Correct</td>
+<td>Computed</td>
+</tr>
+<tr>
+<td>5</td>
+<td>a diluted EPS some cents off the per-share line</td>
+<td>the per-share line's figure, written beside it</td>
+<td>Wrong</td>
+<td>10-K per-share section</td>
+</tr>
+<tr>
+<td>6</td>
+<td>return on year-end equity</td>
+<td>net income ÷ the average of the two years' equity: another number</td>
+<td>Unsupported (definition)</td>
+<td>10-K balance sheet</td>
+</tr>
+<tr>
+<td>7</td>
+<td>debt to equity on long-term debt alone</td>
+<td>the current portion included: another number</td>
+<td>Unsupported (definition)</td>
+<td>10-K balance sheet</td>
+</tr>
+<tr>
+<td>11</td>
+<td>(only the adjusted EPS, labeled)</td>
+<td>the quarter's GAAP diluted EPS</td>
+<td>Missing</td>
+<td>Release, per-share section</td>
+</tr>
+<tr>
+<td>—</td>
+<td>Walmart's operating margin</td>
+<td>Walmart's operating income ÷ its total revenue, from its own latest 10-K: the same</td>
+<td>Correct</td>
+<td>Walmart's 10-K</td>
+</tr>
+<tr>
+<td>Template</td>
+<td>five parts present</td>
+<td>—</td>
+<td>Correct</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Recommendation</td>
+<td>Buy, on the revenue growth</td>
+<td>claim 2 correct</td>
+<td>Correct</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>The rows not shown are correct. Errors: 3. Missing: 1.</p>
+<p>Definitions are the common trap. Where a filing offers two (gross margin on net sales or on total
+revenue, equity at year end or on average), the claim's definition is the one in the table above,
+or, where the table names none, the one the company itself uses; the
+<a href="../week-02/index.html#teaching-2--the-financial-analysts-numbers">Week 2 page</a> works the
+gross-margin case. An auditor names the definition.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main></body></html>

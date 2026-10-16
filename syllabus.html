@@ -1,0 +1,410 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Syllabus · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='index.html'>FIN 67110</a><a href='schedule.html'>Schedule</a><a href='grading.html'>Grading</a><a href='project.html'>Project</a><a href='syllabus.html'>Syllabus</a><a href='decks/index.html'>Decks</a></div>
+<h1 id="fin-67110-mastering-ai-for-finance--syllabus-fall-2026">FIN 67110 Mastering AI for Finance — Syllabus, Fall 2026</h1>
+<p><em>Generated 2026-10-16 from the course pages, which govern. The sections are the components of Purdue's syllabus template, in its order; ★ marks a required component.</em></p>
+<h2 id="course-information">Course Information</h2>
+<p><strong>Meets:</strong> Tuesday and Thursday, 8:00-9:30 AM, Krannert G018. Tuesday is half teaching and half lab
+on the training case. Thursday is a full lab on your own desk.</p>
+<p>The course site, https://cinderzhang.github.io/FIN67110-Fall2026/, is the course: every page the course uses is there.</p>
+<p>You build an AI equity-research desk with your own AI coding agent and run it live through an
+earnings season. The desk follows a published design: the four-agent system in Francis &amp; Zhang
+(2026), <em>Can AI match professional analysts? Evidence from a multi-agent system</em>, Finance
+Research Letters 103, 110127. Readers in that study rated the AI's reports as good as professional
+analysts'. Nobody checked whether the numbers were right. You will. Then you make the desk serve a
+client and prove, on releases you did not choose, that it works on any company.</p>
+<blockquote>
+<p><strong>Can an AI research desk you build read any company's earnings release correctly, serve one
+client's decision, and prove it live?</strong></p>
+</blockquote>
+<p>This site is the course. Brightspace receives everything submitted and holds the class-only items:
+the team list and the presentation order. Your public GitHub repository holds your code and reports;
+your team keeps the project where it chooses, and the project upload links to it.</p>
+<h2 id="instructors-contact-information-">Instructor(s) Contact Information ★</h2>
+<p>Dr. Cinder Xinde Zhang · Daniels School of Business · Office: KRAN 432 · Office phone: none ·
+Consultation hours: by appointment, in person or on Microsoft Teams. Email: the Purdue address in
+the official syllabus.</p>
+<h2 id="course-description">Course Description</h2>
+<p>Filled by Purdue in the official syllabus (Brightspace → <strong>Syllabus</strong>). This offering is described under Course Information.</p>
+<h2 id="course-learning-outcomes">Course Learning Outcomes</h2>
+<p>Filled by Purdue in the official syllabus (Brightspace → <strong>Syllabus</strong>).</p>
+<h2 id="teaching-philosophy">Teaching Philosophy</h2>
+<p>Every lab runs on DRIVER. Its shape is <strong>D · [R-I-V-E] · R</strong>: you own the edges, your AI works
+the middle, and you stay on the loop. <strong>D</strong>iscover and define the question before any AI sees it.
+<strong>R</strong>epresent the approach. <strong>I</strong>mplement with your AI. <strong>V</strong>alidate against a known answer.
+<strong>E</strong>volve what you built into something reusable. <strong>R</strong>eflect by explaining it to a person
+without the screen: if you cannot, you do not understand it yet. The method in one essay:
+<a href="https://cinderzhang.substack.com/p/the-middle-is-for-the-machine-the">The Middle Is for the Machine. The Edges Are for You.</a>
+(Zhang, 2026).</p>
+<h2 id="how-to-succeed-in-this-course">How to Succeed in this Course</h2>
+<ul>
+<li>You build the desk yourself, with your AI coding agent, from the paper's flowchart. No code is
+  handed out.</li>
+<li>Every tool you build runs on any company. Companies are test inputs: in class your partner picks
+  the release, and during the season your team's desk runs on whatever reports that week.</li>
+<li>Tuesday is half teaching and half lab on the training case, Costco, where the answers are known.
+  Thursday is a full lab: you make the same capability your own and prove it on a release you did
+  not choose.</li>
+<li>From Week 4 the desk serves a client: first an investor who wants absolute return, then an
+  institution that must beat a benchmark under a mandate. Your team builds for one of them.</li>
+<li>One team <a href="https://cinderzhang.github.io/FIN67110-Fall2026/project.html">project</a> answers the question with your desk, its live record and its
+  audits.</li>
+<li><strong>You use AI to learn and to discover.</strong> Unlike a traditional course, no page here walks you
+  through a screen, a database or a library. When a page points you somewhere, your AI helps you
+  find it, reach it and understand it; every lab ends with three questions you work out with your
+  AI and then explain to a partner without the screen. The known answers tell you whether what
+  you found is right. The one-line prompts on the week pages are for you; nothing collects them.</li>
+</ul>
+<p>Checkpoints are submitted at a lab's checkout.</p>
+<h2 id="learning-resources-technology--texts-">Learning Resources, Technology &amp; Texts ★</h2>
+<p><strong>Required reading:</strong> Francis &amp; Zhang (2026), <em>Can AI match professional analysts? Evidence from a multi-agent system</em>, Finance Research Letters 103, 110127. The readings for each week are on its week page and on <a href="https://cinderzhang.github.io/FIN67110-Fall2026/reference/readings.html">the readings page</a>. No textbook.</p>
+<h3 id="prerequisites--your-setup-is-yours">Prerequisites — your setup is yours</h3>
+<p>Come to Session 1 with these working. Setting them up and fixing them is your responsibility, with
+your AI's help, and technical problems with your own setup are not grounds for an extension. In
+Session 1 your partner checks each one with you, and anything still failing must work by Session
+2, when your desk is built. To start, ask any AI chat: "Walk me through
+installing Python 3.11 and [the agent you chose] on my [Windows or Mac] laptop, one step at a
+time."</p>
+<ol>
+<li><strong>A laptop with a current Python 3</strong> that runs a program from a terminal. Check:
+   <code>python --version</code> (on Windows, if <code>python</code> is not found, try <code>py --version</code>).</li>
+<li><strong>Your AI agents and Orca.</strong> Required: OpenAI's <a href="https://github.com/openai/codex">Codex CLI</a>,
+   <a href="https://antigravity.google">Google Antigravity</a> with its <code>agy</code> command line, and
+   <a href="https://github.com/stablyai/orca">Orca</a>, which runs your agents side by side on your work
+   folder. <a href="https://claude.com/product/claude-code">Claude Code</a> is optional. Install each from
+   its own page. A browser chat is not a coding agent: it
+   cannot create and run files in your folder. Two agents because having a second model check the
+   first is this course's verification lesson applied to your own build.</li>
+<li><strong>An API key with one model provider</strong>, created in the provider's developer console: for
+   example
+   <a href="https://platform.openai.com/api-keys">OpenAI</a>, <a href="https://platform.claude.com">Anthropic</a> or
+   <a href="https://aistudio.google.com/apikey">Google AI Studio</a>. Your desk calls a model
+   through that key. A chat subscription does not include one.</li>
+<li><strong>A public GitHub repository</strong> for your work. Nobody is invited: the instructor, and the
+   teaching assistant if one is assigned, read it as anyone can. Put files there with <code>git push</code>,
+   or on github.com with <strong>Add file → Upload files</strong>. One warning: the repository is public, so a
+   key pushed there is a key stolen. Dragging a whole folder onto github.com bypasses <code>.gitignore</code>
+   and would publish your <code>.env</code>.</li>
+<li><strong>Accounts with the data Purdue licenses</strong>: LSEG Workspace, WRDS and S&amp;P Capital IQ, each
+   registered with your Purdue email as the <a href="https://cinderzhang.github.io/FIN67110-Fall2026/reference/data.html">data page</a> describes. Register in
+   Week 1: LSEG's approval takes days, and you first need the data in Week 3.</li>
+</ol>
+<p>Keep every key out of GitHub: Lab 01 has your AI create a <code>.env</code> file with placeholders, tell you
+what to paste where, and exclude it with <code>.gitignore</code>. Check github.com afterward that <code>.env</code> is
+not there.</p>
+<h3 id="the-data-you-use">The data you use</h3>
+<p>Public filings and XBRL data from SEC EDGAR, LSEG Workspace and WRDS through Purdue, and whatever
+else your own code can reach. The <a href="https://cinderzhang.github.io/FIN67110-Fall2026/reference/data.html">data page</a> is the contract: what the reader returns, the
+known answers, and the one rule.</p>
+<h2 id="assignments-">Assignments ★</h2>
+<p>Every component is scored out of 100. The course total is the weighted sum below.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Weight</th>
+<th>What 100 means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Checkpoint 1 — your desk runs</td>
+<td>17.5%</td>
+<td>By 9:30 AM, the end of Session 3: in Brightspace <strong>Checkpoint 1</strong>, a permalink (a commit link, as the project page shows) to your repository holding your desk and a report on a company your partner chose; a report from the fallback on the Week 2 page counts</td>
+</tr>
+<tr>
+<td>Checkpoint 2 — the verifier</td>
+<td>17.5%</td>
+<td>By 9:30 AM, the end of Session 5: in <strong>Checkpoint 2</strong>, a permalink to your repository holding the verifier and its marks on the seeded-error test (the known answer on the Lab 04 page)</td>
+</tr>
+<tr>
+<td>Checkpoint 3 — the team proposal</td>
+<td>17.5%</td>
+<td>By 9:30 AM, the end of Session 9: one Markdown page in <strong>Checkpoint 3</strong> naming the team, its client, the design of the desk's client layer, and the live record so far</td>
+</tr>
+<tr>
+<td>Checkpoint 4 — the draft</td>
+<td>17.5%</td>
+<td>By 9:30 AM, the end of Session 12: the team's draft paper in <strong>Checkpoint 4</strong> with the live-record table, the audit table and the client paragraph</td>
+</tr>
+<tr>
+<td>Project</td>
+<td>30%</td>
+<td>Five parts, including the team presentation; ranked once, at the end: see below</td>
+</tr>
+</tbody>
+</table>
+<p>A checkpoint scores 100 (complete) or 0 (incomplete), never in between. Checkpoints 1 and 2 are
+individual. Checkpoints 3 and 4 are one upload per team, and every member receives the same score.
+The lab page for each checkpoint shows the same requirement at the spot where you do it. The
+Session 1 checkout records completion and carries no weight.</p>
+<p>The project's five parts and how it is ranked: <a href="https://cinderzhang.github.io/FIN67110-Fall2026/project.html">the project page</a>.</p>
+<h2 id="grading-scale-">Grading Scale ★</h2>
+<p>A 93 and above · A- 90 to 92.99 · B+ 87 to 89.99 · B 83 to 86.99 · B- 80 to 82.99 ·
+C+ 77 to 79.99 · C 73 to 76.99 · C- 70 to 72.99 · D 60 to 69.99 · F below 60.</p>
+<h2 id="grades-and-grade-reports">Grades and Grade Reports</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Project score</th>
+<th>Who</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Top</td>
+<td>95</td>
+<td>About the top third of projects that pass the fail rule</td>
+</tr>
+<tr>
+<td>Standard</td>
+<td>85</td>
+<td>Every other project that passes the fail rule</td>
+</tr>
+<tr>
+<td>Fail</td>
+<td>0</td>
+<td>No note of your team's ever reached Brightspace <strong>Live record</strong>, or your team submitted no paper</td>
+</tr>
+</tbody>
+</table>
+<p>The fail rule is checked first. <strong>Complete</strong> means all five parts on the <a href="https://cinderzhang.github.io/FIN67110-Fall2026/project.html">project page</a>
+are submitted. A project that passes the fail rule but misses a part is ranked in the standard
+tier. Ranking uses only the five published criteria on the
+<a href="https://cinderzhang.github.io/FIN67110-Fall2026/project.html#how-it-is-ranked">project page</a>. The tier is the team's. <strong>How your desk's calls
+turned out, in returns or in beats, is never a criterion.</strong></p>
+<p>With all four checkpoints complete, the top tier's course total is 0.3 × 95 + 70 = 98.5 (A) and
+the standard tier's is 0.3 × 85 + 70 = 95.5 (A). Each missed checkpoint costs 17.5 points.</p>
+<h2 id="attendance-policy-">Attendance Policy ★</h2>
+<ul>
+<li><strong>Checkpoint sessions:</strong> a university-excused absence (Dean of Students documentation) extends
+  that checkpoint's upload by 48 hours. A team checkpoint is unaffected by one member's absence.</li>
+<li><strong>The live record:</strong> the <a href="https://cinderzhang.github.io/FIN67110-Fall2026/project.html#the-live-record">rule</a> is on the project page. If
+  Brightspace is down inside a window, email the report to the instructor before it closes; the
+  email's timestamp counts.</li>
+<li><strong>Your presentation:</strong> with a university-excused absence, answer one question from the
+  instructor, in writing, within 48 hours.</li>
+<li><strong>Brightspace or GitHub down at a checkpoint deadline:</strong> email the instructor before the
+  deadline with everything the upload would hold. The email's timestamp counts.</li>
+<li><strong>Your own setup failing</strong> is not an outage. See below. If your desk, or your model provider,
+  is down during a checkpoint session, the fallback on the <a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-02/index.html#the-fallback">Week 2 page</a>
+  produces the report, and that report counts for Checkpoint 1 and the live record. Checkpoint 2
+  needs the verifier's marks on the seeded test, which can be produced before the session; a
+  provider outage during Session 5 extends that upload by 48 hours.</li>
+<li>Approved accommodations through the Disability Resource Center apply as written in your letter.</li>
+</ul>
+<h2 id="course-schedule-">Course Schedule ★</h2>
+<p>The one place for dates. Every other page links here.</p>
+<p><strong>Meets:</strong> Tuesday and Thursday, 8:00-9:30 AM, Krannert G018. Tuesday is half teaching and half lab
+on the training case. Thursday is a full lab on your own desk.</p>
+<table>
+<thead>
+<tr>
+<th>Session</th>
+<th>Date</th>
+<th>Shape</th>
+<th>Week page</th>
+<th>Lab</th>
+<th>Due in class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Thu Oct 22</td>
+<td>prep lab</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-01/index.html">Week 1</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-01/lab-01-ready-to-build.html">Lab 01 — Ready to build</a></td>
+<td>Session 1 checkout</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tue Oct 27</td>
+<td>teach, then lab</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-02/index.html">Week 2</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-02/lab-02-desk-on-one-page.html">Lab 02 — The desk's steps</a></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Thu Oct 29</td>
+<td>full lab</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-02/index.html">Week 2</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-02/lab-03-make-it-yours.html">Lab 03 — The app</a></td>
+<td>Checkpoint 1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Tue Nov 3</td>
+<td>teach, then lab</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-03/index.html">Week 3</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-03/lab-04-verifier.html">Lab 04 — The verifier</a></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Thu Nov 5</td>
+<td>full lab</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-03/index.html">Week 3</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-03/lab-05-desk-hands.html">Lab 05 — The desk's hands</a></td>
+<td>Checkpoint 2; teams formed</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Tue Nov 10</td>
+<td>teach, then lab</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-04/index.html">Week 4</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-04/lab-06-investor-desk.html">Lab 06 — The investor's desk</a></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Thu Nov 12</td>
+<td>full lab</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-04/index.html">Week 4</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-04/lab-07-your-investor-view.html">Lab 07 — Your investor view</a></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Tue Nov 17</td>
+<td>teach, then lab</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-05/index.html">Week 5</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-05/lab-08-institution-desk.html">Lab 08 — The institution's desk</a></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Thu Nov 19</td>
+<td>full lab</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-05/index.html">Week 5</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-05/lab-09-portfolio-under-mandate.html">Lab 09 — Your portfolio under a mandate</a></td>
+<td>Checkpoint 3</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Tue Nov 24</td>
+<td>teach, then lab</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-06/index.html">Week 6</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-06/lab-10-break-your-desk.html">Lab 10 — Break your desk</a></td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td>Thu Nov 26</td>
+<td></td>
+<td></td>
+<td>Thanksgiving, no class</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Tue Dec 1</td>
+<td>teach, then lab</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-07/index.html">Week 7</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-07/lab-11-write-for-your-client.html">Lab 11 — Write for your client</a></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Thu Dec 3</td>
+<td>full lab</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-07/index.html">Week 7</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-07/lab-12-consulting.html">Lab 12 — Consulting</a></td>
+<td>Checkpoint 4</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Tue Dec 8</td>
+<td>presentations</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-08/index.html">Week 8</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-08/lab-13-present.html">Lab 13 — Present, first half</a></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Thu Dec 10</td>
+<td>presentations</td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-08/index.html">Week 8</a></td>
+<td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-08/lab-14-present.html">Lab 14 — Present, second half</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Project due:</strong> Friday, December 11, 11:59 PM Eastern, in Brightspace.</p>
+<p><strong>The live record</strong> (<a href="https://cinderzhang.github.io/FIN67110-Fall2026/project.html#the-live-record">the rule</a>): a week runs Monday to Sunday.</p>
+<table>
+<thead>
+<tr>
+<th>Live-record week</th>
+<th>Dates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Week 4</td>
+<td>Mon Nov 9 to Sun Nov 15</td>
+</tr>
+<tr>
+<td>Week 5</td>
+<td>Mon Nov 16 to Sun Nov 22</td>
+</tr>
+<tr>
+<td>Week 6</td>
+<td>Mon Nov 23 to Sun Nov 29 (Thanksgiving week; a report is welcome, not required)</td>
+</tr>
+<tr>
+<td>Week 7</td>
+<td>Mon Nov 30 to Sun Dec 6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Teams:</strong> formed by the end of Session 5; the team list is posted in Brightspace → Course data
+after Session 5.</p>
+<p><strong>Presentation order:</strong> posted in Brightspace by the end of Session 12.</p>
+<h2 id="course-logistics">Course Logistics</h2>
+<p>Questions about the material go to class or office hours. Your setup and your code are yours to
+debug with your AI. Grades are never discussed by email.</p>
+<p>Repositories are public, and yours holds your audits of another team's reports, credited to its
+authors, because the project requires them there. Beyond that, do not repost another team's reports
+or audits, and in anything you write for the public outside your repository, report only your own
+team's results. The presentations are class-only.</p>
+<h2 id="academic-integrity-">Academic Integrity ★</h2>
+<p>Purdue's academic integrity policy applies. Your desk, reports and audits before teams form are your
+own work; within a team, the project is shared work and every member can explain every part of it.
+One thing the policy might make you hesitate over is required: the audit of another team's reports,
+credited to its authors. Classmates may help you debug.</p>
+<h2 id="ai-policy-">AI Policy ★</h2>
+<p>AI is expected in every part of this course. You are responsible for every number you submit:
+if your AI wrote it, you checked it. Anything you make public ends with these three lines:</p>
+<blockquote>
+<p>This is a learning exercise, not financial advice.
+AI assistance: [the tools you used]. I verified the sources myself; the judgments are mine.
+Any remaining errors are my own.</p>
+</blockquote>
+<h2 id="purdues-standard-statements-">Purdue's standard statements ★</h2>
+<p>Nondiscrimination, accessibility, accommodations, mental health and wellness, emergency preparedness, student-related policies, grade appeals, basic needs and course evaluation: Filled by Purdue in the official syllabus (Brightspace → <strong>Syllabus</strong>).</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main></body></html>

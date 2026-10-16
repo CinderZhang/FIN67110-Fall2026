@@ -1,0 +1,163 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Lab 02 — The Desk&#x27;s Steps · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
+<h1 id="lab-02--the-desks-steps">Lab 02 — The Desk's Steps</h1>
+<p><strong>One thing today: build the desk's seven steps from a ticker to the filings, the facts and the ratios, with no model yet, and match every number to the 10-K.</strong> (45 minutes, after the teaching and the demo.)</p>
+<p><strong>You arrive with:</strong> your setup checked in Lab 01, the paper's Section 3.1 and Figure 2 read, the
+report audit read. No model key is needed today; Thursday needs one.</p>
+<h2 id="open--the-paired-review-10-minutes">Open — the paired review (10 minutes)</h2>
+<ol>
+<li><strong>Tools alive.</strong> Terminal open in your work folder; <code>check_env.py</code> from Lab 01 prints your
+   User-Agent; your AI agents answer in that folder. Nothing typed into them yet.</li>
+<li><strong>Defend.</strong> Tell your partner whether Figure 1 is a workflow or an agent, in one sentence, with
+   the reason. Partner asks one question.</li>
+<li><strong>Gap check.</strong> On paper: what is a 10-K, what is a 10-Q, what is the 8-K's Exhibit 99.1, and
+   what is XBRL? Write the one you could not explain.</li>
+</ol>
+<h2 id="d--the-question-the-same-for-everyone">D — the question, the same for everyone</h2>
+<blockquote>
+<p>Given only a ticker, can your code find the company's filings, read its statements as data, and
+compute the core ratios, every number matching the 10-K?</p>
+</blockquote>
+<h2 id="r--what-you-work-from">R — what you work from</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The seven steps</td>
+<td>the instructor's demo on the screen, one step at a time</td>
+</tr>
+<tr>
+<td>The filings and the data</td>
+<td>SEC EDGAR: the ticker file, the submissions API, the documents, the XBRL company facts (the <a href="../reference/data.html">data page</a> and the <a href="index.html">Week 2 page</a> link Costco's)</td>
+</tr>
+<tr>
+<td>SEC access</td>
+<td>EDGAR asks every program for a User-Agent with your name and email, in your <code>.env</code></td>
+</tr>
+<tr>
+<td>The known answers</td>
+<td>the instructor's run on the screen, read from what Costco filed last; each number judged by its filing (V below)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="i--build-it-from-the-instruction">I — build it from the instruction</h2>
+<ol>
+<li>In your AI coding agent, in your work folder, send this request word for word:</li>
+</ol>
+<blockquote>
+<p>Build the data side of an equity-research desk in Python, modeled on Section 3.1 of Francis
+&amp; Zhang (2026); the model roles come later. Read my SEC User-Agent as SEC_USER_AGENT from
+the .env file in this folder and send it on every request. The program takes a ticker as its
+argument, an optional --peers list of tickers, an optional --price number, and an optional
+--step number to run one step only. Nothing in the code names a company. Seven steps, each
+printed as it runs: (1) resolve the ticker to its CIK from SEC's company_tickers.json; (2)
+list the company's filings from the EDGAR submissions API and pick the latest 10-K, the
+latest 10-Q, and the latest 8-K whose document reports Item 2.02, the earnings release,
+printing each one's accession number and the "Accepted" time shown on its EDGAR index page; (3)
+download the three documents, the 8-K's Exhibit 99.1 for the release, convert each to plain
+text and save them in a folder named by company, date and time of the run; (4) fetch the
+XBRL company facts and, for the latest fiscal year, print total revenue, operating income,
+net income, diluted EPS, stockholders' equity, long-term debt and its current portion, cash
+from operations and additions to property and equipment, each with its tag, period end and
+filing, choosing among a concept's candidate tags the one whose latest year is newest and
+reading every concept for the same fiscal year as revenue, with the prior year beside it; (5)
+a calculator, in code, that prints with its arithmetic revenue growth, operating margin,
+return on average equity, debt to equity with the current portion included, free cash flow
+as cash from operations minus additions to property and equipment, and P/E from --price;
+(6) from the release text, print the lines that state the quarter's total revenue and diluted
+EPS; (7) for each peer, the same facts and the operating margin on the same definition. Save
+the facts beside the texts. When you finish, tell me the exact command to install any
+packages it needs and the exact command to run it on a ticker with peers and a price.</p>
+</blockquote>
+<ol start="2">
+<li>Run the install command your agent gives you, then the run command:
+   <code>COST --peers WMT,TGT,BJ --price P</code>, where P is the close the instructor's run used. <em>Expect:</em> seven steps print, in the order the demo showed, ending with a saved folder.</li>
+<li><strong>While it runs:</strong> open a second AI chat and work one item from your gap list. Never collected.</li>
+<li>Something not working? Debug with your AI: paste the exact command and the exact error text.</li>
+</ol>
+<h2 id="v--prove-it-on-the-known-answer">V — prove it on the known answer</h2>
+<p>The numbers are the instructor's run; the filing judges each one.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>The check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>the CIK on Costco's EDGAR filing list</td>
+</tr>
+<tr>
+<td>2</td>
+<td>each filing's index page shows the same accession number and "Accepted" time; the earnings 8-K reports Item 2.02, and a newer 8-K that does not is skipped</td>
+</tr>
+<tr>
+<td>3</td>
+<td>each saved text reads as its filing, the release as Exhibit 99.1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>each figure stands on its line of the 10-K's statements; every period end equals the 10-K's fiscal year end; each tag is the one that holds the latest year</td>
+</tr>
+<tr>
+<td>5</td>
+<td>each ratio redone by hand from step 4's printed inputs, on the <a href="../reference/audit-checklist.html">report audit</a>'s definitions</td>
+</tr>
+<tr>
+<td>6</td>
+<td>the two lines appear word for word in the release</td>
+</tr>
+<tr>
+<td>7</td>
+<td>each peer's revenue and operating income stand in its own latest 10-K; every margin on one definition</td>
+</tr>
+</tbody>
+</table>
+<p>Mark each step right or wrong, by hand, against the filings and the instructor's run. Your partner
+checks two marks. A revenue whose period end falls a year before the 10-K's fiscal year end came
+from an old tag; a margin whose two inputs show two period ends divided one year by another. Both
+are the tag trap, and both are yours to fix.</p>
+<h2 id="the-filings-as-data--learn-on-your-own">The filings as data — Learn on your own</h2>
+<ol>
+<li>What is XBRL (every number in a filing tagged with a concept, a period and a unit, served by
+   EDGAR as one file per company)?</li>
+<li>How does it work here (which tag your reader chose for revenue, and why the period matters)?</li>
+<li>Explain it: to your partner, why a filer's tag can change between years and what your code does
+   about it.</li>
+</ol>
+<h2 id="reflect">Reflect</h2>
+<p>Explain to your partner: 1. which step you would trust least on a company you have never seen,
+and why; 2. what the four roles will need from these steps on Thursday.</p>
+<p><strong>Before Session 3 — do these:</strong> the list on the <a href="index.html#before-session-3--about-45-minutes">Week 2 page</a>, about 45 minutes.</p>
+<p><strong>Next:</strong> Lab 03 adds the four roles with your model key: the app, and its first report.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main></body></html>

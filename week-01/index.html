@@ -1,0 +1,239 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Week 1 — Ready to Build · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
+<h1 id="week-1--ready-to-build">Week 1 — Ready to Build</h1>
+<p><strong>Mission.</strong> Get your setup working with a partner watching, learn what a model, a harness and an
+agent are, and meet the desk you build next week: the four-role desk of a published paper, reading
+a company's filings and writing an equity research report.</p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>In earnings season a junior analyst at a bank or fund covers a dozen companies. The night a
+company reports, the junior reads the release against the 10-K and 10-Q, pulls the numbers everyone will
+quote, and drafts the report before the morning meeting. Get one number wrong and a portfolio
+manager trades on it. Desks now hand that first draft to AI. Your job, here and on the desk, is
+to build the AI that drafts and to be the reason the draft can be trusted. That starts with a laptop that
+runs what you tell your agent to build.</p>
+<h2 id="learning-partners">Learning partners</h2>
+<p>Each session opens with a paired review. Partners change freely; your partner is your first line
+of support. Verify each other's setup, defend your numbers aloud, and check before asking the
+room. Professional analysts explain their work every day; you start now.</p>
+<h2 id="you-arrive-with">You arrive with</h2>
+<p>The prerequisites on the <a href="../grading.html#prerequisites--your-setup-is-yours">grading page</a>
+working, or the exact error text of the one that is not.</p>
+<h2 id="outcomes">Outcomes</h2>
+<ul>
+<li>Show a partner that your agents run in your folder, create a file, and read a key from <code>.env</code>
+  that never reaches your public repository.</li>
+<li>Say what a model, a harness and an agent are, and which boxes of Figure 1 are which.</li>
+<li>Describe the four roles in Francis &amp; Zhang's Figure 1, the tools each uses, and the five parts
+  of the report they produce.</li>
+</ul>
+<h2 id="the-session">The session</h2>
+<p><strong>Session 1</strong> — <a href="lab-01-ready-to-build.html">Lab 01: Ready to build</a>.</p>
+<h2 id="read-and-watch-this-week">Read and watch this week</h2>
+<ul>
+<li><strong>Francis, A., &amp; Zhang, C. X. (2026).</strong> <em>Can AI match professional analysts? Evidence from a
+  multi-agent system.</em> Finance Research Letters, 103, 110127.
+  <a href="https://doi.org/10.1016/j.frl.2026.110127">doi.org/10.1016/j.frl.2026.110127</a>, through the
+  Purdue Libraries login. Read the introduction, Section 3.1 (the architecture) and Section 4
+  (results), about 30 minutes.</li>
+<li><strong>Anthropic (2024).</strong> <a href="https://www.anthropic.com/research/building-effective-agents">Building effective agents</a>.
+  Read to the end of "Workflow: prompt chaining", about 15 minutes. Two definitions to keep: a
+  <em>workflow</em> runs model calls along a path the code fixes; an <em>agent</em> lets the model choose its own
+  steps and tools.</li>
+<li><strong>Karpathy, A. (2025).</strong> <a href="https://www.youtube.com/watch?v=LCEmiRjPEtQ">Software Is Changing (Again)</a>,
+  Y Combinator. Watch for two ideas: a prompt is a program, and every AI tool has an autonomy slider
+  that you set.</li>
+<li><strong>Zhang, C. (2026).</strong> <a href="https://cinderzhang.substack.com/p/the-middle-is-for-the-machine-the">The Middle Is for the Machine. The Edges Are for You.</a>
+  The course method, about 15 minutes.</li>
+<li><strong>Karpathy, A. (2026).</strong> <a href="https://x.com/karpathy/status/2105819303471976479">His post on reading what models write</a>,
+  on X, about 3 minutes. Ask your model to explain things in ASD-STE100, or "80% of the way to
+  ASD-STE100" because the full standard is strict; then diagrams, web pages and explainer videos,
+  each, he says, better than the last. You put his first tip in your agents' instructions in Lab 01.</li>
+</ul>
+<h2 id="make-your-agents-write-so-you-can-check-them">Make your agents write so you can check them</h2>
+<p>Aircraft maintenance manuals are written in a controlled English, ASD-STE100, because the
+technician on the tarmac cannot phone the author: one meaning per word, one instruction per
+sentence, active voice, short sentences, and a hedge kept as a hedge. Karpathy's tip turns it
+around: ask your model to write to you that way, "80% of the way" because the full standard is
+strict. Most of your work this term is reading what agents wrote and deciding whether to trust it,
+and a short sentence with one claim is a sentence you can check. It runs the other way too: a
+role's instructions are read by a model that cannot ask what you meant. One rule comes with it: a
+rewrite keeps every number, condition and "may"; "may have" never becomes "did".</p>
+<h2 id="four-documents-you-need-before-lab-02">Four documents you need before Lab 02</h2>
+<p>A <strong>10-K</strong> is a company's annual report to the SEC, with the audited statements, the business
+description and management's discussion; a <strong>10-Q</strong> is the quarterly version. An <strong>8-K</strong> is filed
+when something material happens; the earnings release is attached to it as <strong>Exhibit 99.1</strong>. And
+<strong>XBRL</strong> is the tagged data behind the statements, which EDGAR serves as a file per company, so
+your code can read a number with its tag, period and filing instead of scraping a page. A
+<strong>User-Agent</strong> is the name and email EDGAR requires from every program that downloads any of them;
+yours goes in <code>.env</code> in Lab 01.</p>
+<h2 id="model-harness-agent">Model, harness, agent</h2>
+<table>
+<thead>
+<tr>
+<th>Word</th>
+<th>What it is</th>
+<th>In your desk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model</td>
+<td>A function: text in, text out. It remembers nothing between calls and cannot open a file.</td>
+<td>Each role is one call to it; Thursday of Week 2</td>
+</tr>
+<tr>
+<td>Harness</td>
+<td>The program around the model: the loop, the tools it may call, the memory of the task, and the checks on what comes back</td>
+<td>Your desk: the filings tools, the calculator, the Manager's loop</td>
+</tr>
+<tr>
+<td>Agent</td>
+<td>A model and a harness given a goal</td>
+<td>The desk, and the coding agent that builds it</td>
+</tr>
+</tbody>
+</table>
+<p>The coding agent on your laptop is an agent whose tools are your files and your terminal. The desk
+you build next week is an agent whose tools are EDGAR's filings and data, a calculator, and the model. Same shape, different
+tools. When something goes wrong, the first question is always which of the two failed: the model
+said something false, or the harness fed it the wrong thing and did not check.</p>
+<h2 id="the-paper-in-five-numbers">The paper in five numbers</h2>
+<p>The authors built a four-agent desk on one model and had it write reports on 50 U.S. companies
+for the third quarter of 2024. Blinded readers compared each with the professional report from
+Value Line.</p>
+<table>
+<thead>
+<tr>
+<th>Who judged</th>
+<th>How many comparisons</th>
+<th>Preferred the AI report</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Four AI judges</td>
+<td>200</td>
+<td>71%, ranging from 48% to 96% by judge</td>
+</tr>
+<tr>
+<td>MSF students</td>
+<td>45</td>
+<td>51%</td>
+</tr>
+<tr>
+<td>General public</td>
+<td>194</td>
+<td>77%</td>
+</tr>
+</tbody>
+</table>
+<p>Two more results matter for this course. First, neither the AI's buy recommendations nor Value
+Line's beat simply holding all 50 companies equally. Second, nobody in the study checked whether
+the numbers inside the reports were right. The paper says so in its conclusion. That gap is your
+term.</p>
+<h2 id="figure-1-the-desk-you-will-build">Figure 1, the desk you will build</h2>
+<pre class="mermaid">flowchart TD
+    M[Strategy Manager&lt;br/&gt;assigns tasks as JSON, checks the five parts,&lt;br/&gt;sends a part back once if not] --&gt; R[Research Analyst&lt;br/&gt;tools: the filings reader&lt;br/&gt;business model, position, catalysts, recent developments]
+    M --&gt; F[Financial Analyst&lt;br/&gt;tools: the filings reader, the XBRL facts, a calculator&lt;br/&gt;statements, ratios, growth, peers, each with its source]
+    M --&gt; A[Investment Advisor&lt;br/&gt;no tools: the two roles' outputs&lt;br/&gt;thesis, Buy / Hold / Sell, the deciding number]
+    R --&gt; M
+    F --&gt; M
+    A --&gt; M
+    M --&gt; N[The report, five parts]
+</pre>
+<p>Each box is one call to a model with its own instructions. The <strong>Strategy Manager</strong> is not a
+smarter model. It is a loop with a checklist: send a task as JSON, read what comes back, send it
+back once if a part is missing, then compile the five parts (Overview; Market Positioning and
+Growth Outlook; Valuation Insights; Future Developments and Strategic Recommendations; Investment
+Recommendation). That loop, the instructions, and the tools each role may use are the harness.
+They are what turn a model into a desk.</p>
+<h2 id="worked-example--what-the-financial-analyst-must-get-right">Worked example — what the Financial Analyst must get right</h2>
+<p>Open Costco's latest earnings release: on
+<a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0000909832&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40">Costco's 8-K filing list</a>,
+the newest 8-K that reports Item 2.02, then its Exhibit 99.1. The instructor opens the same page on
+the screen. The quarter's claims, and where each lives in the release:</p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Where it lives in the release</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total revenue</td>
+<td>the income statement, the quarter's column</td>
+</tr>
+<tr>
+<td>Growth versus the same quarter last year</td>
+<td>this quarter's total revenue ÷ the same quarter last year − 1, two columns of one table</td>
+</tr>
+<tr>
+<td>Operating income</td>
+<td>the income statement</td>
+</tr>
+<tr>
+<td>Net income</td>
+<td>the income statement, attributable to Costco</td>
+</tr>
+<tr>
+<td>Diluted earnings per share</td>
+<td>the per-share lines, GAAP</td>
+</tr>
+<tr>
+<td>Cash and cash equivalents</td>
+<td>the balance sheet</td>
+</tr>
+<tr>
+<td>Diluted shares</td>
+<td>the shares used in the per-share calculation, diluted</td>
+</tr>
+</tbody>
+</table>
+<p>A desk that copies the GAAP diluted EPS from its line is right. A desk that adds back an item the
+release discusses, or reports an adjusted EPS as the GAAP figure, has made a number the release's
+line never states: when a release says an item added to EPS, the item is already inside the GAAP
+figure. The year, read from the 10-K, is the Week 2 page's worked example. Next week you see which
+kind your desk is.</p>
+<h2 id="before-session-1--about-25-hours">Before Session 1 — about 2.5 hours</h2>
+<ol>
+<li>Get the <a href="../grading.html#prerequisites--your-setup-is-yours">prerequisites</a> working (about 90
+   minutes; your AI can walk you through each one). Check: <code>python --version</code> prints 3.11 or
+   higher (on Windows, try <code>py --version</code> if <code>python</code> is not found); Orca opens your work folder and
+   Codex and Antigravity each answer in it; your model API key exists; your public GitHub
+   repository exists.</li>
+<li>Read the paper as above (30 minutes). Write one sentence: what did the study not check?</li>
+<li>Read the Anthropic page (15 minutes). Write one line: is Figure 1 a workflow or an agent?</li>
+<li>Open the Costco release (link above) and find total revenue. Say where on the page it
+   is. Then open Costco's 10-K (the Week 2 page links the filing list) and find the year that
+   quarter closes: total revenue for that fiscal year.</li>
+<li>Register for LSEG Workspace, WRDS and Capital IQ with your Purdue email (the
+   <a href="../reference/data.html">data page</a>). None is needed until Week 3, and LSEG's approval takes
+   days, so start now.</li>
+</ol>
+<p><strong>Next:</strong> in Session 2 you build the desk's steps, from a ticker to the filings and the facts, with no
+model yet; in Session 3 the four roles.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main><script type='module'>import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true, flowchart:{useMaxWidth:false}, theme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'neutral'});</script></body></html>

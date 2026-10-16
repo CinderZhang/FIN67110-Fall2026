@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 02 — The Desk&#x27;s Steps</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<style>
+ .reveal { font-size: 26px; }
+ .reveal h1 { font-size: 1.6em; } .reveal h2 { font-size: 1.2em; color:#8e6f3e; }
+ .reveal blockquote { width: 95%; font-size: 0.72em; text-align:left; }
+ .reveal table { font-size: 0.62em; } .reveal li { font-size: 0.9em; }
+ .footer { position: fixed; bottom: 8px; left: 16px; font-size: 14px; color: #777; }
+ .reveal div.mermaid { width: 100%; margin: 0 auto; font-size: 16px; line-height: 1.5; white-space: normal; text-align: center; }
+ .reveal div.mermaid p { margin: 0; line-height: 1.5; }
+ .reveal div.mermaid svg { max-width: 100%; max-height: 540px; }
+</style></head><body>
+<div class="reveal"><div class="slides">
+<section data-markdown><textarea data-template>
+# Lab 02 — The Desk's Steps
+
+**One thing today: build the desk's seven steps from a ticker to the filings, the facts and the ratios, with no model yet, and match every number to the 10-K.** (45 minutes, after the teaching and the demo.)
+
+**You arrive with:** your setup checked in Lab 01, the paper's Section 3.1 and Figure 2 read, the
+report audit read. No model key is needed today; Thursday needs one.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Open — the paired review (10 minutes)
+
+1. **Tools alive.** Terminal open in your work folder; `check_env.py` from Lab 01 prints your
+   User-Agent; your AI agents answer in that folder. Nothing typed into them yet.
+2. **Defend.** Tell your partner whether Figure 1 is a workflow or an agent, in one sentence, with
+   the reason. Partner asks one question.
+3. **Gap check.** On paper: what is a 10-K, what is a 10-Q, what is the 8-K's Exhibit 99.1, and
+   what is XBRL? Write the one you could not explain.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 1 — the paper's desk
+
+The paper's input is a ticker. The Strategy Manager turns it into tasks and sends each to a role as
+JSON: the task, the context the role may use, the output expected. The Research Analyst reads the
+filings for the business model, competitive position, catalysts and recent developments. The
+Financial Analyst does the statement analysis: growth, margins, returns, leverage, cash flow, and a
+comparison with peers. The Investment Advisor synthesizes the two into a thesis and a Buy, Hold or
+Sell. The Manager checks the five parts of the template are present and consistent, sends a draft
+back once if not, then compiles the report. Nothing in that loop is intelligent. It is a checklist
+in code, and it is where a desk is made trustworthy or not: the model decides what a sentence
+says; the harness decides what the model is shown, what it must return, and what happens when it
+returns something incomplete.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 1 — the paper's desk (continued)
+
+The paper's tools are a filings reader, web search and a calculator. The desk is therefore two
+things, and this week builds them in that order: the steps, which are code and need no model, and
+the roles, which are model calls on what the steps produced. EDGAR gives you the filings reader for
+nothing: the company's filing list, the 10-K and 10-Q documents, the earnings release attached to
+the 8-K, and the statements as data through the XBRL company-facts API, every number carrying the
+tag, the period and the filing it came from. The calculator is your code. Web search is optional
+this term; nothing graded needs it. Two consequences follow. A desk that works on Costco works on
+Walmart only if nothing in the harness names Costco: the ticker is an argument, the roles name no
+company, and the known answer lives in your test. And when a number is wrong, the fix is almost
+always in a role's instructions or in what the harness checks, not in a smarter model.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 1 — the paper's desk (continued)
+
+The five parts, from the paper's Report A: Overview; Market Positioning and Growth Outlook;
+Valuation Insights; Future Developments and Strategic Recommendations; Investment Recommendation.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 2 — the Financial Analyst's numbers
+
+The Financial Analyst is where desks fail, because a model asked for a number produces one whether
+or not the filing holds it. The rule: every number comes with the filing and the line, or the XBRL
+tag and period, it came from, and every ratio shows its arithmetic. The check: a person, or a
+separate role, opens the filing at that line. The [report audit](../lessons/reference/audit-checklist.md)
+fixes eleven core claims for everyone, eight from the latest 10-K and three from the latest
+earnings release, so that any two desks in the room can be compared.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 2 — the Financial Analyst's numbers (continued)
+
+Definitions are the quiet failure, and the tags carry them. Costco's income statement
+shows net sales and membership fees on separate lines; total revenue is their sum. Gross margin on
+net sales, (net sales − merchandise costs) ÷ net sales, and gross margin on total revenue, (total
+revenue − merchandise costs) ÷ total revenue, are both arithmetic on the same filing, and they
+differ. Only one is what Costco and its analysts call gross margin. The XBRL facts carry the same
+trap: a retailer with membership and other income can report total revenues under `Revenues` and
+net sales under `RevenueFromContractWithCustomerExcludingAssessedTax`, two numbers for the same
+year. A desk that compares one company's total revenue with another's net sales has compared two
+definitions. An analyst names the definition beside the number.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Worked example — Costco, from what it filed last
+
+The worked example is a run, not a table. In Session 2 the instructor runs the seven steps
+on Costco on the screen, one step at a time, and every number comes from what Costco filed last:
+[the 10-K filing list](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000909832&type=10-K&dateb=&owner=include&count=10),
+[the 8-K filing list](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000909832&type=8-K&dateb=&owner=include&count=40),
+and [the XBRL company facts](https://data.sec.gov/api/xbrl/companyfacts/CIK0000909832.json). Each
+number is then found in the filing, at the line the step names. The run is the known answer and the
+filing is its judge. This page states no figure, because Costco's figures change every time it
+files; the steps and the checks do not. The check for each step is in
+[Lab 02](../lessons/week-02/lab-02-desk-on-one-page.md#v--prove-it-on-the-known-answer); the eleven core claims and
+their definitions are on the [report audit](../lessons/reference/audit-checklist.md), eight from the latest
+10-K and three from the latest earnings release, the 8-K's Exhibit 99.1. If you miss the session,
+your own steps and the filings are the same check.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Worked example — Costco, from what it filed last (continued)
+
+Valuation needs a price the filings do not carry. Give the desk one, the last close before the
+release with its date, from the exchange or LSEG Workspace, and the Financial Analyst computes P/E
+as that price ÷ diluted EPS. In Week 3 your own data reader supplies the price.
+
+The peers are Walmart, Target and BJ's Wholesale, each read from its own latest 10-K. Their fiscal
+years end months away from Costco's, so the peer table names the year of each figure, and every
+margin in it is on one definition. A desk that prints Costco's numbers for Walmart is not reading.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Worked example — Costco, from what it filed last (continued)
+
+Two traps the steps meet on the way, both real. A filer moves between tags across years, so a
+reader that takes the first revenue tag it finds can print a year that ended a year ago. The test:
+every period end in step 4 equals the 10-K's fiscal year end. The fix: among the candidate tags,
+choose the one whose latest year is newest. And the newest 8-K is often not the earnings release.
+Companies file 8-Ks for monthly sales, officer changes and shareholder votes, so the earnings 8-K
+is the newest one that reports Item 2.02.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## The fallback
+
+If your desk does not run by the end of a checkpoint session, or your model provider is down, the
+course still gets a report. Open a chat with any model, paste the income statement, balance sheet
+and cash flow statement from the latest 10-K and the text of the latest earnings release, and send
+the four roles' tasks from the Lab 02 request as one message. Save the answer as a Markdown file
+with the company and the filings named on its first line and "fallback" on its second, and push
+it. A fallback report counts for Checkpoint 1 and for the live record; it is audited like any
+other, and the paper says which reports were fallbacks.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## What "make it yours" means
+
+Your desk was built from two requests everyone sent. From Week 3 you own its design. The
+things that are yours: the model and provider each role calls; the words of each role's
+instructions; the peers the Financial Analyst compares against and the ratios it adds; what the
+Manager refuses to compile; the shape of the report within the five parts. The things that are
+never yours: a company name anywhere in the code, or a number the filings do not state. The test
+of ownership is simple: your partner names a company that reported this month, you run the same
+command on its ticker, and the report is about that company, with every number carrying its line.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## D — the question, the same for everyone
+
+> Given only a ticker, can your code find the company's filings, read its statements as data, and
+> compute the core ratios, every number matching the 10-K?
+</textarea></section>
+<section data-markdown><textarea data-template>
+## R — what you work from
+
+| Input | Where |
+|---|---|
+| The seven steps | the instructor's demo on the screen, one step at a time |
+| The filings and the data | SEC EDGAR: the ticker file, the submissions API, the documents, the XBRL company facts (the [data page](../lessons/reference/data.md) and the [Week 2 page](../lessons/week-02/README.md) link Costco's) |
+| SEC access | EDGAR asks every program for a User-Agent with your name and email, in your `.env` |
+| The known answers | the instructor's run on the screen, read from what Costco filed last; each number judged by its filing (V below) |
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build it from the instruction
+
+1. In your AI coding agent, in your work folder, send this request word for word:
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build it from the instruction (continued)
+
+   > Build the data side of an equity-research desk in Python, modeled on Section 3.1 of Francis
+   > & Zhang (2026); the model roles come later. Read my SEC User-Agent as SEC_USER_AGENT from
+   > the .env file in this folder and send it on every request. The program takes a ticker as its
+   > argument, an optional --peers list of tickers, an optional --price number, and an optional
+   > --step number to run one step only. Nothing in the code names a company. Seven steps, each
+   > printed as it runs: (1) resolve the ticker to its CIK from SEC's company_tickers.json; (2)
+   > list the company's filings from the EDGAR submissions API and pick the latest 10-K, the
+   > latest 10-Q, and the latest 8-K whose document reports Item 2.02, the earnings release,
+   > printing each one's accession number and the "Accepted" time shown on its EDGAR index page; (3)
+   > download the three documents, the 8-K's Exhibit 99.1 for the release, convert each to plain
+   > text and save them in a folder named by company, date and time of the run; (4) fetch the
+   > XBRL company facts and, for the latest fiscal year, print total revenue, operating income,
+   > net income, diluted EPS, stockholders' equity, long-term debt and its current portion, cash
+   > from operations and additions to property and equipment, each with its tag, period end and
+   > filing, choosing among a concept's candidate tags the one whose latest year is newest and
+   > reading every concept for the same fiscal year as revenue, with the prior year beside it; (5)
+   > a calculator, in code, that prints with its arithmetic revenue growth, operating margin,
+   > return on average equity, debt to equity with the current portion included, free cash flow
+   > as cash from operations minus additions to property and equipment, and P/E from --price;
+   > (6) from the release text, print the lines that state the quarter's total revenue and diluted
+   > EPS; (7) for each peer, the same facts and the operating margin on the same definition. Save
+   > the facts beside the texts. When you finish, tell me the exact command to install any
+   > packages it needs and the exact command to run it on a ticker with peers and a price.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build it from the instruction (continued)
+
+2. Run the install command your agent gives you, then the run command:
+   `COST --peers WMT,TGT,BJ --price P`, where P is the close the instructor's run used. *Expect:* seven steps print, in the order the demo showed, ending with a saved folder.
+3. **While it runs:** open a second AI chat and work one item from your gap list. Never collected.
+4. Something not working? Debug with your AI: paste the exact command and the exact error text.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## V — prove it on the known answer
+
+The numbers are the instructor's run; the filing judges each one.
+
+| Step | The check |
+|---|---|
+| 1 | the CIK on Costco's EDGAR filing list |
+| 2 | each filing's index page shows the same accession number and "Accepted" time; the earnings 8-K reports Item 2.02, and a newer 8-K that does not is skipped |
+| 3 | each saved text reads as its filing, the release as Exhibit 99.1 |
+| 4 | each figure stands on its line of the 10-K's statements; every period end equals the 10-K's fiscal year end; each tag is the one that holds the latest year |
+| 5 | each ratio redone by hand from step 4's printed inputs, on the [report audit](../lessons/reference/audit-checklist.md)'s definitions |
+| 6 | the two lines appear word for word in the release |
+| 7 | each peer's revenue and operating income stand in its own latest 10-K; every margin on one definition |
+</textarea></section>
+<section data-markdown><textarea data-template>
+## V — prove it on the known answer (continued)
+
+Mark each step right or wrong, by hand, against the filings and the instructor's run. Your partner
+checks two marks. A revenue whose period end falls a year before the 10-K's fiscal year end came
+from an old tag; a margin whose two inputs show two period ends divided one year by another. Both
+are the tag trap, and both are yours to fix.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## The filings as data — Learn on your own
+
+1. What is XBRL (every number in a filing tagged with a concept, a period and a unit, served by
+   EDGAR as one file per company)?
+2. How does it work here (which tag your reader chose for revenue, and why the period matters)?
+3. Explain it: to your partner, why a filer's tag can change between years and what your code does
+   about it.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Reflect
+
+Explain to your partner: 1. which step you would trust least on a company you have never seen,
+and why; 2. what the four roles will need from these steps on Thursday.
+
+**Before Session 3 — do these:** the list on the [Week 2 page](../lessons/week-02/README.md#before-session-3--about-45-minutes), about 45 minutes.
+
+**Next:** Lab 03 adds the four roles with your model key: the app, and its first report.
+</textarea></section>
+</div></div>
+<div class="footer">FIN 67110 · Lab 02 — The Desk&#x27;s Steps</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+<script>
+// Charts are authored as ```mermaid blocks on the pages; the markdown plugin leaves them as code.
+// Each is drawn by mermaid.render, which measures in a scratch node outside reveal's scaled slides
+// (measuring inside them clips the labels), and the finished SVG replaces the code block.
+mermaid.initialize({ startOnLoad: false });
+Reveal.initialize({ hash: true, slideNumber: true, plugins: [ RevealMarkdown ] }).then(async () => {
+  const codes = [...document.querySelectorAll('.reveal code.mermaid, .reveal code.language-mermaid')];
+  for (let i = 0; i < codes.length; i++) {
+    const { svg } = await mermaid.render('chart' + i, codes[i].textContent);
+    const div = document.createElement('div'); div.className = 'mermaid'; div.innerHTML = svg;
+    codes[i].parentElement.replaceWith(div);
+  }
+  Reveal.layout();
+});
+</script>
+</body></html>
