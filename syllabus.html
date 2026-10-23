@@ -23,7 +23,7 @@ hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
 <body><main>
 <div class='nav'><a href='index.html'>FIN 67110</a><a href='schedule.html'>Schedule</a><a href='grading.html'>Grading</a><a href='project.html'>Project</a><a href='syllabus.html'>Syllabus</a><a href='decks/index.html'>Decks</a></div>
 <h1 id="fin-67110-mastering-ai-for-finance--syllabus-fall-2026">FIN 67110 Mastering AI for Finance — Syllabus, Fall 2026</h1>
-<p><em>Generated 2026-10-16 from the course pages, which govern. The sections are the components of Purdue's syllabus template, in its order; ★ marks a required component.</em></p>
+<p><em>Generated 2026-10-23 from the course pages, which govern. The sections are the components of Purdue's syllabus template, in its order; ★ marks a required component.</em></p>
 <h2 id="course-information">Course Information</h2>
 <p>Meeting Information: KRAN G018<br />
 Meeting Day(s) and Time(s): T / 0800 (lecture, 001); Th / 0800 (lab, 002), KRAN G018</p>
@@ -47,6 +47,7 @@ your team keeps the project where it chooses, and the project upload links to it
 <p>Dr. Cinder Xinde Zhang · Daniels School of Business · Office: KRAN 432 · Office phone: none ·
 Consultation hours: by appointment, in person or on Microsoft Teams. Email: the Purdue address in
 the official syllabus.</p>
+<p>Teaching assistant: Edward Ter-Hovhannisyan.</p>
 <h2 id="course-description">Course Description</h2>
 <p>Filled by Purdue in the official syllabus (Brightspace → <strong>Syllabus</strong>). This offering is described under Course Information.</p>
 <h2 id="course-learning-outcomes">Course Learning Outcomes</h2>
@@ -103,8 +104,8 @@ time."</p>
    <a href="https://platform.openai.com/api-keys">OpenAI</a>, <a href="https://platform.claude.com">Anthropic</a> or
    <a href="https://aistudio.google.com/apikey">Google AI Studio</a>. Your desk calls a model
    through that key. A chat subscription does not include one.</li>
-<li><strong>A public GitHub repository</strong> for your work. Nobody is invited: the instructor, and the
-   teaching assistant if one is assigned, read it as anyone can. Put files there with <code>git push</code>,
+<li><strong>A public GitHub repository</strong> for your work. Nobody is invited: the instructor and the
+   teaching assistant read it as anyone can. Put files there with <code>git push</code>,
    or on github.com with <strong>Add file → Upload files</strong>. One warning: the repository is public, so a
    key pushed there is a key stolen. Dragging a whole folder onto github.com bypasses <code>.gitignore</code>
    and would publish your <code>.env</code>.</li>
@@ -120,39 +121,34 @@ not there.</p>
 else your own code can reach. The <a href="https://cinderzhang.github.io/FIN67110-Fall2026/reference/data.html">data page</a> is the contract: what the reader returns, the
 known answers, and the one rule.</p>
 <h2 id="assignments-">Assignments ★</h2>
-<p>Every component is scored out of 100. The course total is the weighted sum below.</p>
+<p>Every component is scored out of 100. The course total weighs each of the four checkpoints at
+17.5% and the project at 30%.</p>
 <table>
 <thead>
 <tr>
 <th>Component</th>
-<th>Weight</th>
 <th>What 100 means</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Checkpoint 1 — your desk runs</td>
-<td>17.5%</td>
-<td>By 9:30 AM, the end of Session 3: in Brightspace <strong>Checkpoint 1</strong>, a permalink (a commit link, as the project page shows) to your repository holding your desk and a report on a company your partner chose; a report from the fallback on the Week 2 page counts</td>
+<td>By 11:59 PM Eastern on the day of Session 3: in Brightspace <strong>Checkpoint 1</strong>, a permalink (a commit link, as the project page shows) to your repository holding your desk and a report on a company your partner chose; a report from the fallback on the Week 2 page counts</td>
 </tr>
 <tr>
 <td>Checkpoint 2 — the verifier</td>
-<td>17.5%</td>
-<td>By 9:30 AM, the end of Session 5: in <strong>Checkpoint 2</strong>, a permalink to your repository holding the verifier and its marks on the seeded-error test (the known answer on the Lab 04 page)</td>
+<td>By 11:59 PM Eastern on the day of Session 5: in <strong>Checkpoint 2</strong>, a permalink to your repository holding the verifier and its marks on the seeded-error test (the known answer on the Lab 04 page)</td>
 </tr>
 <tr>
 <td>Checkpoint 3 — the team proposal</td>
-<td>17.5%</td>
-<td>By 9:30 AM, the end of Session 9: one Markdown page in <strong>Checkpoint 3</strong> naming the team, its client, the design of the desk's client layer, and the live record so far</td>
+<td>By 11:59 PM Eastern on the day of Session 9: one Markdown page in <strong>Checkpoint 3</strong> naming the team, its client, the design of the desk's client layer, and the live record so far</td>
 </tr>
 <tr>
 <td>Checkpoint 4 — the draft</td>
-<td>17.5%</td>
-<td>By 9:30 AM, the end of Session 12: the team's draft paper in <strong>Checkpoint 4</strong> with the live-record table, the audit table and the client paragraph</td>
+<td>By 11:59 PM Eastern on the day of Session 12: the team's draft paper in <strong>Checkpoint 4</strong> with the live-record table, the audit table and the client paragraph</td>
 </tr>
 <tr>
 <td>Project</td>
-<td>30%</td>
 <td>Five parts, including the team presentation; ranked once, at the end: see Grades and Grade Reports</td>
 </tr>
 </tbody>
@@ -229,7 +225,7 @@ on the training case. Thursday is a full lab on your own desk.</p>
 <th>Shape</th>
 <th>Week page</th>
 <th>Lab</th>
-<th>Due in class</th>
+<th>Due that day, 11:59 PM Eastern</th>
 </tr>
 </thead>
 <tbody>
@@ -239,7 +235,7 @@ on the training case. Thursday is a full lab on your own desk.</p>
 <td>prep lab</td>
 <td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-01/index.html">Week 1</a></td>
 <td><a href="https://cinderzhang.github.io/FIN67110-Fall2026/week-01/lab-01-ready-to-build.html">Lab 01 — Ready to build</a></td>
-<td>Session 1 checkout</td>
+<td>Session 1 checkout (moved to Mon Oct 26)</td>
 </tr>
 <tr>
 <td>2</td>
@@ -407,6 +403,6 @@ if your AI wrote it, you checked it. Anything you make public ends with these th
 <p>Any remaining errors are my own.</p>
 </blockquote>
 <h2 id="purdues-standard-statements-">Purdue's standard statements ★</h2>
-<p>Nondiscrimination (the template's Option 2, the full statement), accessibility, accommodations, mental health and wellness, emergency preparedness, student-related policies, grade appeals, basic needs and course evaluation: Filled by Purdue in the official syllabus (Brightspace → <strong>Syllabus</strong>).</p>
+<p>Nondiscrimination (the template's Option 2: Purdue's commitment and the pointer to the full policy), accessibility, accommodations, mental health and wellness, emergency preparedness, student-related policies, grade appeals, basic needs and course evaluation: Filled by Purdue in the official syllabus (Brightspace → <strong>Syllabus</strong>).</p>
 <p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
 </main></body></html>
