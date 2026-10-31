@@ -1,4 +1,4 @@
-<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Week 5 · FIN 67110</title><style>
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Week 5 — One Desk: The Agent Team and the Skills · FIN 67110</title><style>
 :root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
 @media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
 * { box-sizing: border-box; }
@@ -22,6 +22,71 @@ hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
 </style></head>
 <body><main>
 <div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
-<h1>Week 5</h1><p>This page is published when Week 5 is rebuilt and signed off. The dates are on the <a href='../schedule.html'>schedule</a>.</p>
+<h1 id="week-5--one-desk-the-agent-team-and-the-skills">Week 5 — One Desk: The Agent Team and the Skills</h1>
+<p><strong>Mission.</strong> On Tuesday, the two things your team built become one desk. You will join the agent team from Week 3 and the skills from Week 4. One command will run them, and the hook will watch every output. On Thursday, you will prove the joined desk on names that nobody on your team chose. You will measure what the join changed, and you will file the team proposal.</p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>You have an agent team that reads filings and writes a verified report. You also have skills that find spinoffs, work one name through a worksheet, and refuse an untraced number. You built these parts separately, but a client wants one thing to run. Joining an agent team to a set of skills is new work. Every agent's documentation describes each part alone. Few public examples show them working together on a task like yours. You have no reference answer this week. Instead, you have a contract, your agent's documentation, and the known answers you already hold. What you learn here is the thing the course is named for.</p>
+<h2 id="you-arrive-with">You arrive with</h2>
+<p>You arrive with your agent team running on a ticker, plus the seeker, the worksheet, and the hook. You have your first live report filed. You have your team's repository, and you have started the thing you own. You also bring your hand-drawn diagram of the desk as it will run.</p>
+<h2 id="outcomes">Outcomes</h2>
+<ul>
+<li>Name the three ways a skill and an agent team can be joined, and say which one your desk uses where.</li>
+<li>Run the desk end to end with one command: the screen, the pick, the team, the worksheet, the hook, the report with a view.</li>
+<li>Measure what the join changed: the same name, the parts alone against the joined desk, against the filing.</li>
+<li>File the team proposal: the desk's design, the thing the team owns, each member's role, the live record so far.</li>
+</ul>
+<h2 id="the-sessions">The sessions</h2>
+<ul>
+<li><strong>Session 8</strong> — <a href="lab-08-one-desk.html">Lab 08: One desk</a>.</li>
+<li><strong>Session 9</strong> — <a href="lab-09-prove-it-together.html">Lab 09: Prove it together</a>. Checkpoint 3 is due by the end of the day.</li>
+</ul>
+<h2 id="read-this-week">Read this week</h2>
+<ul>
+<li>Your own agent's pages on how it runs a skill inside a task and how it hands work to another agent, read on the build day: Claude Code's <a href="https://code.claude.com/docs/en/sub-agents">subagents</a> and <a href="https://code.claude.com/docs/en/skills">skills</a>; Codex's <a href="https://learn.chatgpt.com/docs/build-skills">skills</a>; Antigravity's <a href="https://antigravity.google/docs/skills">skills</a>. About 20 minutes.</li>
+<li><strong>Anthropic (2024).</strong> <em>Building effective agents</em> (<a href="https://www.anthropic.com/research/building-effective-agents">page</a>), the patterns "prompt chaining", "routing" and "orchestrator-workers", about 15 minutes. Your three joins are in there under other names.</li>
+<li>The <a href="../project.html">project page</a>, the five parts again, about 10 minutes: the proposal is the product manual's first page.</li>
+</ul>
+<h2 id="teaching-1--three-ways-to-join-a-skill-to-a-team">Teaching 1 — three ways to join a skill to a team</h2>
+<p>A skill is a folder of instructions and scripts. Your agent loads the skill when a task matches its description. An agent team is a graph of roles. Each role is a model call with tools, and the team includes a verifier that no run can skip. You can join a skill and an agent team in three ways. One desk may use all three.</p>
+<p><strong>The pipeline.</strong> The team's run is the skill's input. The team saves a run folder, and the worksheet reads it. Nothing calls anything else. Files on disk are the contract. You already did this in Week 4. The pipeline is the simplest join, and it is the easiest to test because each part runs alone on a saved folder.</p>
+<p><strong>The tool.</strong> A role calls a skill the same way it calls the filings reader. For example, the Strategy Manager asks the seeker for this week's screen before it assigns work. The Financial Analyst asks the worksheet for the value range before it writes. The skill runs in code and returns a file, and the role reads that file. The role never recomputes a number that the skill computed. Here, the rule that "no model computes a number" earns its keep. The skill's output is data to the role. The verifier checks the role's use of that data just as it checks any quoted line.</p>
+<p><strong>The guard.</strong> The hook watches both the team and the skill. It runs when the team writes its report and when a skill writes its output. The hook refuses to mark the run "done" if a number has no support from a filing, a facts file, or a printed input.</p>
+<p>Your team must choose between the pipeline and the tool, and you must write that design choice down. The pipeline is easier to test and explain. The tool lets a role use the skill's findings inside its own reasoning. A desk that uses the tool also keeps the pipeline, so you can replay a saved run without a model.</p>
+<h2 id="teaching-2--one-command-and-the-run-folder-as-the-contract">Teaching 2 — one command, and the run folder as the contract</h2>
+<p>A client runs one command. Behind that command, your code fixes the order of the parts, never a model. First, the seeker runs when the client asks for a screen. Next comes the pick, either from the screen or from the ticker the client gave. Then the team runs on that ticker. Next, the worksheet runs on the team's run. The hook runs on every output. Finally, the desk produces the report with the view at the end. Each part writes into one run folder, and the next part reads only from that folder. The first line of the final report names every filing that any part read.</p>
+<p>Here is what goes wrong when teams join parts, in the order you will meet each problem:</p>
+<ul>
+<li><strong>Two parts fetch the same filing twice</strong> and get two versions, because the facts file changed between calls. Fetch the filing once, save it, and read from the saved file.</li>
+<li><strong>A role is handed a skill's output as text</strong> and starts recomputing it. Hand the output to the role as a file. Tell the role what it may do with the file: quote it, and never recompute it.</li>
+<li><strong>The hook reads a file no part wrote.</strong> You met this in Week 4's cold run. Make sure the hook reads the saved outputs themselves.</li>
+<li><strong>The joined desk is slower than the sum,</strong> and nobody knows where the delay is. Have each part print the seconds it took on its last line.</li>
+<li><strong>A name the seeker never saw.</strong> The worksheet's spinoff parts print "not applicable", and the rest of the desk runs. The desk does not stop for a company that is not a spinoff. Most companies are not spinoffs.</li>
+<li><strong>One part fails and the others run on.</strong> Stop the command at the part that failed. Print which part failed and the error, and keep the run folder for the replay.</li>
+</ul>
+<h2 id="teaching-3--measure-what-the-join-changed">Teaching 3 — measure what the join changed</h2>
+<p>The honest measure of a join is not that it runs. The honest measure is what the join changed. Take one name and build the three-column table. Column one holds the parts alone, just as Week 4 left them, with the team's verified report and the worksheet's output side by side. Column two holds the joined desk's final report. Column three holds the filing. The rows are the eleven core claims from the <a href="../reference/audit-checklist.html">audit page</a>, the view, and the one number that decides the view. When a claim differs between the first two columns, check it against the third column. If a join changed nothing, it is a pipeline, and the table says so. If a join changed a number, it is a tool, and the table shows whether the change was right. Put this three-column table in your product manual. The project's reader will look for it.</p>
+<h2 id="teaching-4--the-proposal">Teaching 4 — the proposal</h2>
+<p>Checkpoint 3 is one page: the proposal. It lists the team. It shows the desk's design as one diagram that includes the team, the skills, the hook, and the one command. It includes one paragraph that explains which join the desk uses where. It names the thing the team owns, states each member's role in one line, and shows the live record so far. This proposal is the product manual's first page, and every later draft grows from it.</p>
+<h2 id="three-levels">Three levels</h2>
+<ul>
+<li><strong>Must.</strong> One command runs the desk end to end on any ticker; the three-column table on one name; the proposal.</li>
+<li><strong>Expand.</strong> The tool join in one place: the Manager calls the seeker, or the Analyst calls the worksheet, with the role's permission to quote and not to recompute written in its instructions. Or the institution's client: a mandate skill, a file of limits (long only, a cap per name, a cap on all names together, a floor on how much is invested, the benchmark, the fee) and code with no model call that turns the worksheet's views into positions inside the limits and reports the holding week's return against the benchmark, net of fee. A team that serves an institution builds this as the thing it owns, and its product manual compares relative return net of fee against the benchmark.</li>
+<li><strong>Ship.</strong> The desk as a plugin another team installs and runs with one command, with an evaluation that runs the same name with and without each skill.</li>
+</ul>
+<h2 id="before-session-8--about-90-minutes">Before Session 8 — about 90 minutes</h2>
+<ol>
+<li>File this week's live report inside its window (the <a href="../project.html#the-live-record">rule</a>).</li>
+<li>Keep the hit-rate table and Lab 07's runs. The project links them.</li>
+<li><strong>The base rate from WRDS</strong>, about 45 minutes, its own sitting. Ask your agent for a command that takes a ticker and a list of past release filing times, pulls daily closes from WRDS (CRSP) with the wrds package and your login from <code>.env</code>, computes the reaction from the last close before each filing time to the first close after it, and prints one row per release and the median absolute reaction. Run it on Costco's eight releases before the one your Costco run read, each with its "Accepted" time from its EDGAR index page. The shape, not your answer: eight rows, then a median. No number is on this page, because CRSP's values are licensed. Your check is one row recomputed by hand from the closes the command printed. The product manual puts the median under the hit-rate table (the <a href="../project.html">project page</a>).</li>
+<li>Read your agent's pages on skills and subagents. Write one line: which join your desk will use for the worksheet, and why.</li>
+<li><strong>Draw the desk as it will run, by hand:</strong> a box for the team, the seeker, the worksheet and the hook; one arrow per file that passes between them; the one command at the top. No AI draws it. Tuesday's contract is written from it.</li>
+</ol>
+<h2 id="before-session-9--about-30-minutes">Before Session 9 — about 30 minutes</h2>
+<ol>
+<li>One command runs your desk end to end (Lab 08, step 2).</li>
+<li>As a team, draft the Checkpoint 3 page from the shape on the Lab 09 page.</li>
+<li>Pick this week's live release from the earnings calendar, and who runs it.</li>
+</ol>
+<p><strong>Next:</strong> Weeks 6 and 7 are building weeks. The room is your team's workshop, another team runs your desk from its README, and Checkpoint 4 is the first draft of the project.</p>
 <p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
 </main></body></html>

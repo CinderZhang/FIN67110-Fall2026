@@ -1,4 +1,4 @@
-<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Week 4 · FIN 67110</title><style>
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Lab 06 — The Seeker · FIN 67110</title><style>
 :root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
 @media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
 * { box-sizing: border-box; }
@@ -22,6 +22,157 @@ hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
 </style></head>
 <body><main>
 <div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
-<h1>Week 4</h1><p>This page is published when Week 4 is rebuilt and signed off. The dates are on the <a href='../schedule.html'>schedule</a>.</p>
+<h1 id="lab-06--the-seeker">Lab 06 — The Seeker</h1>
+<p><strong>One thing today: turn a book's chapter into a skill your agent runs: a spinoff seeker that finds U.S. spinoffs on EDGAR, prices them with your own code, and ranks a screen by factors you declared.</strong> (45 minutes, after the teaching.)</p>
+<p><strong>You arrive with:</strong> your agent team running; your closes reader printing a close; your factor
+list written by hand, with the direction each factor should point and the chapter it came from;
+one recent Form 10 read; your agent's skills and hooks pages read.</p>
+<h2 id="open--the-paired-review-10-minutes">Open — the paired review (10 minutes)</h2>
+<ol>
+<li><strong>Tools alive.</strong> The closes reader prints the last close before a time; your agent lists its
+   skills, the minimal one you made among them.</li>
+<li><strong>Defend.</strong> Read your partner your factor list. Partner asks: which factor would the book's
+   author strike, and why?</li>
+<li><strong>Gap check.</strong> Write the filing sequence of a spinoff from memory: the forms, in order, from
+   the announcement to the first Form 4. If you cannot, that is today's gap.</li>
+</ol>
+<h2 id="d--the-question-the-same-for-everyone">D — the question, the same for everyone</h2>
+<blockquote>
+<p>Can a chapter about who sells and why become a procedure your agent runs on EDGAR every week,
+with every name's facts traced to a filing and every rank explained?</p>
+</blockquote>
+<h2 id="r--what-you-work-from">R — what you work from</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The filing sequence of a spinoff, and what each form holds</td>
+<td><a href="index.html">Week 4 page</a>, Teaching 2</td>
+</tr>
+<tr>
+<td>The filings</td>
+<td>SEC EDGAR: the daily and full indexes, the submissions API, the filing folders, and the full-text search (the <a href="../reference/data.html">data page</a>)</td>
+</tr>
+<tr>
+<td>Prices</td>
+<td>your closes reader</td>
+</tr>
+<tr>
+<td>Your factors, with their directions</td>
+<td>the list you wrote before class, from the chapters</td>
+</tr>
+</tbody>
+</table>
+<h2 id="i--build-it-from-the-contract">I — build it from the contract</h2>
+<p>What follows is the contract: what the seeker must do and what it must never do. The design is
+yours: the folder, the factors and their weights, the window, the shape of the report, the name.
+Send it as it is or in your own words, and keep every sentence that says "never."</p>
+<ol>
+<li>Send your coding agent the request:</li>
+</ol>
+<blockquote>
+<p>Make a skill for my coding agent, in the folder where my agent reads skills, named for what
+it seeks. It finds U.S. spinoffs on SEC EDGAR whose distribution date is on or after a start
+date I give. It reads EDGAR's
+form indexes for Form 10 registrations, their amendments, the exchanges' CERT filings and
+the 8-Ks filed at a distribution, and it reads each filing's folder on EDGAR for the facts
+it needs. It sends my SEC User-Agent from .env on every request and stays under the rate
+EDGAR allows. It keeps a registry file of facts established by reading a filing: the
+parent, the distribution ratio, the record and distribution dates, each with the filing
+and the section it came from. The skill fills the registry from the filings it can read;
+a fact it cannot find stays blank, and the report says so. It never estimates a fact. It
+drops a registrant that is not a spinoff, with the reason and the filing beside it: a Form 10
+with no information statement, a fund, or a company registering shares it already has, is
+dropped unless a later filing shows a parent distributing the business. It gives each name
+a stage: registered, listing approved, trading, in its window, or past it. The distribution
+8-K is often the parent's, so the skill reads the parent's filings from the registry's parent
+CIK; a 10-Q, a 10-K or a Form 4 in the new company's own filing list proves it trades. A
+name's first price is the first close after the distribution date, never a when-issued
+price. It takes closes from my closes reader and prints the price date beside every price.
+It ranks the names in their window by the factors in a file I write, each with its weight
+and direction; the same file states the window's length in days after the distribution. It
+prints each name's points per factor. A name missing a date it needs is listed unranked,
+with the reason. It writes a report with the run
+date, the price date and the index date on the first line, the names in their window by
+rank, the watch list of registered names not yet trading, what was dropped and why, what
+the data cannot show, and the line "screens, not recommendations" at the end. The report
+is saved with the date and time it ran. Every rule has a test on made-up data, and a rule
+changes only after its test does. Nothing in the code names a company. Tell me the exact
+command to run the seeker from a start date and the exact command to run its tests.</p>
+</blockquote>
+<ol start="2">
+<li>Run the tests, then the seeker, from a start date about a year back. <em>Expect:</em> the report with
+   its three dates on the first line; names in their window with points per factor; a watch list;
+   a dropped list with a reason and a filing beside each; the last line. The shape of one row,
+   not your answer: <code>[name] | [parent] | distributed [date] | window ends [date] | [price] on
+   [price date] | [points]: size [n], weakness [n], insiders [n]</code>.</li>
+<li>Write one factor's weight to zero in your factors file and run again on the same inputs.
+   <em>Expect:</em> that factor's points disappear from every name; the other factors' points do not
+   change; the ranks may.</li>
+<li><strong>While it runs:</strong> work one item from your gap list in a second AI chat. Never collected.</li>
+<li>Something not working? Debug with your AI: paste the exact command and the exact error text.</li>
+</ol>
+<h2 id="v--prove-it-on-the-known-answer">V — prove it on the known answer</h2>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Expect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A spinoff your partner found on EDGAR by hand, in its window</td>
+<td>in your report, with the parent and the dates your partner read from the Form 10</td>
+</tr>
+<tr>
+<td>A Form 10 filer that is a fund or a shell</td>
+<td>dropped, with the reason and the filing</td>
+</tr>
+<tr>
+<td>A name's first price</td>
+<td>after its distribution date, never a when-issued print</td>
+</tr>
+<tr>
+<td>One name's registry row</td>
+<td>your partner opens the filing and section it names and finds the ratio and the dates</td>
+</tr>
+<tr>
+<td>The ranking</td>
+<td>your partner recomputes one name's points from your factors file</td>
+</tr>
+<tr>
+<td>The last line of the report</td>
+<td>"screens, not recommendations"</td>
+</tr>
+<tr>
+<td>A fact the skill could not find</td>
+<td>blank in the registry, and said in the report; never a guess</td>
+</tr>
+</tbody>
+</table>
+<p>Match, or debug with your AI.</p>
+<h2 id="skills-with-scripts--learn-on-your-own">Skills with scripts — Learn on your own</h2>
+<ol>
+<li>What is a skill (a folder your agent loads when a task matches its description, with scripts
+   beside the instructions), and why does a seeker need scripts and not only instructions?</li>
+<li>How does it work here: which lines of your report come from code, and which would a reader
+   still have to check in the filing?</li>
+<li>Explain it: open the first screen of <a href="https://github.com/CinderZhang/FAskills">FAskills</a>.
+   What does its processing layer compute before any persona sees the data, and what is the
+   equivalent in your seeker?</li>
+</ol>
+<h2 id="reflect">Reflect</h2>
+<p>Explain to your partner: 1. the name at the top of your screen, and the one line from the
+chapter that put it there; 2. the fact in your registry you trust least, and why.</p>
+<p><strong>Before Session 7 — do these:</strong> the list on the <a href="index.html#before-session-7--about-45-minutes">Week 4 page</a>,
+about 45 minutes.</p>
+<p><strong>Next:</strong> Lab 07 works one name from your screen through the worksheet: a value range against
+the price, with a hook that checks every number, and the live record begins.</p>
 <p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
 </main></body></html>

@@ -1,4 +1,4 @@
-<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Week 5 · FIN 67110</title><style>
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Lab 08 — One Desk · FIN 67110</title><style>
 :root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
 @media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
 * { box-sizing: border-box; }
@@ -22,6 +22,144 @@ hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
 </style></head>
 <body><main>
 <div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
-<h1>Week 5</h1><p>This page is published when Week 5 is rebuilt and signed off. The dates are on the <a href='../schedule.html'>schedule</a>.</p>
+<h1 id="lab-08--one-desk">Lab 08 — One Desk</h1>
+<p><strong>One thing today: join your agent team and your skills into one desk that runs with one command, with the hook on every output.</strong> (45 minutes, after the teaching.)</p>
+<p><strong>You arrive with:</strong> your agent team running on a ticker; the seeker, the worksheet and the hook;
+your hand drawing of the desk with one arrow per file; one line on which join you will use for
+the worksheet.</p>
+<h2 id="open--the-paired-review-10-minutes">Open — the paired review (10 minutes)</h2>
+<ol>
+<li><strong>Tools alive.</strong> The team runs on a ticker; the seeker's last report exists; the hook refuses
+   the seeded copy from Lab 07.</li>
+<li><strong>Defend.</strong> Show your partner your drawing. Partner asks: which arrow is a file, and which is
+   a call?</li>
+<li><strong>Gap check.</strong> Write the order the parts run in, from memory. If a model decides any step of
+   it, that is today's gap.</li>
+</ol>
+<h2 id="d--the-question-the-same-for-everyone">D — the question, the same for everyone</h2>
+<blockquote>
+<p>Can one command run the team and the skills in an order code fixes, through one run folder,
+with every number still traced and the hook still able to refuse?</p>
+</blockquote>
+<h2 id="r--what-you-work-from">R — what you work from</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The three joins and what goes wrong</td>
+<td><a href="index.html">Week 5 page</a>, Teaching 1 and 2</td>
+</tr>
+<tr>
+<td>The team, the seeker, the worksheet, the hook</td>
+<td>your repository, as Weeks 3 and 4 left them</td>
+</tr>
+<tr>
+<td>A name with a saved run</td>
+<td>the name your worksheet ran on in Lab 07</td>
+</tr>
+<tr>
+<td>Your drawing</td>
+<td>your hand</td>
+</tr>
+</tbody>
+</table>
+<h2 id="i--build-it-from-the-contract">I — build it from the contract</h2>
+<p>Here is the contract for the joined desk. It states what the desk must do and what it must never
+do. You own the design: choose which join to use, lay out the run folder, and name the command.
+Send the request as written or in your own words, and keep every sentence that says "never."</p>
+<ol>
+<li>Send your coding agent the request:</li>
+</ol>
+<blockquote>
+<p>Join my agent team and my skills into one desk that runs with one command. The command takes
+a ticker, or the word "screen" to take the top name from my seeker's latest report. It runs
+the parts in an order fixed in code, never chosen by a model: the seeker when asked, the
+pick, the agent team on the ticker, the worksheet skill on the team's saved run, and the hook
+on every output. Every part reads from and writes into one run folder, named by the ticker
+and the date and time the command started, and no part fetches a filing another part already
+saved. Where a role uses a skill's output, it receives the output as a file; it may quote the
+file's lines and may never recompute them. The final report is the team's verified report
+with the worksheet's view under it, and its first line names every filing any part read.
+Each part prints the seconds it took on its last line. When the ticker is not in the seeker's
+registry, the spinoff parts print "not applicable" and the rest runs. When any part fails,
+the command stops, prints which part failed and the error, and keeps the run folder. The hook
+runs on the final report as it runs on a skill's output. Nothing in the code names a company.
+Tell me the exact command to run the desk on a ticker, the exact command to run it from the
+screen, and the exact command to replay a saved run without fetching anything.</p>
+</blockquote>
+<ol start="2">
+<li>Run the desk on the name your worksheet ran on in Lab 07. <em>Expect:</em> one run folder; each
+   part's output in it; the final report with the view under it and the filings on its first
+   line; the seconds per part. Then run it from the screen. <em>Expect:</em> the top name of the
+   seeker's report, or "not applicable" on the spinoff parts if the screen is empty.</li>
+<li>Replay the saved run with the network off. <em>Expect:</em> the same final report, and no fetch.</li>
+<li>Copy the final report, change one amount by one, and run the hook on the copy. <em>Expect:</em> a
+   refusal that names the line. The shape, not your answer: <code>refused: line 14, [amount] is not in
+   [filing], [section]</code>.</li>
+<li><strong>While it runs:</strong> work one item from your gap list in a second AI chat. Never collected.</li>
+<li>Something not working? Debug with your AI: paste the exact command and the exact error text.</li>
+</ol>
+<h2 id="v--prove-it-on-the-known-answer">V — prove it on the known answer</h2>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Expect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The run folder</td>
+<td>one folder; every part's output inside; the team's run and the worksheet read from it, nothing fetched twice</td>
+</tr>
+<tr>
+<td>The final report's first line</td>
+<td>every filing any part read, the Form 10 among them when the name is a spinoff</td>
+</tr>
+<tr>
+<td>The core claims</td>
+<td>the same values as the team's own report on the same name; your partner checks two against the filing</td>
+</tr>
+<tr>
+<td>The seeded copy</td>
+<td>refused, by line</td>
+</tr>
+<tr>
+<td>The replay</td>
+<td>the same report with the network off</td>
+</tr>
+<tr>
+<td>A ticker not in the registry</td>
+<td>"not applicable" on the spinoff parts; the rest ran</td>
+</tr>
+<tr>
+<td>The order of the parts</td>
+<td>printed, the same on two runs; no model chose it</td>
+</tr>
+</tbody>
+</table>
+<p>Match every check, or debug with your AI.</p>
+<h2 id="orchestration--learn-on-your-own">Orchestration — Learn on your own</h2>
+<ol>
+<li>What is it (code that fixes the order in which parts run, and a model that chooses none of
+   it)?</li>
+<li>How does it work here (which lines of your command are the order, and what would a model
+   choosing the order have cost you on the replay)?</li>
+<li>Explain it: open your agent's page on subagents. What does it hand to a subagent and what does
+   it get back, and where is the run folder in that picture?</li>
+</ol>
+<h2 id="reflect">Reflect</h2>
+<p>Explain two things to your partner. First, name the join you chose for the worksheet, and read
+the one sentence in a role's instructions that stops it from recomputing. Second, name the part
+you would cut if the client gave you half the time.</p>
+<p><strong>Before Session 9 — do these:</strong> complete the list on the <a href="index.html#before-session-9--about-30-minutes">Week 5 page</a>,
+which takes about 30 minutes.</p>
+<p><strong>Next:</strong> In Lab 09, you will prove the joined desk on names your partner picks, measure what the
+join changed, and file the team proposal.</p>
 <p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
 </main></body></html>

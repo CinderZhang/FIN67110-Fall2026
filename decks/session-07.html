@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 07 — Your Investor</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<style>
+ .reveal { font-size: 26px; }
+ .reveal h1 { font-size: 1.6em; } .reveal h2 { font-size: 1.2em; color:#8e6f3e; }
+ .reveal blockquote { width: 95%; font-size: 0.72em; text-align:left; }
+ .reveal table { font-size: 0.62em; } .reveal li { font-size: 0.9em; }
+ .footer { position: fixed; bottom: 8px; left: 16px; font-size: 14px; color: #777; }
+ .reveal div.mermaid { width: 100%; margin: 0 auto; font-size: 16px; line-height: 1.5; white-space: normal; text-align: center; }
+ .reveal div.mermaid p { margin: 0; line-height: 1.5; }
+ .reveal div.mermaid svg { max-width: 100%; max-height: 540px; }
+</style></head><body>
+<div class="reveal"><div class="slides">
+<section data-markdown><textarea data-template>
+# Lab 07 — Your Investor
+
+**One thing today: work one name from your screen through the worksheet, with a hook that checks every number, make the investor your team's own, and file the first live report.**
+
+**You arrive with:** Tuesday's seeker running; the worksheet file and the persona written by
+hand; the live release your team chose; your model's cutoff recorded; the thing your team
+decided to own.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Open — the paired review (10 minutes)
+
+1. **Tools alive.** The seeker runs; the agent team runs on a ticker.
+2. **Defend.** Show your partner the top of your screen. Partner asks what the rank does not
+   know.
+3. **Gap check.** Write one line: what makes a hit rate of seven in ten meaningless?
+</textarea></section>
+<section data-markdown><textarea data-template>
+## D — the question, the same for everyone
+
+> Can the desk judge one name the seeker found, with every number traced to a filing, a value
+> range against the price, and a view the live record can score?
+</textarea></section>
+<section data-markdown><textarea data-template>
+## R — what you work from
+
+| Input | Where |
+|---|---|
+| One name from your screen | your partner picks it from your report, not you |
+| Its filings | the Form 10 and its information statement, the first 10-Q or 10-K, the Form 4s, on EDGAR |
+| Closes and volumes | your closes reader, plus a volume column |
+| The worksheet's parts | [Week 4 page](../week-04/index.html), Teaching 4; your own version, written by hand |
+| This week's live release | the one your team chose from the earnings calendar |
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — the worksheet, the hook, then make it yours
+
+1. Send your coding agent the request:
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — the worksheet, the hook, then make it yours (continued)
+
+   > Make a second skill, named for the worksheet. It runs on a saved run of my agent team for
+   > one ticker and on the filings the run saved. When the ticker is in my seeker's registry, it
+   > also fetches the Form 10 and its information statement from EDGAR by the registry's accession
+   > and saves them with the run; otherwise the spinoff parts print "not applicable" and the rest
+   > runs. In code, it fills the facts of the worksheet from the filings, one line per fact with
+   > an amount, and "not known" where the filing states none, never a list of sentences: the parent, the ratio and the dates from the information statement; the
+   > debt raised and where the cash went; the liabilities and the restrictions the parent left,
+   > each with the filing and the section; insiders' purchases from Form 4, code P only, which
+   > is an open-market or private purchase; the median daily dollar volume from the closes and
+   > volumes my reader supplies, against the client's purchase size in my worksheet file. Each
+   > figure is marked historical, pro forma, or reported after the spin, by the statement it came
+   > from. It computes owner cash flow as after-tax earnings
+   > plus depreciation minus capital spending, from the statements, with the arithmetic printed,
+   > and a value range, low and mid, by the method written in my worksheet file, with the rates
+   > stated. It prints the price against the low case. Then one model call, with the persona
+   > file I wrote, writes the judgment from the filing facts, the value range and the price
+   > against the low case, and nothing else from the reader: why the name may be cheap or why it
+   > is not that story, and what in the next filing would change the view. The liquidity line is
+   > added after the call, in code. The skill ends with a view on the release, more or less than
+   > the price, with the one number that decides it and its filing or line; a conviction, high
+   > or low, by the rule in my worksheet file; and a "not known" list of what it could
+   > not find. When the close is "not available," the price lines and the view print "not
+   > computed." The skill saves the worksheet with the run, with the date and time it ran. No
+   > model computes a number. Nothing in the code names a company. Tell me the exact command to
+   > run it on a saved run.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — the worksheet, the hook, then make it yours (continued)
+
+2. Run the agent team on the name your partner picked, then the worksheet. *Expect:* every fact
+   with a filing and a section; owner cash flow with its arithmetic; a low and a mid case; the
+   price against the low case; a judgment that ends with what would change it; the view with one
+   number; the "not known" list. The shape of one line, not your answer: `debt raised: [amount];
+   [filing], [section]; cash to the parent: [amount]; pro forma`.
+3. Send the hook request:
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — the worksheet, the hook, then make it yours (continued)
+
+   > Add a hook to my agent that runs when a skill has written its output. The hook runs a script
+   > that reads every number in the saved worksheet itself, not in a file written for the hook. A number that claims a tag and a period is looked up
+   > in the run's facts file, exactly. A number that claims a filing and a line is found in that
+   > filing's saved text. A number computed from printed inputs is recomputed from them. A rate
+   > or a weight is matched against the skill's file. A price is matched against the reader's
+   > output. A date, an accession number or a line number is an identifier, not a claim, and is
+   > skipped. A number of no such kind is a failure. On any failure the hook refuses "done" and prints the line that failed. Show me the hook's file
+   > before you enable it. Tell me the exact command to test the hook on a saved run.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — the worksheet, the hook, then make it yours (continued)
+
+4. Read the hook's file: it runs as you. Then enable it.
+5. **Seed one error.** Copy the worksheet, change one amount by one, and run the hook on the copy.
+   *Expect:* a refusal that names the line. Run it on the clean worksheet. *Expect:* silence.
+   Then, with the hook enabled, tell your agent the seeded copy is the skill's output and ask it
+   to finish. *Expect:* it does not say done. The shape, not your answer:
+   `refused: line 9, [amount] is not in [filing], [section]`.
+6. **Own the investor.** As a team, start the thing you decided on, at whatever depth today
+   reaches, and write it in one line at the top of the repository's README. Three worth owning,
+   from the Week 4 page's levels, or one of your own: the second seeker, for
+   stocks below net current asset value, with the book's exclusions as code and the haircuts
+   shown; the factor check, fixed in a file before any return is seen, honest about how many
+   comparisons it ran; the plugin, with evals that run the same question with and without the
+   skill.
+7. **The hit-rate table.** Ask your agent for a command that reads every run in a folder you
+   name, fills in any reaction that has become available since the run without touching the
+   view or its time, and prints one row per run: ticker, filing time, the view's time,
+   direction, reaction, agree or disagree, and "after" when the view's time is later than the
+   first close after the filing time. The last line counts agreements over runs with a
+   reaction, leaving out "after" rows and views "not computed". Live runs go in `runs/live`,
+   practice runs elsewhere.
+8. **The live report.** If this week's release has filed, run the agent team and the worksheet
+   skill on it now, into `runs/live`, and upload the verified report with the skill's output
+   under it to Brightspace → **Live record** before its window closes; the product manual scores the
+   view in that upload. If it files later this week, the member you chose runs it then.
+9. **While it runs:** one item from your gap list, in a second AI chat. Never collected.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## V — prove it general
+
+| Check | Expect |
+|---|---|
+| The partner's name | a worksheet whose every fact your partner can open at the filing and section it names |
+| Two facts, recomputed by hand | owner cash flow and the low case equal the skill's, from the inputs it prints |
+| The hook on the seeded copy, then on the clean worksheet | refuses and names the line; then silent |
+| The judgment | names something no number printed, and what would change it |
+| The thing you own | the line in your README, and the start it names, shown running |
+| The hit-rate table | one row per run; practice runs marked "after" |
+| The live report's first line | the filings it read, this week's release among them |
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Base rates — Learn on your own
+
+1. What is a base rate (what a coin would score on your hit-rate table)?
+2. How does it work here (half the directions agree by chance; a one-day move does not score
+   the value range)?
+3. Explain it: how many live reports would your team need before seven in ten said anything?
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Reflect
+
+Explain to your partner: 1. the thing your team owns, and what it costs you; 2. the line of
+the worksheet you trust least, and why.
+
+**Before Session 8 — do these:** the list on the [Week 5 page](../week-05/index.html), about
+90 minutes.
+
+**Next:** Lab 08 joins the seeker, the worksheet and the hook to your agent team under one
+command.
+</textarea></section>
+</div></div>
+<div class="footer">FIN 67110 · Lab 07 — Your Investor</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+<script>
+// Charts are authored as ```mermaid blocks on the pages; the markdown plugin leaves them as code.
+// Each is drawn by mermaid.render, which measures in a scratch node outside reveal's scaled slides
+// (measuring inside them clips the labels), and the finished SVG replaces the code block.
+mermaid.initialize({ startOnLoad: false });
+Reveal.initialize({ hash: true, slideNumber: true, plugins: [ RevealMarkdown ] }).then(async () => {
+  const codes = [...document.querySelectorAll('.reveal code.mermaid, .reveal code.language-mermaid')];
+  for (let i = 0; i < codes.length; i++) {
+    const { svg } = await mermaid.render('chart' + i, codes[i].textContent);
+    const div = document.createElement('div'); div.className = 'mermaid'; div.innerHTML = svg;
+    codes[i].parentElement.replaceWith(div);
+  }
+  Reveal.layout();
+});
+</script>
+</body></html>

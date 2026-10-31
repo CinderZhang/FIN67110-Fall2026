@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 06 — The Seeker</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<style>
+ .reveal { font-size: 26px; }
+ .reveal h1 { font-size: 1.6em; } .reveal h2 { font-size: 1.2em; color:#8e6f3e; }
+ .reveal blockquote { width: 95%; font-size: 0.72em; text-align:left; }
+ .reveal table { font-size: 0.62em; } .reveal li { font-size: 0.9em; }
+ .footer { position: fixed; bottom: 8px; left: 16px; font-size: 14px; color: #777; }
+ .reveal div.mermaid { width: 100%; margin: 0 auto; font-size: 16px; line-height: 1.5; white-space: normal; text-align: center; }
+ .reveal div.mermaid p { margin: 0; line-height: 1.5; }
+ .reveal div.mermaid svg { max-width: 100%; max-height: 540px; }
+</style></head><body>
+<div class="reveal"><div class="slides">
+<section data-markdown><textarea data-template>
+# Lab 06 — The Seeker
+
+**One thing today: turn a book's chapter into a skill your agent runs: a spinoff seeker that finds U.S. spinoffs on EDGAR, prices them with your own code, and ranks a screen by factors you declared.** (45 minutes, after the teaching.)
+
+**You arrive with:** your agent team running; your closes reader printing a close; your factor
+list written by hand, with the direction each factor should point and the chapter it came from;
+one recent Form 10 read; your agent's skills and hooks pages read.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Open — the paired review (10 minutes)
+
+1. **Tools alive.** The closes reader prints the last close before a time; your agent lists its
+   skills, the minimal one you made among them.
+2. **Defend.** Read your partner your factor list. Partner asks: which factor would the book's
+   author strike, and why?
+3. **Gap check.** Write the filing sequence of a spinoff from memory: the forms, in order, from
+   the announcement to the first Form 4. If you cannot, that is today's gap.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 1 — a chapter is a procedure
+
+Both authors tell the same story. A parent distributes shares of a business to its own
+holders. Those holders never chose it, and many sell. An index fund must sell it if it is not
+in the fund's index. Analysts do not cover it yet. So for some months the price can sit below
+what the business is worth, and nobody has to be wrong for that to happen: the sellers are
+selling for reasons that have nothing to do with value. Klarman's cases add two more timings:
+the parent before the distribution, when holders sell it to buy the piece they want; and the
+leftover after it, when they dump what they did not want. Read as a procedure, the chapter
+says: find every spinoff; learn who had to sell and whether they have finished; read what the
+parent left inside it; value it from what it earns, not from what it trades at; and look at the
+parent too.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 1 — a chapter is a procedure (continued)
+
+The rule is Week 3's again: the search and the checks are deterministic, the judgment is
+dynamic. Code finds the filings, reads the dates, prices the names and counts the points. A
+model, from your persona, says why this one may be cheap, or why it is not that story, and what
+in the next filing would change the view.
+
+| In the skills | Code | The model |
+|---|---|---|
+| the seeker | reads EDGAR, fills the registry, prices, ranks, writes the report | nothing |
+| the worksheet's facts | from the filings, each with its section; pro forma or reported | nothing |
+| owner cash flow and the value range | the arithmetic, printed, by the method in your file | nothing |
+| the judgment | hands the persona the worksheet | why it may be cheap; what would change the view |
+| the view | records it with its number | chooses the view, the number and the conviction |
+| the hook | looks up every number in a filing, the facts or a printed computation | nothing |
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 2 — the filing sequence of a spinoff
+
+A spinoff leaves a trail on EDGAR, and most leave the same one, which is why a script can find
+them. The parent
+announces the plan in an 8-K, often months ahead. The new company registers its shares on a
+Form 10: 10-12B for an exchange listing, 10-12G otherwise. The information statement, the
+document the parent's holders receive, is attached to it as an exhibit, and it carries the
+parent, the distribution ratio, the record and distribution dates, the pro forma financials,
+and what the parent is leaving inside: debt raised whose cash went to the parent, liabilities,
+the tax agreement that limits buybacks and sales for about two years. Amendments follow. The
+exchange files a CERT when it approves the listing; when-issued trading starts about a week
+before the distribution. At the distribution an 8-K is filed, and often by the parent, not by the new
+company, so a seeker that reads only the new company's list can miss the day it started
+trading. The new company's own list then begins: Form 4s by insiders, the first 10-Q, the first
+10-K, and any of those proves it trades. Other endings
+exist: a withdrawal, a deregistration because the business was merged away, or an S-1 because
+the plan became an IPO. Your seeker reads this trail; the facts it establishes go into a
+registry with the filing and section beside each.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 2 — the filing sequence of a spinoff (continued)
+
+Four facts that bite, each the kind a cold run finds. The first price in a vendor's file is
+often the when-issued print, days before the distribution; your window starts at the
+distribution. A 10-12G is filed by many funds and shells that are not spinoffs; a first test is
+whether the filing holds an information statement, the proof is a parent distributing shares of
+the business, and the seeker reads anything small before trusting it. The pro forma statements can understate the standalone costs the business will carry,
+taxes, corporate overhead and interest on the new debt, so the worksheet reads their notes and
+records a cost it cannot establish as "not known." And index membership on most student data
+is current only, so the forced-selling story is read from the parent's index and the new
+company's listing, and said as a reading, not a fact.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 3 — the screen is a hypothesis
+
+A screen ranks names so you read the likely ones first. The factors come from the chapters:
+small relative to the parent, so the parent's holders dump it; weak in its first weeks, so the
+selling is under way; few analysts, so nobody has priced it; insiders buying, which is Form 4 with
+transaction code P, an open-market or private purchase; small in absolute size. Each one has a direction the
+chapter predicts. Your factors file states each factor, its weight and its direction, and the
+report prints every name's points per factor, so a partner can recompute a rank. The weights
+are yours and they are unvalidated until a check says otherwise, and the report says so.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 3 — the screen is a hypothesis (continued)
+
+The check is a procedure too, and it is Thursday's Expand. Write the test before you see a
+return: which past spinoffs, from which source, entered on which day after the distribution,
+held how long, compared with what. Then run it once. Count the comparisons you made: twenty
+cells and five factors are a hundred tests, so about five pass at the five-percent level by
+chance, and the honest result says which factor passed in the cell you named first. The
+published evidence, on the readings page, is mixed, and its samples end years ago; whether the
+effect survived the people who read those papers is the question your check asks of a later
+sample. A ranking with no check is a story with points.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 4 — the worksheet
+
+One name, one file, every figure with its filing, its section and its date. The non-negotiables,
+from the chapters and from the instructor's own worksheet: cite every fact; mark each figure
+by the statement it came from: historical, pro forma, or reported after the spin, because a
+Form 10 holds the first two side by side; value
+as a range, a low and a mid case at least, from owner cash flow, which is after-tax earnings
+plus depreciation minus capital spending, never a multiple of EBITDA alone; compare the price
+with the low case; list what the parent pushed into it; look at the parent after the spin;
+count insiders' open-market purchases; say whether the name can be bought at the purchase size
+you wrote for your client; and write what is not known. The instructor's worksheet, its headings only, the
+shape, not your answer:
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 4 — the worksheet (continued)
+
+```text
+# [Company] ([TICKER]): spinoff worksheet, [date]
+Screens to look at, not a recommendation.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Facts            parent; distribution date and ratio; price on [date]; market value; index; window ends; rank with its points
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Why it may be cheap   the forced or indifferent seller, or why it is not that story here
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Value range      method and rates stated; owner cash flow; low and mid cases; price against the low case
+</textarea></section>
+<section data-markdown><textarea data-template>
+## What the parent pushed into it   each item with its amount and citation, or "looked in [sections], found none"
+</textarea></section>
+<section data-markdown><textarea data-template>
+## The parent after the spin
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Insiders and catalysts   open-market purchases; buybacks; restrictions
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Can you buy it   median daily dollar volume against the client's purchase size
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Not known
+
+```
+
+The persona fills one part: why it may be cheap, and what would change the view. Write it by
+hand, in the six parts from the [Week 3 page](../week-03/index.html#teaching-3--the-persona-dynamic-work-in-a-fixed-slot),
+with the chapter beside each criterion and never a copied passage.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 5 — the hook: code the agent cannot skip
+
+A hook is a command your agent runs at an event: before a tool call, after one, when it is
+about to say it is done. A skill's instructions can be skipped by a model; a hook cannot. This
+week's hook reads a skill's output and checks every number: one that claims a tag and a period
+against the run's facts file, exactly; one that claims a filing and a line against that
+filing's saved text; one computed from printed inputs by recomputing it; a rate or a weight
+against the skill's own file. A number of no such kind fails. On a failure the hook refuses and
+prints the line. At the finishing event a refusal does not end the turn; the agent keeps
+working, which is the refusal you want. Two things to know before you enable one: a hook runs
+with your permissions, so read its file first (Codex asks you to trust each hook by name before
+it runs); and a hook that calls a model is a model call, not a check.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 6 — two horizons, and what the price already said
+
+The worksheet says two things, and they are not the same claim. The value range is about years;
+Greenblatt did not promise next week. The view, more or less than the price, is about this
+release. Only the view enters the hit rate: your code, from the closes your reader pulls, takes
+the last close before the filing time and the first close after it, and the return between them
+is the reaction. A view written before the reaction is scored; a view written after it saw the
+move and is marked "after." Over a season, the share of views that agree with the reaction is a
+hit rate, and a coin scores about half. And one check before you trust any backtest: ask your
+model, in a fresh chat with tools off, a figure from a release you have; if it answers right, it
+may have seen that release, and that quarter is then not a clean test of the model, whatever it
+says about it. Live releases are the clean test.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Application — the live record's companies
+
+The seeker finds names nobody is covering; the live record reads the names everybody is. Each
+week your team's desk runs on at least one earnings release filed that week, and the worksheet
+skill writes its view. The season's story is companies spending on data centers faster than
+their operations pay for it, and a value worksheet reads that the way it reads a spinoff: cash
+from operations against capital spending, debt raised and where it went. One trap your code
+must handle: a 10-Q's cash flow statement is year to date, so a quarter's capital spending is
+the difference between two filings' lines. A starting set for the partner's picks and the live
+record, on both sides of the build-out: Oracle, Microsoft, Alphabet, Amazon, Meta, CoreWeave,
+NVIDIA, AMD, Broadcom, Dell, Super Micro, Vertiv. The calendar says which week each reports.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Three levels
+
+- **Must.** The seeker with its registry and its ranked screen; the worksheet on one name your
+  partner picked, with the persona you wrote and the hook; a view on the live release; the
+  first live report; and a start on the one thing your team chose to own, at whatever depth
+  Thursday reaches.
+- **Expand.** A second seeker from a second chapter, stocks below net current asset value, from
+  the facts file your desk already reads; or the factor check, pre-registered, on past spinoffs
+  from WRDS.
+- **Ship.** Both skills as a plugin your teammates install with one command, with evals that
+  run the same question with and without the skill and grade the answers, and a release tag. A
+  skill someone else can run is the thing this course is for.
+
+Expand and Ship are where your ambition goes, and nobody will tell you which to take.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## D — the question, the same for everyone
+
+> Can a chapter about who sells and why become a procedure your agent runs on EDGAR every week,
+> with every name's facts traced to a filing and every rank explained?
+</textarea></section>
+<section data-markdown><textarea data-template>
+## R — what you work from
+
+| Input | Where |
+|---|---|
+| The filing sequence of a spinoff, and what each form holds | [Week 4 page](../week-04/index.html), Teaching 2 |
+| The filings | SEC EDGAR: the daily and full indexes, the submissions API, the filing folders, and the full-text search (the [data page](../reference/data.html)) |
+| Prices | your closes reader |
+| Your factors, with their directions | the list you wrote before class, from the chapters |
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build it from the contract
+
+What follows is the contract: what the seeker must do and what it must never do. The design is
+yours: the folder, the factors and their weights, the window, the shape of the report, the name.
+Send it as it is or in your own words, and keep every sentence that says "never."
+
+1. Send your coding agent the request:
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build it from the contract (continued)
+
+   > Make a skill for my coding agent, in the folder where my agent reads skills, named for what
+   > it seeks. It finds U.S. spinoffs on SEC EDGAR whose distribution date is on or after a start
+   > date I give. It reads EDGAR's
+   > form indexes for Form 10 registrations, their amendments, the exchanges' CERT filings and
+   > the 8-Ks filed at a distribution, and it reads each filing's folder on EDGAR for the facts
+   > it needs. It sends my SEC User-Agent from .env on every request and stays under the rate
+   > EDGAR allows. It keeps a registry file of facts established by reading a filing: the
+   > parent, the distribution ratio, the record and distribution dates, each with the filing
+   > and the section it came from. The skill fills the registry from the filings it can read;
+   > a fact it cannot find stays blank, and the report says so. It never estimates a fact. It
+   > drops a registrant that is not a spinoff, with the reason and the filing beside it: a Form 10
+   > with no information statement, a fund, or a company registering shares it already has, is
+   > dropped unless a later filing shows a parent distributing the business. It gives each name
+   > a stage: registered, listing approved, trading, in its window, or past it. The distribution
+   > 8-K is often the parent's, so the skill reads the parent's filings from the registry's parent
+   > CIK; a 10-Q, a 10-K or a Form 4 in the new company's own filing list proves it trades. A
+   > name's first price is the first close after the distribution date, never a when-issued
+   > price. It takes closes from my closes reader and prints the price date beside every price.
+   > It ranks the names in their window by the factors in a file I write, each with its weight
+   > and direction; the same file states the window's length in days after the distribution. It
+   > prints each name's points per factor. A name missing a date it needs is listed unranked,
+   > with the reason. It writes a report with the run
+   > date, the price date and the index date on the first line, the names in their window by
+   > rank, the watch list of registered names not yet trading, what was dropped and why, what
+   > the data cannot show, and the line "screens, not recommendations" at the end. The report
+   > is saved with the date and time it ran. Every rule has a test on made-up data, and a rule
+   > changes only after its test does. Nothing in the code names a company. Tell me the exact
+   > command to run the seeker from a start date and the exact command to run its tests.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build it from the contract (continued)
+
+2. Run the tests, then the seeker, from a start date about a year back. *Expect:* the report with
+   its three dates on the first line; names in their window with points per factor; a watch list;
+   a dropped list with a reason and a filing beside each; the last line. The shape of one row,
+   not your answer: `[name] | [parent] | distributed [date] | window ends [date] | [price] on
+   [price date] | [points]: size [n], weakness [n], insiders [n]`.
+3. Write one factor's weight to zero in your factors file and run again on the same inputs.
+   *Expect:* that factor's points disappear from every name; the other factors' points do not
+   change; the ranks may.
+4. **While it runs:** work one item from your gap list in a second AI chat. Never collected.
+5. Something not working? Debug with your AI: paste the exact command and the exact error text.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## V — prove it on the known answer
+
+| Check | Expect |
+|---|---|
+| A spinoff your partner found on EDGAR by hand, in its window | in your report, with the parent and the dates your partner read from the Form 10 |
+| A Form 10 filer that is a fund or a shell | dropped, with the reason and the filing |
+| A name's first price | after its distribution date, never a when-issued print |
+| One name's registry row | your partner opens the filing and section it names and finds the ratio and the dates |
+| The ranking | your partner recomputes one name's points from your factors file |
+| The last line of the report | "screens, not recommendations" |
+| A fact the skill could not find | blank in the registry, and said in the report; never a guess |
+
+Match, or debug with your AI.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Skills with scripts — Learn on your own
+
+1. What is a skill (a folder your agent loads when a task matches its description, with scripts
+   beside the instructions), and why does a seeker need scripts and not only instructions?
+2. How does it work here: which lines of your report come from code, and which would a reader
+   still have to check in the filing?
+3. Explain it: open the first screen of [FAskills](https://github.com/CinderZhang/FAskills).
+   What does its processing layer compute before any persona sees the data, and what is the
+   equivalent in your seeker?
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Reflect
+
+Explain to your partner: 1. the name at the top of your screen, and the one line from the
+chapter that put it there; 2. the fact in your registry you trust least, and why.
+
+**Before Session 7 — do these:** the list on the [Week 4 page](../week-04/index.html#before-session-7--about-45-minutes),
+about 45 minutes.
+
+**Next:** Lab 07 works one name from your screen through the worksheet: a value range against
+the price, with a hook that checks every number, and the live record begins.
+</textarea></section>
+</div></div>
+<div class="footer">FIN 67110 · Lab 06 — The Seeker</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+<script>
+// Charts are authored as ```mermaid blocks on the pages; the markdown plugin leaves them as code.
+// Each is drawn by mermaid.render, which measures in a scratch node outside reveal's scaled slides
+// (measuring inside them clips the labels), and the finished SVG replaces the code block.
+mermaid.initialize({ startOnLoad: false });
+Reveal.initialize({ hash: true, slideNumber: true, plugins: [ RevealMarkdown ] }).then(async () => {
+  const codes = [...document.querySelectorAll('.reveal code.mermaid, .reveal code.language-mermaid')];
+  for (let i = 0; i < codes.length; i++) {
+    const { svg } = await mermaid.render('chart' + i, codes[i].textContent);
+    const div = document.createElement('div'); div.className = 'mermaid'; div.innerHTML = svg;
+    codes[i].parentElement.replaceWith(div);
+  }
+  Reveal.layout();
+});
+</script>
+</body></html>
