@@ -26,7 +26,7 @@ hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
 <p>The one place for points and policies. Dates are on the <a href="schedule.html">schedule</a>.</p>
 <h2 id="points">Points</h2>
 <p>Every component is scored out of 100. The course total weighs each of the four checkpoints at
-17.5% and the project at 30%.</p>
+17.5%, the project's tier at 20% and the peer evaluation at 10%.</p>
 <table>
 <thead>
 <tr>
@@ -45,23 +45,32 @@ hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
 </tr>
 <tr>
 <td>Checkpoint 3 — the team proposal</td>
-<td>By 11:59 PM Eastern on the day of Session 9: one Markdown page in <strong>Checkpoint 3</strong> naming the team, its client, the design of the client's skill, and the live record so far</td>
+<td>By 11:59 PM Eastern on the day of Session 9: one Markdown page in <strong>Checkpoint 3</strong> naming the team, the desk's design as one diagram and the join it uses where, the thing the team owns, each member's role in one line, and the live record so far</td>
 </tr>
 <tr>
-<td>Checkpoint 4 — the draft</td>
-<td>By 11:59 PM Eastern on the day of Session 12: the team's draft paper in <strong>Checkpoint 4</strong> with the live-record table, the audit table and the client paragraph</td>
+<td>Checkpoint 4 — the first draft</td>
+<td>By 11:59 PM Eastern on the day of Session 12: one upload per team in <strong>Checkpoint 4</strong>: a permalink to the repository at the project's first draft: the desk as it runs from its README, the paper's tables so far, the client paragraph and the decision log, and a roles section where each member states their role and contribution in their own words, in a commit of their own</td>
 </tr>
 <tr>
 <td>Project</td>
 <td>Five parts, including the team presentation; ranked once, at the end: see below</td>
 </tr>
+<tr>
+<td>Peer evaluation</td>
+<td>By 11:59 PM Eastern on the day of Session 14: in <strong>Peer evaluation</strong>, your points for each teammate with a comment on each, submitted alone: see below</td>
+</tr>
 </tbody>
 </table>
 <p>A checkpoint scores 100 (complete) or 0 (incomplete), never in between. Checkpoints 1 and 2 are
-individual. Checkpoints 3 and 4 are one upload per team, and every member receives the same score.
+individual. Checkpoints 3 and 4 are one upload per team, and every member receives the same score. The peer
+evaluation is individual.
 The lab page for each checkpoint shows the same requirement at the spot where you do it. The
 Session 1 checkout records completion and carries no weight.</p>
 <h2 id="the-project-ranked-once">The project, ranked once</h2>
+<p>The expectation is a desk another firm could adopt: another team runs it from its README alone,
+on a machine that is not yours, and gets a report; every number in that report traces to a
+filing; its rules have tests; its paper is the hand-off. The top tier is for a desk that was
+adopted. Both are checked as the <a href="project.html#how-it-is-ranked">project page</a> says.</p>
 <table>
 <thead>
 <tr>
@@ -74,12 +83,17 @@ Session 1 checkout records completion and carries no weight.</p>
 <tr>
 <td>Top</td>
 <td>95</td>
-<td>The top third of projects that pass the fail rule, rounded up, with ties as the project page says</td>
+<td>Adopted: the top third of projects that pass the fail rule and the two gates on the project page, rounded up, with ties as the project page says</td>
 </tr>
 <tr>
 <td>Standard</td>
 <td>85</td>
-<td>Every other project that passes the fail rule</td>
+<td>Ready to adopt: every other project that passes the fail rule and the ready check</td>
+</tr>
+<tr>
+<td>Submitted</td>
+<td>70</td>
+<td>Every other project that passes the fail rule: complete, or missing a part, but another team could not run it from its README alone</td>
 </tr>
 <tr>
 <td>Fail</td>
@@ -88,13 +102,33 @@ Session 1 checkout records completion and carries no weight.</p>
 </tr>
 </tbody>
 </table>
-<p>The fail rule is checked first. <strong>Complete</strong> means all five parts on the <a href="project.html">project page</a>
-are submitted. A project that passes the fail rule but misses a part is ranked in the standard
-tier. Ranking uses only the five published criteria on the
+<p>The fail rule is checked first, then the ready check. <strong>Complete</strong> means all five parts on the
+<a href="project.html">project page</a> are submitted. A project that passes the fail rule but misses a part
+is ranked in the submitted tier. Ranking uses only the published criteria on the
 <a href="project.html#how-it-is-ranked">project page</a>. The tier is the team's. <strong>How your desk's calls
 turned out, in returns or in beats, is never a criterion.</strong></p>
-<p>With all four checkpoints complete, the top tier's course total is 0.3 × 95 + 70 = 98.5 (A) and
-the standard tier's is 0.3 × 85 + 70 = 95.5 (A). Each missed checkpoint costs 17.5 points.</p>
+<p>With all four checkpoints complete and a peer score of 100, the top tier's course total is
+0.2 × 95 + 70 + 10 = 99 (A), the standard tier's is 0.2 × 85 + 70 + 10 = 97 (A) and the submitted
+tier's is 0.2 × 70 + 70 + 10 = 94 (A). Each missed checkpoint costs 17.5 points. Each point of peer
+score below 100 costs 0.1.</p>
+<h2 id="the-peer-evaluation">The peer evaluation</h2>
+<p>After the presentations, each member evaluates their teammates, alone. You have 100 points to
+distribute among your teammates, not yourself, with a comment on each: what they built and what
+they did not, in your own words. The points cannot be even or close to even: the largest and the
+smallest numbers you give must differ by at least 10. In a team of three, 75 and 25 is an
+evaluation, and so is 55 and 45; 50 and 50 is not. Nobody collaborates on it: no teammate
+sees your numbers, and an evaluation agreed among teammates is a collaborated one. The shape, not
+your answer: "B: 75. Built the agent team's graph and the hook, and ran four of the five live
+reports. C: 25. Wrote the personas and the proposal's diagram; started the seeker and did not
+finish it."</p>
+<p><strong>Your peer score,</strong> out of 100: the average of the points your teammates gave you, multiplied by
+the number of teammates who rated you, capped at 100. In a team of three, a member who received
+60 and 50 scores 100; a member who received 40 and 20 scores 60. An even or close-to-even split
+costs the member who gave it 50 points of their own peer score. In a team of two, the one
+teammate receives all 100 by construction; the comment is the evaluation, and the even-split rule
+does not apply. An evaluation not submitted by the deadline scores 0 for the member who did not
+submit it and changes nothing for the teammates it would have rated. The roles section of the
+paper is the team's shared statement; this is yours alone.</p>
 <h2 id="letter-scale">Letter scale</h2>
 <p>A 93 and above · A- 90 to 92.99 · B+ 87 to 89.99 · B 83 to 86.99 · B- 80 to 82.99 ·
 C+ 77 to 79.99 · C 73 to 76.99 · C- 70 to 72.99 · D 60 to 69.99 · F below 60.</p>
@@ -162,8 +196,8 @@ if your AI wrote it, you checked it. Anything you make public ends with these th
 <h2 id="integrity">Integrity</h2>
 <p>Purdue's academic integrity policy applies. Your desk, reports and audits before teams form are your
 own work; within a team, the project is shared work and every member can explain every part of it.
-One thing the policy might make you hesitate over is required: the audit of another team's reports,
-credited to its authors. Classmates may help you debug.</p>
+One thing the policy might make you hesitate over is required: running another team's desk and
+auditing its reports, credited to its authors. Classmates may help you debug.</p>
 <h2 id="the-data-you-use">The data you use</h2>
 <p>Public filings and XBRL data from SEC EDGAR, LSEG Workspace and WRDS through Purdue, and whatever
 else your own code can reach. The <a href="reference/data.html">data page</a> is the contract: what the reader returns, the

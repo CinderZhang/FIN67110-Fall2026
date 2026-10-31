@@ -38,30 +38,12 @@ that session. The team list is posted in Brightspace → Course data after Sessi
 remaining member answers a question. How the team works together, and where it
 keeps its files, is the team's business.</p>
 <h2 id="the-client">The client</h2>
-<p>Two clients are taught to everyone, in Week 4 and Week 5. Your team names one at Checkpoint 3.
-The parts, the ranking and the calendar are the same for every team. The client changes only the
-desk's last skill and what its output is compared against.</p>
-<table>
-<thead>
-<tr>
-<th>Client</th>
-<th>What the client's skill produces</th>
-<th>Compared against</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>An investor seeking absolute return</td>
-<td>A view on the report: worth more or less than the price, with the evidence</td>
-<td>What the price already said, as taught in Week 4</td>
-</tr>
-<tr>
-<td>An institution with a mandate</td>
-<td>A position inside the mandate's limits, net of the fee it charges</td>
-<td>The benchmark the mandate names, as taught in Week 5</td>
-</tr>
-</tbody>
-</table>
+<p>The client is an investor seeking absolute return, taught in Week 4. The desk's last skill
+produces a view on the report, worth more or less than the price, with the evidence; the paper
+compares the views against what the price already said. A team may serve an institution instead:
+it builds the mandate skill described on the <a href="week-05/index.html#three-levels">Week 5 page</a> as the
+thing it owns, and its paper compares relative return net of fee against the benchmark the
+mandate names. The parts, the ranking and the calendar are the same for every team.</p>
 <h2 id="what-you-submit-five-parts-one-brightspace-upload">What you submit: five parts, one Brightspace upload</h2>
 <p>Upload one Markdown file to <strong>Project</strong> that links to parts 1, 3 and 4 on github.com, wherever
 your team keeps them, and names your session from the posted order. Use permanent links (github.com's "Copy permalink" on a file), which freeze each file as it was
@@ -76,26 +58,35 @@ when you submitted. Its shape:</p>
 <ol>
 <li><strong>The desk.</strong> The code for the four roles with their tools, the verifier, the closes reader and
    the client's skill. It runs on any U.S. company that files with EDGAR, from its ticker, reading the filings
-   and the earnings release itself. The repository's README states the exact command.</li>
+   and the earnings release itself. The repository's README is written for a team that is not
+   yours: the exact command to run the desk, the exact command to run its tests, what the desk
+   reads, and what the machine needs, with every key named and never shown. Another team runs
+   your desk from that README in Session 10.</li>
 <li><strong>The live record.</strong> Already in Brightspace. Nothing to resubmit. The rule is below.</li>
 <li><strong>The audits.</strong> The <a href="reference/audit-checklist.html">report audit</a> of two of your own live
-   reports and of two reports from another team (swap with any team, as files, in Session 10),
-   each against the filings the desk read: four tables, with the error and missing counts at the
-   top of each. List your own two first; the reader checks the first one.</li>
+   reports and of the two reports your own run of another team's desk produced, from its README
+   alone, on two companies you chose (the exchange in Session 10), each against the filings the
+   desk read: four tables, with the error and missing counts at the top of each. Above the other
+   team's two tables, one line: the command you ran, the date, and whether you needed that team's
+   help. That line is the other team's ready check and its adoption, so write it as it was. List
+   your own two first; the reader checks the first one and may check any of the four.</li>
 <li><strong>The paper,</strong> in Markdown, at most 3,000 words, not counting tables:
    - the question and the client;
-   - how the desk works, with one diagram of the four roles, the verifier, the tools and the two
-     skills;
+   - how the desk works, with one diagram of the agent team, the verifier, the tools, the skills,
+     the hook and the one command, and which join it uses where (Week 5);
    - the live record: a table of every report, its release, its filing time, its upload time, and
      whether it was inside the window;
    - the audits: both counts for all four reports, and why you chose the two of your own;
-   - what the desk told the client, what happened afterward, and what four weeks can and cannot
-     show. Conclusions cover the reports you audited and the desk you built, nothing wider;
+   - what the desk told the client, with the hit-rate table and the base rate under it, what
+     happened afterward, and what four weeks can and cannot show. Conclusions cover the reports you audited and the desk you built, nothing wider;
    - the decision log: what your AI agents got wrong, how you caught it, and what you would not
-     delegate again, with the attack table from Week 6. Shape, not your answer: "Our Financial
+     delegate again, and what the attacks found if your team ran them, with the three-column
+     table of what the join changed (Week 5). Shape, not your answer: "Our Financial
      Analyst read the non-GAAP EPS as GAAP on the first live report. The verifier marked it
      unsupported because the quoted line was not in the release. We now have both figures reported,
-     each labeled."</li>
+     each labeled."
+   - the roles: one paragraph per member, their role and contribution, written and committed by
+     that member (the Week 7 shape).</li>
 <li><strong>The presentation,</strong> eleven minutes, in Session 13 or 14 (the order is posted in Brightspace),
    then three minutes of questions, one per member, from the instructor or the room, on a number
    shown in the talk. Inside the eleven minutes, the instructor puts on the screen a U.S. company
@@ -116,12 +107,20 @@ release on <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany">
 More reports are welcome and never required. Brightspace keeps every submission with its timestamp:
 that is the record that your desk read a real release in real time. Week 8 has no live obligation;
 Brightspace outages are on the <a href="grading.html#absences-and-outages">grading page</a>.</p>
+<h2 id="the-peer-evaluation">The peer evaluation</h2>
+<p>After the presentations, each member evaluates their teammates alone, in Brightspace → <strong>Peer
+evaluation</strong>. The rule, the score and the deadline are on the
+<a href="grading.html#the-peer-evaluation">grading page</a>. The roles section of the paper is the team's
+shared statement; the peer evaluation is shared with nobody.</p>
 <h2 id="how-it-is-ranked">How it is ranked</h2>
-<p>First, the fail rule on the <a href="grading.html#the-project-ranked-once">grading page</a> is checked. Every
-other project is read. "Ran live" is a gate: a team with a report inside its window in fewer than
-three of the four weeks cannot reach the top tier. The others are ordered by the remaining four
-questions in sequence: each question sorts the teams into those that meet it and those that do
-not, and the next question orders within each group.</p>
+<p>First, the fail rule on the <a href="grading.html#the-project-ranked-once">grading page</a> is checked. Then
+the ready check: another team ran your desk from its README alone, on its own machine, on
+companies it chose, and the run produced a report. The line above that team's audit tables says
+so, and the reader may rerun the command. A desk that needed your help to run, or did not run,
+is complete but not ready, and is in the submitted tier. Every other project is read. Two gates
+decide who can reach the top tier: "ran live" and "adopted". The others are ordered by the
+remaining four questions in sequence: each question sorts the teams into those that meet it and
+those that do not, and the next question orders within each group.</p>
 <table>
 <thead>
 <tr>
@@ -131,8 +130,12 @@ not, and the next question orders within each group.</p>
 </thead>
 <tbody>
 <tr>
-<td>Ran live (the gate)</td>
+<td>Ran live (a gate)</td>
 <td>A report inside its 24-hour window in at least three of Weeks 4 to 7, each naming the release it read; the Brightspace timestamp against the EDGAR "Accepted" time decides.</td>
+</tr>
+<tr>
+<td>Adopted (a gate)</td>
+<td>Another team ran your desk from its README alone, on companies it chose, and its audit of the two reports that run produced found no wrong claim in either table: the missing counts may be above zero, the error counts may not. The reader may check that team's tables against the filings. A reader outside the course who ran your desk and wrote what they used it for counts the same way, with the writing linked from the paper; welcome, never required.</td>
 </tr>
 <tr>
 <td>Audits hold</td>
@@ -153,7 +156,7 @@ not, and the next question orders within each group.</p>
 </tbody>
 </table>
 <p>The top tier is at least the top third of the projects that pass the fail rule, rounded up (for
-example 4 of 10). If fewer projects than that pass the gate, only those that pass are in the top tier. Ranking waits for any
+example 4 of 10). If fewer projects than that pass the two gates, only those that pass are in the top tier. Ranking waits for any
 part extended by an excused absence. Teams tied with the last team inside the top third after the four questions are all placed in
 the top tier, even where that exceeds a third. <strong>How your desk's calls turned out, in returns or in beats, is never a
 criterion.</strong> A desk that was wrong for its client every week, reported honestly, can rank at the
