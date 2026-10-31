@@ -1,4 +1,4 @@
-<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Lab 04 — The Team · FIN 67110</title><style>
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Lab 04 — The Agent Team · FIN 67110</title><style>
 :root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
 @media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
 * { box-sizing: border-box; }
@@ -22,8 +22,8 @@ hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
 </style></head>
 <body><main>
 <div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
-<h1 id="lab-04--the-team">Lab 04 — The Team</h1>
-<p><strong>One thing today: rebuild your desk as an agentic analyst team whose process is a graph in code, with a verifier no run can skip, and prove the verifier on a seeded error.</strong> (45 minutes, after the teaching.)</p>
+<h1 id="lab-04--the-agent-team">Lab 04 — The Agent Team</h1>
+<p><strong>One thing today: rebuild your desk as an agent team whose process is a graph in code, with a verifier no run can skip, and prove the verifier on a seeded error.</strong> (45 minutes, after the teaching.)</p>
 <p><strong>You arrive with:</strong> your desk from Lab 03 with every number sourced, your Costco and
 partner-pick reports on GitHub, your framework chosen, your one line on who decides which role
 runs next.</p>
@@ -38,7 +38,7 @@ runs next.</p>
 </ol>
 <h2 id="d--the-question-the-same-for-everyone">D — the question, the same for everyone</h2>
 <blockquote>
-<p>Can the same four roles run as a team whose process is fixed in code, the same on every run,
+<p>Can the same four roles run as an agent team whose process is fixed in code, the same on every run,
 with a verifier that runs every time, and does that verifier catch a number the filings do not
 support?</p>
 </blockquote>
@@ -74,7 +74,7 @@ support?</p>
 <li>Send your AI coding agent this request word for word, filling the bracket:</li>
 </ol>
 <blockquote>
-<p>Rebuild my desk as an agentic analyst team in Python with [LangGraph, the OpenAI Agents
+<p>Rebuild my desk as an agent team in Python with [LangGraph, the OpenAI Agents
 SDK, PydanticAI or CrewAI Flows]. Keep my seven steps as the team's tools. Keep my four
 roles' instructions; put each role's instructions in its own file in a folder named roles.
 The process is a graph in code. The graph has these nodes, in this order: the steps; the
@@ -103,7 +103,7 @@ line stays the filings line. The program takes a ticker, an optional --peers lis
 tickers, an optional --price number, and an optional --verify-only path to a saved run.
 With --verify-only it runs the Verifier on that run and nothing else. Print each node's
 name as it starts. Nothing in the code names a company. Read my key as API_KEY from .env.
-Tell me the exact command to install the packages, the exact command to run the team on a
+Tell me the exact command to install the packages, the exact command to run the agent team on a
 ticker with peers and a price, and the exact command to verify a saved run.</p>
 </blockquote>
 <ol start="2">
@@ -131,7 +131,7 @@ ticker with peers and a price, and the exact command to verify a saved run.</p>
    claims (if your audit found an error, fix that number first). <em>Expect:</em> all eleven marked
    correct. A verifier that flags correct numbers is too eager, and that costs you as much as
    one that misses.</li>
-<li><strong>The skip test.</strong> Search the code for a way to run the team without the Verifier. <em>Expect:</em>
+<li><strong>The skip test.</strong> Search the code for a way to run the agent team without the Verifier. <em>Expect:</em>
    none. If your agent added a flag that turns it off, have it removed.</li>
 </ol>
 <p>Your partner checks the marks of test 1 against the 10-K, open at the line.</p>

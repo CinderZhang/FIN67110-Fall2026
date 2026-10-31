@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lab 04 — The Team</title>
+<title>Lab 04 — The Agent Team</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
 <style>
@@ -16,9 +16,9 @@
 </style></head><body>
 <div class="reveal"><div class="slides">
 <section data-markdown><textarea data-template>
-# Lab 04 — The Team
+# Lab 04 — The Agent Team
 
-**One thing today: rebuild your desk as an agentic analyst team whose process is a graph in code, with a verifier no run can skip, and prove the verifier on a seeded error.** (45 minutes, after the teaching.)
+**One thing today: rebuild your desk as an agent team whose process is a graph in code, with a verifier no run can skip, and prove the verifier on a seeded error.** (45 minutes, after the teaching.)
 
 **You arrive with:** your desk from Lab 03 with every number sourced, your Costco and
 partner-pick reports on GitHub, your framework chosen, your one line on who decides which role
@@ -39,12 +39,12 @@ runs next.
 
 The paper's team is hierarchical: a manager agent decides which role to call, when, and with
 what. That is a model deciding the process. It is also why the paper cannot say, for any report,
-why a number is there: the path that produced it was never the same twice. Every framework on the
+why a number is there: the path that produced it could differ from one run to the next. Every framework on the
 list offers the other way, a fixed order in code. Yours is a graph: a state, nodes, edges. The
 nodes, in order: the steps from Lab 02; the Research Analyst; the Financial Analyst; the
 Investment Advisor; the Strategy Manager; the Verifier. The edges are code. Run it twice on the
-same ticker and the same nodes run in the same order on the same inputs. What differs is what
-each role writes.
+same ticker and the same nodes run in the same order. The one retry the Manager may send is a
+slot in the graph, not a choice a model makes. What differs is what each role writes.
 </textarea></section>
 <section data-markdown><textarea data-template>
 ## Teaching 1 — process is the thing to own (continued)
@@ -68,9 +68,12 @@ flowchart LR
 The week's rule: **the process is deterministic; the work inside each node is dynamic.** Code
 decides who runs, what each node sees, what comes back for a second try, and what is saved. The
 model decides what the business is, which development is the catalyst, what the thesis is, and
-what the one insight is. A team that lets the model decide the first list cannot be audited:
-nobody can say why a node ran. A team that lets code fill the second list has nothing to say: a
+what the one insight is. An agent team that lets the model decide the first list cannot be audited:
+nobody can say why a node ran. An agent team that lets code fill the second list has nothing to say: a
 template with numbers in it is not analysis.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 1 — process is the thing to own (continued)
 
 | Code decides | The model decides |
 |---|---|
@@ -150,7 +153,7 @@ Thursday, in your own words: they are the part of the desk that is yours.
 <section data-markdown><textarea data-template>
 ## Three levels, from this week on
 
-- **Must.** The team with the verifier as a node no run can skip, three personas with insight
+- **Must.** The agent team with the verifier as a node no run can skip, three personas with insight
   lines, proved on your partner's pick. Checkpoint 2 on the [grading page](../grading.html).
 - **Expand.** A second model as a second verifier node, its marks compared with the first's;
   peers chosen by the Financial Analyst's own criteria; a run that stops itself when a role's
@@ -170,7 +173,7 @@ keep it, is yours to decide.
 <section data-markdown><textarea data-template>
 ## D — the question, the same for everyone
 
-> Can the same four roles run as a team whose process is fixed in code, the same on every run,
+> Can the same four roles run as an agent team whose process is fixed in code, the same on every run,
 > with a verifier that runs every time, and does that verifier catch a number the filings do not
 > support?
 </textarea></section>
@@ -192,7 +195,7 @@ keep it, is yours to decide.
 <section data-markdown><textarea data-template>
 ## I — build it from the instruction (continued)
 
-   > Rebuild my desk as an agentic analyst team in Python with [LangGraph, the OpenAI Agents
+   > Rebuild my desk as an agent team in Python with [LangGraph, the OpenAI Agents
    > SDK, PydanticAI or CrewAI Flows]. Keep my seven steps as the team's tools. Keep my four
    > roles' instructions; put each role's instructions in its own file in a folder named roles.
    > The process is a graph in code. The graph has these nodes, in this order: the steps; the
@@ -221,7 +224,7 @@ keep it, is yours to decide.
    > tickers, an optional --price number, and an optional --verify-only path to a saved run.
    > With --verify-only it runs the Verifier on that run and nothing else. Print each node's
    > name as it starts. Nothing in the code names a company. Read my key as API_KEY from .env.
-   > Tell me the exact command to install the packages, the exact command to run the team on a
+   > Tell me the exact command to install the packages, the exact command to run the agent team on a
    > ticker with peers and a price, and the exact command to verify a saved run.
 </textarea></section>
 <section data-markdown><textarea data-template>
@@ -252,7 +255,7 @@ keep it, is yours to decide.
    claims (if your audit found an error, fix that number first). *Expect:* all eleven marked
    correct. A verifier that flags correct numbers is too eager, and that costs you as much as
    one that misses.
-4. **The skip test.** Search the code for a way to run the team without the Verifier. *Expect:*
+4. **The skip test.** Search the code for a way to run the agent team without the Verifier. *Expect:*
    none. If your agent added a flag that turns it off, have it removed.
 </textarea></section>
 <section data-markdown><textarea data-template>
@@ -281,7 +284,7 @@ Explain to your partner: 1. one thing a model decided in your Lab 03 desk that c
 company your partner picks. Teams form; Checkpoint 2.
 </textarea></section>
 </div></div>
-<div class="footer">FIN 67110 · Lab 04 — The Team</div>
+<div class="footer">FIN 67110 · Lab 04 — The Agent Team</div>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>

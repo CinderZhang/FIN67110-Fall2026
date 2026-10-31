@@ -1,4 +1,4 @@
-<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Week 3 — The Agentic Analyst Team · FIN 67110</title><style>
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Week 3 — Your Agent Team · FIN 67110</title><style>
 :root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
 @media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
 * { box-sizing: border-box; }
@@ -22,8 +22,8 @@ hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
 </style></head>
 <body><main>
 <div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
-<h1 id="week-3--the-agentic-analyst-team">Week 3 — The Agentic Analyst Team</h1>
-<p><strong>Mission.</strong> Tuesday you rebuild your desk as a team whose process is a graph in code: the same
+<h1 id="week-3--your-agent-team">Week 3 — Your Agent Team</h1>
+<p><strong>Mission.</strong> Tuesday you rebuild your desk as an agent team whose process is a graph in code: the same
 nodes in the same order on every run, each role a model call on what the graph hands it, and a
 verifier after the Manager that no run can skip. Thursday each role's work becomes yours: a
 persona you wrote, which must draw an insight, proved on a company your partner picks. Teams form.</p>
@@ -39,19 +39,19 @@ inputs, with what check at the end. The paper's team let a model decide that. Yo
 your one line on who decides which role runs next in your desk: code, or a model.</p>
 <h2 id="outcomes">Outcomes</h2>
 <ul>
-<li>Rebuild the four roles as a team in a framework you chose: the process a graph in code, each
+<li>Rebuild the four roles as an agent team in a framework you chose: the process a graph in code, each
   role a node that receives only what the graph sends it, every run saved.</li>
 <li>Make the verifier a node after the Manager that runs on every run, and prove it on a seeded
   error, an invented number and a clean report.</li>
 <li>Write a persona for each analyst role, in your own words, that must state one insight the
   release's headline does not.</li>
-<li>Say which decisions in your team are code's and which are the model's.</li>
+<li>Say which decisions in your agent team are code's and which are the model's.</li>
 <li>Form a team.</li>
 </ul>
 <h2 id="the-sessions">The sessions</h2>
 <ul>
-<li><strong>Session 4</strong> — <a href="lab-04-the-team.html">Lab 04: The team</a>.</li>
-<li><strong>Session 5</strong> — <a href="lab-05-make-the-team-yours.html">Lab 05: Make the team yours</a>. Checkpoint 2 is
+<li><strong>Session 4</strong> — <a href="lab-04-the-team.html">Lab 04: The agent team</a>.</li>
+<li><strong>Session 5</strong> — <a href="lab-05-make-the-team-yours.html">Lab 05: Make the agent team yours</a>. Checkpoint 2 is
   due by the end of the day; teams form.</li>
 </ul>
 <h2 id="read-this-week">Read this week</h2>
@@ -82,12 +82,12 @@ your one line on who decides which role runs next in your desk: code, or a model
 <h2 id="teaching-1--process-is-the-thing-to-own">Teaching 1 — process is the thing to own</h2>
 <p>The paper's team is hierarchical: a manager agent decides which role to call, when, and with
 what. That is a model deciding the process. It is also why the paper cannot say, for any report,
-why a number is there: the path that produced it was never the same twice. Every framework on the
+why a number is there: the path that produced it could differ from one run to the next. Every framework on the
 list offers the other way, a fixed order in code. Yours is a graph: a state, nodes, edges. The
 nodes, in order: the steps from Lab 02; the Research Analyst; the Financial Analyst; the
 Investment Advisor; the Strategy Manager; the Verifier. The edges are code. Run it twice on the
-same ticker and the same nodes run in the same order on the same inputs. What differs is what
-each role writes.</p>
+same ticker and the same nodes run in the same order. The one retry the Manager may send is a
+slot in the graph, not a choice a model makes. What differs is what each role writes.</p>
 <pre class="mermaid">flowchart LR
     S[the steps&lt;br/&gt;filings, facts, ratios&lt;br/&gt;code, no model] --&gt; RA[Research Analyst&lt;br/&gt;one model call]
     S --&gt; FA[Financial Analyst&lt;br/&gt;one model call]
@@ -102,8 +102,8 @@ each role writes.</p>
 <p>The week's rule: <strong>the process is deterministic; the work inside each node is dynamic.</strong> Code
 decides who runs, what each node sees, what comes back for a second try, and what is saved. The
 model decides what the business is, which development is the catalyst, what the thesis is, and
-what the one insight is. A team that lets the model decide the first list cannot be audited:
-nobody can say why a node ran. A team that lets code fill the second list has nothing to say: a
+what the one insight is. An agent team that lets the model decide the first list cannot be audited:
+nobody can say why a node ran. An agent team that lets code fill the second list has nothing to say: a
 template with numbers in it is not analysis.</p>
 <table>
 <thead>
@@ -189,7 +189,7 @@ Thursday, in your own words: they are the part of the desk that is yours.</p>
 </ul>
 <h2 id="three-levels-from-this-week-on">Three levels, from this week on</h2>
 <ul>
-<li><strong>Must.</strong> The team with the verifier as a node no run can skip, three personas with insight
+<li><strong>Must.</strong> The agent team with the verifier as a node no run can skip, three personas with insight
   lines, proved on your partner's pick. Checkpoint 2 on the <a href="../grading.html">grading page</a>.</li>
 <li><strong>Expand.</strong> A second model as a second verifier node, its marks compared with the first's;
   peers chosen by the Financial Analyst's own criteria; a run that stops itself when a role's
@@ -222,14 +222,15 @@ keep it, is yours to decide.</p>
 </ol>
 <h2 id="before-session-5--about-45-minutes">Before Session 5 — about 45 minutes</h2>
 <ol>
-<li>Push the team to your repository (never <code>.env</code>). Finish the seeded-error, invented-number and
-   clean-report tests if the room ran out: Checkpoint 2 needs their marks.</li>
+<li>Push the agent team to your repository (never <code>.env</code>). Finish the seeded-error, invented-number and
+   clean-report tests if the room ran out. Checkpoint 2 needs the seeded-error marks (the
+   <a href="../grading.html">grading page</a>); the other two are yours to keep.</li>
 <li>Draft the three personas, in the six parts of Teaching 3, about ten minutes each. On paper or
    in a file; no AI writes them.</li>
 <li>Talk to two classmates about a team.</li>
 </ol>
-<p><strong>Next:</strong> in Week 4 the team serves its first client, an investor, and one investor's tests
-become a skill your agent runs: the tests in code, the judgment in the model, a hook that
+<p><strong>Next:</strong> in Week 4 the desk serves its first client, an investor, and a book's chapter becomes
+a skill your agent runs: the tests in code, the judgment in the model, a hook that
 checks the numbers. Your own code brings the price.</p>
 <p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
 </main><script type='module'>import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true, flowchart:{useMaxWidth:false}, theme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'neutral'});</script></body></html>
