@@ -119,5 +119,171 @@ with the instructor walking the room, a ten-minute close; Session 10's exchange 
 </pre>
 <p>Licensed values never enter a model: <a href="reference/data.html">the data page</a>. The core claims:
 <a href="reference/audit-checklist.html">the audit checklist</a>.</p>
+<h2 id="5-the-project--what-your-team-does-task-by-task">5. The project — what your team does, task by task</h2>
+<pre class="mermaid">flowchart TD
+    subgraph A [&quot;1 · BUILD THE DESK&quot;]
+        A1[&quot;Week 2: the desk's steps&lt;br/&gt;ticker → filings, facts, ratios, in code&quot;]
+        A2[&quot;Week 3: the agent team&lt;br/&gt;four roles with tools and a Verifier, as a graph&quot;]
+        A3[&quot;Week 4: the investor's skills&lt;br/&gt;the seeker · the worksheet · the hook&quot;]
+        A4[&quot;Week 5: one command runs all of it&lt;br/&gt;one run folder · a replay with the network off&quot;]
+        A5[&quot;Week 6: a README a stranger can follow;&lt;br/&gt;another team runs the desk from it&quot;]
+        O[&quot;from Week 4, through the building weeks:&lt;br/&gt;the thing your team owns&lt;br/&gt;the second seeker · the factor check · the plugin ·&lt;br/&gt;the mandate · or one of your own&quot;]
+        A1 --&gt; A2 --&gt; A3 --&gt; A4 --&gt; A5
+        A3 --&gt; O
+    end
+    subgraph B [&quot;2 · RUN IT LIVE — Weeks 4 to 7, every week&quot;]
+        B1[&quot;pick a company that reports this week&lt;br/&gt;Nasdaq earnings calendar → its 8-K, Exhibit 99.1, on EDGAR&quot;]
+        B2[&quot;run the desk on its ticker within 24 hours&lt;br/&gt;of the filing's Accepted time&quot;]
+        B3[&quot;upload the verified report, the view under it,&lt;br/&gt;to Brightspace → Live record&lt;br/&gt;first line: the filings it read&quot;]
+        B1 --&gt; B2 --&gt; B3
+    end
+    subgraph C [&quot;3 · PROVE IT ON OTHERS — Session 10&quot;]
+        C1[&quot;run another team's desk from its README alone&lt;br/&gt;on two companies you choose; keep the two reports&quot;]
+        C2[&quot;write the line above your tables:&lt;br/&gt;the command, the date, whether you needed help&quot;]
+        C3[&quot;audit four reports against the filings:&lt;br/&gt;two of your own live reports, the two your run produced&lt;br/&gt;error and missing counts at the top of each table&quot;]
+        C1 --&gt; C2 --&gt; C3
+    end
+    subgraph D [&quot;4 · WRITE THE PAPER — paper.md, at most 3,000 words&quot;]
+        D1[&quot;the four tables: live record · audits ·&lt;br/&gt;hit rate with the base rate under it · the three-column table&quot;]
+        D2[&quot;how the desk works: one diagram,&lt;br/&gt;which join it uses where&quot;]
+        D3[&quot;the client paragraph, by hand:&lt;br/&gt;deploy what, not what, the one number that decides it&quot;]
+        D4[&quot;the decision log, by hand:&lt;br/&gt;what the agents got wrong, how you caught it&quot;]
+        D5[&quot;the roles: each member writes their own paragraph,&lt;br/&gt;in their own words&quot;]
+        D1 --&gt; D2 --&gt; D3 --&gt; D4 --&gt; D5
+    end
+    subgraph E [&quot;5 · PRESENT — Week 8&quot;]
+        E1[&quot;eleven minutes; the desk runs live&lt;br/&gt;on the ticker named in the room&quot;]
+        E2[&quot;each member answers one question&lt;br/&gt;on a number shown in the talk&quot;]
+        E1 --&gt; E2
+    end
+    subgraph F [&quot;UPLOADS — Brightspace&quot;]
+        F1([Checkpoint 3, Session 9: the proposal page&lt;br/&gt;team · diagram and joins · the thing you own ·&lt;br/&gt;each member's role · live record so far])
+        F2([Checkpoint 4, Session 12: a permalink to the first draft&lt;br/&gt;the desk from its README · the tables so far · the roles])
+        F3([Project, due as the schedule says: one Markdown file&lt;br/&gt;with permalinks to the desk, the audits, the paper;&lt;br/&gt;your presentation session named])
+        F4([Peer evaluation, after the presentations: each member alone&lt;br/&gt;the 100 split among teammates, never evenly,&lt;br/&gt;a comment on each])
+    end
+    A3 --&gt; B1
+    A4 --&gt; F1
+    O --&gt; F1
+    A5 --&gt; C1
+    B3 --&gt; D1
+    C3 --&gt; D1
+    D5 --&gt; F2
+    D5 --&gt; E1
+    E2 --&gt; F3
+    E2 --&gt; F4
+</pre>
+<p>Rules for every task: <code>lessons/project.md</code>; the weeks that produce them: <a href="schedule.html">the schedule</a>.</p>
+<h2 id="6-the-check-table--every-box-and-what-proves-it">6. The check table — every box and what proves it</h2>
+<table>
+<thead>
+<tr>
+<th>Box</th>
+<th>Known answer on the page</th>
+<th>Pinned in <code>tests/test_course.py</code></th>
+<th>Cold run (<code>instructor/readiness.md</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lab 01 setup</td>
+<td>five rows a partner initials; <code>check_env.py</code> prints four characters</td>
+<td>shape test</td>
+<td>certified 2026-10-15 (Codex, empty folder)</td>
+</tr>
+<tr>
+<td>Lab 02 steps</td>
+<td>the instructor's live run on Costco; each number judged at its line in the filing; every period end on the 10-K's fiscal year end (G-25: the page states no figure)</td>
+<td><code>test_course_pages_are_general</code>; <code>test_week2_shape</code></td>
+<td>certified 2026-10-15 by <code>instructor/demo/desk_steps.py</code>, no key; Accepted times read from the index pages 2026-10-16</td>
+</tr>
+<tr>
+<td>Lab 03 app</td>
+<td>the five-part report; the eleven core claims equal to the steps' figures and the filing; the partner's pick</td>
+<td>the five parts pinned in <code>test_week2_shape</code></td>
+<td>needs the instructor's model key</td>
+</tr>
+<tr>
+<td>Week 3 prework</td>
+<td>fix the role; a framework chosen</td>
+<td>—</td>
+<td>edits Lab 03's desk</td>
+</tr>
+<tr>
+<td>Lab 04 team</td>
+<td>the same node order on two runs; the seeded EPS, one dollar high, marked wrong and corrected to the 10-K's line; the invented growth rate marked; the clean report all eleven correct; no way to skip the Verifier (G-25: no figure on the page)</td>
+<td><code>test_week3_team_shape</code></td>
+<td>structure certified 2026-10-30 (Codex, empty folder, no key: the graph, the node order, no off-switch, <code>--verify-only</code>); the marks need a key</td>
+</tr>
+<tr>
+<td>Lab 05 personas</td>
+<td>three Insight lines, each with a mark; the same node order on the partner's pick; two core claims checked by the partner by hand</td>
+<td><code>test_week3_team_shape</code></td>
+<td>needs a model key</td>
+</tr>
+<tr>
+<td>Lab 06 seeker</td>
+<td>a spinoff the partner found on EDGAR is in the report with its parent and dates; a fund or shell is dropped with the filing; the first price is after the distribution; one name's points recomputed from the factors file; "screens, not recommendations"</td>
+<td><code>test_week4_skill_shape</code></td>
+<td>EDGAR, no key</td>
+</tr>
+<tr>
+<td>Lab 07 worksheet and live</td>
+<td>every fact opens at the filing and section; owner cash flow and the low case recomputed by hand; the hook refuses a seeded amount and names the line; hit-rate rows with practice runs marked "after"</td>
+<td><code>test_week4_skill_shape</code></td>
+<td>one model call for the judgment</td>
+</tr>
+<tr>
+<td>Lab 08 one desk</td>
+<td>one run folder; the first line names every filing; the core claims equal the team's own report; the seeded copy of the final report refused by line; the replay fetches nothing; a ticker outside the registry runs with "not applicable"</td>
+<td><code>test_week5_shape</code></td>
+<td>needs a model key</td>
+</tr>
+<tr>
+<td>Lab 09 together</td>
+<td>the partner's two names from one command each; the three-column table with every marked row checked against the filing; the proposal's diagram matches the run folder</td>
+<td><code>test_week5_shape</code></td>
+<td>needs a model key</td>
+</tr>
+<tr>
+<td>Lab 10 exchange</td>
+<td>another team's desk ran from its README alone, or the error text; the line above the tables</td>
+<td>—</td>
+<td>the instructor's own README check</td>
+</tr>
+<tr>
+<td>Lab 11 building</td>
+<td>the four tables in paper.md; "inside the window" recomputed for one row</td>
+<td>—</td>
+<td>pure code (live-record table)</td>
+</tr>
+<tr>
+<td>Lab 12 first draft</td>
+<td>every number traces to a table; each roles paragraph in its author's commit</td>
+<td><code>test_week5_shape</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Labs 13, 14</td>
+<td>the live run's report is about the company named</td>
+<td>—</td>
+<td>the room</td>
+</tr>
+<tr>
+<td>Pages</td>
+<td>dates only on the schedule, points only on grading; no vendor key; checkouts in the right labs</td>
+<td><code>test_no_course_dates...</code>, <code>test_no_points...</code>, <code>test_checkouts...</code>, <code>test_schedule...</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Public build</td>
+<td>no forbidden pattern, no broken link</td>
+<td><code>test_publisher_scan_is_clean</code></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Regenerate after any change: <code>python Fall2026/tools/build_decks.py</code>, then the tests, the
+syllabus, and the publisher (the order in <code>CLAUDE.md</code>).</p>
 <p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
 </main><script type='module'>import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true, flowchart:{useMaxWidth:false}, theme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'neutral'});</script></body></html>
