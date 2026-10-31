@@ -67,19 +67,22 @@ open through the Purdue Libraries login.</p>
   AI with LLM Engines</em> (2026). <a href="https://arxiv.org/abs/2603.08704">arXiv:2603.08704</a>. A benchmark
   that checks numerical claims against company filings, the way your audit does.</li>
 </ul>
-<h2 id="week-3--the-verifier-and-the-desks-hands">Week 3 — the verifier, and the desk's hands</h2>
+<h2 id="week-3--the-agentic-analyst-team">Week 3 — the agentic analyst team</h2>
 <ul>
-<li>The course <a href="data.html">data page</a>: LSEG Workspace for live data, WRDS for history, Capital IQ
-  where it adds; the Libraries' guides to <a href="https://guides.lib.purdue.edu/refinitivworkspace">Workspace</a>
-  and <a href="https://guides.lib.purdue.edu/WRDS">WRDS</a>.</li>
-<li>LSEG, <em>Workspace</em> (<a href="https://www.lseg.com/en/data-analytics/products/workspace">product page</a>)
-  and the <em>Data Library for Python</em>
-  (<a href="https://developers.lseg.com/en/api-catalog/lseg-data-platform/lseg-data-library-for-python">developer page</a>),
-  for the optional code route.</li>
-<li>Wharton Research Data Services, <a href="https://wrds-www.wharton.upenn.edu/">wrds-www.wharton.upenn.edu</a>:
-  Compustat and CRSP for backtests, through the Purdue login.</li>
-<li>virattt, <em>ai-hedge-fund</em> (README only).
-  <a href="https://github.com/virattt/ai-hedge-fund">github.com/virattt/ai-hedge-fund</a>.</li>
+<li>Kasparov, G. (2010). <em>The Chess Master and the Computer.</em> The New York Review of Books.
+  <a href="https://www.nybooks.com/articles/2010/02/11/the-chess-master-and-the-computer/">nybooks.com</a>.
+  The freestyle result: weak human, machine and better process beat strong human, machine and
+  inferior process. The week's thesis.</li>
+<li>Anthropic (2024). <em>Building effective agents</em> (Week 1, above): the orchestrator-workers and
+  evaluator-optimizer workflows, which are the Manager and the Verifier.</li>
+<li>Francis &amp; Zhang (2026), Section 3.1: the hierarchical team, the thing to beat.</li>
+<li>The frameworks, one page each: <a href="https://langchain-ai.github.io/langgraph/">LangGraph</a>; the
+  <a href="https://openai.github.io/openai-agents-python/">OpenAI Agents SDK</a> and its
+  <a href="https://github.com/openai/openai-agents-python/tree/main/examples/financial_research_agent">financial research example</a>,
+  which runs a verifier agent last; <a href="https://ai.pydantic.dev/">PydanticAI</a>;
+  <a href="https://docs.crewai.com/">CrewAI</a>, the paper's framework, whose Flows fix the order in code.</li>
+<li>The instructor's <a href="https://github.com/CinderZhang/FAskills">FAskills</a>: the expert template the
+  persona's six parts are adapted from.</li>
 <li>Further: <em>Can LLM-as-a-Judge Reliably Verify Rubrics in Agentic Scenarios?</em> (2026).
   <a href="https://arxiv.org/abs/2606.29920">arXiv:2606.29920</a>. When a model checks a model, the
   reliability question moves to the checker.</li>
@@ -89,10 +92,23 @@ open through the Purdue Libraries login.</p>
   2026).</em> <a href="https://gradientflow.substack.com/p/emerging-ai-patterns-in-finance-what">gradientflow.substack.com</a>.
   Its "white box" section is your verifier: a model positioned as critic and auditor, checking
   numerical claims against primary documents.</li>
+<li>The data page and the LSEG and WRDS links move to Week 4, where the closes reader is built.</li>
 </ul>
-<h2 id="week-4--the-investors-desk-and-the-ai-build-out">Week 4 — the investor's desk, and the AI build-out</h2>
-<p><strong>The value investor.</strong> Required: the first three.
-The rest are further reading, each with the reason it is on the list.</p>
+<h2 id="week-4--the-investor-as-a-skill-and-the-ai-build-out">Week 4 — the investor as a skill, and the AI build-out</h2>
+<p><strong>The skill and the hook.</strong> Required: your own agent's two pages, read on the build day and
+re-checked before each offering; they say where a skill lives, what its first file must hold,
+and how a hook stops an action.</p>
+<ul>
+<li>Claude Code: <a href="https://code.claude.com/docs/en/skills">skills</a>, <a href="https://code.claude.com/docs/en/hooks">hooks</a>.</li>
+<li>Codex: <a href="https://learn.chatgpt.com/docs/build-skills">skills</a>, <a href="https://learn.chatgpt.com/docs/hooks">hooks</a>.</li>
+<li>Antigravity: <a href="https://antigravity.google/docs/skills">skills</a>, <a href="https://antigravity.google/docs/hooks">hooks</a>.</li>
+<li>Samples, read and not installed: the instructor's <a href="https://github.com/CinderZhang/FAskills">FAskills</a>,
+  a plugin whose Python layer scores the company before any persona sees the data; virattt's
+  <a href="https://github.com/virattt/ai-hedge-fund">ai-hedge-fund</a>, investor personas on a graph with a
+  risk manager and a portfolio manager, which pulls from a paid source this course does not use.</li>
+</ul>
+<p><strong>The value investor.</strong> Required: Graham's Chapters 14 and 20. The rest are optional or further
+reading, each with the reason it is on the list.</p>
 <ul>
 <li>Graham, B. (1973). <em>The Intelligent Investor</em>, fourth revised edition, with commentary by J. Zweig
   (HarperBusiness, 2003). Chapter 8, the investor and market fluctuations (Mr. Market: a price is an
@@ -100,6 +116,11 @@ The rest are further reading, each with the reason it is on the list.</p>
   can score with numbers: size, a current ratio of at least two, a record of earnings and
   dividends, earnings growth, P/E at most 15, P/E times price-to-book at most 22.5); Chapter 20,
   margin of safety as the central concept of investment.</li>
+<li>Buffett, W. E. (1986). The chairman's letter, appendix, "Purchase-Price Accounting Adjustments
+  and the 'Cash Flow' Fallacy" (<a href="https://www.berkshirehathaway.com/letters/1986.html">berkshirehathaway.com</a>).
+  Owner earnings defined in three parts: (a) reported earnings, plus (b) depreciation and the
+  other non-cash charges, less (c) the average capital spending the business needs to keep its
+  position and volume. Code computes (a) and (b); (c) is judgment, which is the point.</li>
 <li>Buffett, W. E. (1984). <em>The Superinvestors of Graham-and-Doddsville.</em> Hermes, Columbia Business
   School, Fall 1984. Start here:
   <a href="https://en.wikipedia.org/wiki/The_Superinvestors_of_Graham-and-Doddsville">the essay's record</a>.
@@ -151,8 +172,9 @@ The rest are further reading, each with the reason it is on the list.</p>
 <li>Further: Breckinridge Capital Advisors (2026). <em>The price of AI: how capex is rewriting tech
   balance sheets.</em>
   <a href="https://www.breckinridge.com/insights/the-price-of-ai-how-capex-is-rewriting-tech-balance-sheets">breckinridge.com</a>.</li>
-<li>The filings behind the Week 4 table: Oracle's 10-Qs and 10-K, linked in the table, and the
-  <a href="https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm">2026-09-10 release</a>.</li>
+<li>The filings behind the Oracle application: its 10-Qs, its 10-K and its earnings 8-K, from
+  <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001341439&amp;type=10-&amp;dateb=&amp;owner=include&amp;count=40">EDGAR's filing list for Oracle</a>;
+  the page states no figure, the student's skill reads them.</li>
 </ul>
 <h2 id="week-5--the-institutions-desk">Week 5 — the institution's desk</h2>
 <ul>

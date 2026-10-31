@@ -1,4 +1,4 @@
-<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Week 3 · FIN 67110</title><style>
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Week 3 — The Agentic Analyst Team · FIN 67110</title><style>
 :root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
 @media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
 * { box-sizing: border-box; }
@@ -22,6 +22,214 @@ hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
 </style></head>
 <body><main>
 <div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
-<h1>Week 3</h1><p>This page is published when Week 3 is rebuilt and signed off. The dates are on the <a href='../schedule.html'>schedule</a>.</p>
+<h1 id="week-3--the-agentic-analyst-team">Week 3 — The Agentic Analyst Team</h1>
+<p><strong>Mission.</strong> Tuesday you rebuild your desk as a team whose process is a graph in code: the same
+nodes in the same order on every run, each role a model call on what the graph hands it, and a
+verifier after the Manager that no run can skip. Thursday each role's work becomes yours: a
+persona you wrote, which must draw an insight, proved on a company your partner picks. Teams form.</p>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>In 2005 a freestyle chess tournament let anyone enter with any help. The winners were two
+amateurs running three ordinary computers at once, ahead of grandmasters with stronger machines.
+Kasparov wrote: "Weak human + machine + better process was superior to a strong computer alone
+and, more remarkably, superior to a strong human + machine + inferior process." Every desk in this
+room calls the same models. What you own is the process: who runs, in what order, on what
+inputs, with what check at the end. The paper's team let a model decide that. Yours will not.</p>
+<h2 id="you-arrive-with">You arrive with</h2>
+<p>Your desk from Lab 03 with every number sourced, two audited reports, Checkpoint 1 filed, and
+your one line on who decides which role runs next in your desk: code, or a model.</p>
+<h2 id="outcomes">Outcomes</h2>
+<ul>
+<li>Rebuild the four roles as a team in a framework you chose: the process a graph in code, each
+  role a node that receives only what the graph sends it, every run saved.</li>
+<li>Make the verifier a node after the Manager that runs on every run, and prove it on a seeded
+  error, an invented number and a clean report.</li>
+<li>Write a persona for each analyst role, in your own words, that must state one insight the
+  release's headline does not.</li>
+<li>Say which decisions in your team are code's and which are the model's.</li>
+<li>Form a team.</li>
+</ul>
+<h2 id="the-sessions">The sessions</h2>
+<ul>
+<li><strong>Session 4</strong> — <a href="lab-04-the-team.html">Lab 04: The team</a>.</li>
+<li><strong>Session 5</strong> — <a href="lab-05-make-the-team-yours.html">Lab 05: Make the team yours</a>. Checkpoint 2 is
+  due by the end of the day; teams form.</li>
+</ul>
+<h2 id="read-this-week">Read this week</h2>
+<p>Required, two:</p>
+<ul>
+<li><strong>Kasparov, G. (2010).</strong> <em>The Chess Master and the Computer.</em> The New York Review of Books.
+  <a href="https://www.nybooks.com/articles/2010/02/11/the-chess-master-and-the-computer/">nybooks.com</a>.
+  About 20 minutes. Write one line: in your Lab 03 desk, what is the process?</li>
+<li><strong>Your framework's first page</strong>, one of four, about 20 minutes, before Tuesday:
+  <a href="https://langchain-ai.github.io/langgraph/">LangGraph</a>, the
+  <a href="https://openai.github.io/openai-agents-python/">OpenAI Agents SDK</a> (its
+  <a href="https://github.com/openai/openai-agents-python/tree/main/examples/financial_research_agent">financial research example</a>
+  runs a verifier agent last), <a href="https://ai.pydantic.dev/">PydanticAI</a>, or
+  <a href="https://docs.crewai.com/">CrewAI</a>, the paper's framework, whose Flows fix the order in code.
+  Each page says which Python versions it takes; pick one that takes yours. The Lab 04 request
+  names your choice. The list is checked against the frameworks' current releases before each
+  offering; a framework that stops taking current Python leaves it.</li>
+</ul>
+<p>Optional, two:</p>
+<ul>
+<li><strong>Anthropic (2024),</strong> <em>Building effective agents</em> (the Week 1 reading), the two sections
+  "Workflow: orchestrator-workers" and "Workflow: evaluator-optimizer". About 10 minutes. Which
+  one is your Manager, and which one is your Verifier?</li>
+<li><strong>Francis &amp; Zhang (2026),</strong> Section 3.1, once more: the paper's team is hierarchical, and a
+  manager agent coordinates it. Write one line: what does a manager that coordinates decide that
+  a graph would decide for you?</li>
+</ul>
+<h2 id="teaching-1--process-is-the-thing-to-own">Teaching 1 — process is the thing to own</h2>
+<p>The paper's team is hierarchical: a manager agent decides which role to call, when, and with
+what. That is a model deciding the process. It is also why the paper cannot say, for any report,
+why a number is there: the path that produced it was never the same twice. Every framework on the
+list offers the other way, a fixed order in code. Yours is a graph: a state, nodes, edges. The
+nodes, in order: the steps from Lab 02; the Research Analyst; the Financial Analyst; the
+Investment Advisor; the Strategy Manager; the Verifier. The edges are code. Run it twice on the
+same ticker and the same nodes run in the same order on the same inputs. What differs is what
+each role writes.</p>
+<pre class="mermaid">flowchart LR
+    S[the steps&lt;br/&gt;filings, facts, ratios&lt;br/&gt;code, no model] --&gt; RA[Research Analyst&lt;br/&gt;one model call]
+    S --&gt; FA[Financial Analyst&lt;br/&gt;one model call]
+    RA --&gt; IA[Investment Advisor&lt;br/&gt;one model call]
+    FA --&gt; IA
+    RA --&gt; SM[Strategy Manager&lt;br/&gt;checks the five parts&lt;br/&gt;sends a part back once]
+    FA --&gt; SM
+    IA --&gt; SM
+    SM --&gt; VF[Verifier&lt;br/&gt;runs on every run&lt;br/&gt;no flag turns it off]
+    VF --&gt; R[the verified report&lt;br/&gt;and the table of marks&lt;br/&gt;saved with the run]
+</pre>
+<p>The week's rule: <strong>the process is deterministic; the work inside each node is dynamic.</strong> Code
+decides who runs, what each node sees, what comes back for a second try, and what is saved. The
+model decides what the business is, which development is the catalyst, what the thesis is, and
+what the one insight is. A team that lets the model decide the first list cannot be audited:
+nobody can say why a node ran. A team that lets code fill the second list has nothing to say: a
+template with numbers in it is not analysis.</p>
+<table>
+<thead>
+<tr>
+<th>Code decides</th>
+<th>The model decides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>which node runs next, and when the run stops</td>
+<td>what the business is and where it stands</td>
+</tr>
+<tr>
+<td>what each node is shown, as JSON: task, context, expected output</td>
+<td>which development is the catalyst</td>
+</tr>
+<tr>
+<td>that a part missing from the template goes back to its role, once</td>
+<td>the thesis, and the one number that decides it</td>
+</tr>
+<tr>
+<td>that the Verifier runs after the Manager, on every run</td>
+<td>whether a line states that number, for that period, in that definition</td>
+</tr>
+<tr>
+<td>what is saved, and where</td>
+<td>the one insight the headline does not state</td>
+</tr>
+</tbody>
+</table>
+<h2 id="teaching-2--the-verifier-as-a-node">Teaching 2 — the verifier as a node</h2>
+<p>One run produces a report and saves everything it read: the filing texts and the XBRL facts. The
+Verifier is the next node. It receives only those and the report. It never sees the other roles'
+instructions and never reruns them. For every sourced number in the report it does two checks.
+In code: a number sourced to an XBRL tag and period is compared with the facts file exactly; a
+number sourced to a line is found in the filing text, allowing for spacing; a ratio is recomputed
+from its quoted inputs. With the model: does that line state that number, for that period, in
+that definition? Most of the Financial Analyst's part is checked in code alone, which is why the
+run saves the facts it read.</p>
+<p><strong>Worked example, the shape, not a figure.</strong> A report states diluted EPS one dollar above the
+10-K's per-share line and sources it to that line. The code check fails: the facts file holds
+the 10-K's figure, and no line in the 10-K says the report's. Marked wrong, corrected, the real
+line beside it. A report states a revenue growth rate and quotes its two inputs, but the inputs
+give a different rate: marked wrong, corrected. A report states a return on equity with no
+definition, where the filing gives both average and year-end equity: unsupported, because the
+report did not say which. Lab 04 seeds each of these into a copy of your own run.</p>
+<p>Two things a verifier cannot catch by design. A report that sources a true line for a claim the
+client did not ask about, in place of the one they did: the right number, the wrong claim, and
+that is judgment, the audit's "missing" mark. And the Investment Advisor's thesis, which no
+filing can confirm. Say both out loud when you present your team.</p>
+<h2 id="teaching-3--the-persona-dynamic-work-in-a-fixed-slot">Teaching 3 — the persona: dynamic work in a fixed slot</h2>
+<p>A persona is a role's instruction file that fixes what the role values, what it is given and
+what it must return. The model fills it on the filings of the day, differently each run. The
+shape, adapted from the expert template in the instructor's
+<a href="https://github.com/CinderZhang/FAskills">FAskills</a>, six parts:</p>
+<ol>
+<li><strong>Identity.</strong> Who the role is, in two sentences.</li>
+<li><strong>How it reads a company.</strong> What it looks at first, and what it ignores.</li>
+<li><strong>What it is given.</strong> Which steps' output, named; nothing else.</li>
+<li><strong>The criteria it scores.</strong> Each with a number and the line or tag it came from.</li>
+<li><strong>What would change its view.</strong> The one thing in the next filing that would.</li>
+<li><strong>The output.</strong> The part of the template it owns, ending with one line that begins "Insight:"
+   and states a claim the filings support and the release's first paragraph does not, with the
+   line it came from.</li>
+</ol>
+<p>The verifier checks the number in the insight line like any other. Whether the insight matters
+is for your partner, and later your client, to judge. You write the personas yourself, on
+Thursday, in your own words: they are the part of the desk that is yours.</p>
+<h2 id="better-than-the-papers-team">Better than the paper's team</h2>
+<ul>
+<li>The process is in code, drawn as a graph, the same on every run; the paper's manager model
+  decided it.</li>
+<li>A verifier node the paper did not have, after the Manager, with no flag that turns it off.</li>
+<li>Every role sees only the state the graph sends it; every run saves what every node read and
+  wrote.</li>
+<li>The tools are your Week 2 steps, in code, so every number carries its line; the paper's web
+  search is optional.</li>
+<li>Each role must draw an insight, and the Manager refuses a part that only restates the
+  headline.</li>
+<li>The run stops: the Manager sends a part back once, no role runs more than twice, and the run
+  says so. The tokens are yours.</li>
+</ul>
+<h2 id="three-levels-from-this-week-on">Three levels, from this week on</h2>
+<ul>
+<li><strong>Must.</strong> The team with the verifier as a node no run can skip, three personas with insight
+  lines, proved on your partner's pick. Checkpoint 2 on the <a href="../grading.html">grading page</a>.</li>
+<li><strong>Expand.</strong> A second model as a second verifier node, its marks compared with the first's;
+  peers chosen by the Financial Analyst's own criteria; a run that stops itself when a role's
+  output is empty, with the reason saved.</li>
+<li><strong>Ship.</strong> Your team's repository has a README that states the command, the graph drawn, and a
+  first release tag. Every week from here names one move toward a product someone else could
+  run.</li>
+</ul>
+<h2 id="teams">Teams</h2>
+<p>Three students. Form by the end of Session 5 (the <a href="../schedule.html">schedule</a>); the instructor
+places anyone unplaced then. From Week 4 the team's desk writes the
+<a href="../project.html#the-live-record">live record</a>. How you make one team out of three, and where you
+keep it, is yours to decide.</p>
+<h2 id="before-session-4--about-60-minutes">Before Session 4 — about 60 minutes</h2>
+<ol>
+<li>Push everything from Lab 03 to your repository (never <code>.env</code>), and audit all eleven core
+   claims of your Lab 03 report yourself, as that lab says.</li>
+<li><strong>Fix the role that erred.</strong> For each error in your audit, send your agent: "In my desk, the
+   [role name] produced [the wrong number] where the filing says [the right number] at [the line
+   or tag]. Change that role's instructions so that every number it states is followed by the
+   filing and the exact line or tag it came from, quoted, and so that it writes 'not stated in
+   the filings' rather than estimating. A number computed from quoted numbers is allowed when
+   the arithmetic is shown. Do not change the other roles." No errors? Send the same request for
+   the Financial Analyst without the first sentence: Tuesday's verifier needs those sources.
+   Rerun on COST: every number now carries its source.</li>
+<li>Read Kasparov. Then open your Manager's code and write one line: who decides which role
+   runs next, code or a model?</li>
+<li>Pick a framework from the four above and read its first page. Write its name into the
+   bracket of the Lab 04 request before Tuesday.</li>
+</ol>
+<h2 id="before-session-5--about-45-minutes">Before Session 5 — about 45 minutes</h2>
+<ol>
+<li>Push the team to your repository (never <code>.env</code>). Finish the seeded-error, invented-number and
+   clean-report tests if the room ran out: Checkpoint 2 needs their marks.</li>
+<li>Draft the three personas, in the six parts of Teaching 3, about ten minutes each. On paper or
+   in a file; no AI writes them.</li>
+<li>Talk to two classmates about a team.</li>
+</ol>
+<p><strong>Next:</strong> in Week 4 the team serves its first client, an investor, and one investor's tests
+become a skill your agent runs: the tests in code, the judgment in the model, a hook that
+checks the numbers. Your own code brings the price.</p>
 <p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
-</main></body></html>
+</main><script type='module'>import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true, flowchart:{useMaxWidth:false}, theme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'neutral'});</script></body></html>

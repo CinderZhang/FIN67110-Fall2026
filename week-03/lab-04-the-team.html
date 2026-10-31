@@ -1,0 +1,153 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Lab 04 — The Team · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
+<h1 id="lab-04--the-team">Lab 04 — The Team</h1>
+<p><strong>One thing today: rebuild your desk as an agentic analyst team whose process is a graph in code, with a verifier no run can skip, and prove the verifier on a seeded error.</strong> (45 minutes, after the teaching.)</p>
+<p><strong>You arrive with:</strong> your desk from Lab 03 with every number sourced, your Costco and
+partner-pick reports on GitHub, your framework chosen, your one line on who decides which role
+runs next.</p>
+<h2 id="open--the-paired-review-10-minutes">Open — the paired review (10 minutes)</h2>
+<ol>
+<li><strong>Tools alive.</strong> Your desk runs on COST; your saved Costco report opens; your AI agent answers
+   in your work folder.</li>
+<li><strong>Defend.</strong> Show your partner the source under one number in your report. Partner opens the
+   filing and finds it, or does not, in under a minute.</li>
+<li><strong>Gap check.</strong> In your Lab 03 desk, what decides which role runs next: code or a model? Write
+   one line. If you do not know, read your Manager's code until you do.</li>
+</ol>
+<h2 id="d--the-question-the-same-for-everyone">D — the question, the same for everyone</h2>
+<blockquote>
+<p>Can the same four roles run as a team whose process is fixed in code, the same on every run,
+with a verifier that runs every time, and does that verifier catch a number the filings do not
+support?</p>
+</blockquote>
+<h2 id="r--what-you-work-from">R — what you work from</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Your desk, its roles' instruction files and its saved runs</td>
+<td>your repository</td>
+</tr>
+<tr>
+<td>The paper's team, the thing to beat</td>
+<td>Francis &amp; Zhang (2026), Section 3.1</td>
+</tr>
+<tr>
+<td>The graph and the verifier</td>
+<td><a href="index.html">Week 3 page</a>, Teaching 1 and 2</td>
+</tr>
+<tr>
+<td>A framework</td>
+<td>one of the four the Week 3 page names; your choice goes in the bracket</td>
+</tr>
+</tbody>
+</table>
+<h2 id="i--build-it-from-the-instruction">I — build it from the instruction</h2>
+<ol>
+<li>Send your AI coding agent this request word for word, filling the bracket:</li>
+</ol>
+<blockquote>
+<p>Rebuild my desk as an agentic analyst team in Python with [LangGraph, the OpenAI Agents
+SDK, PydanticAI or CrewAI Flows]. Keep my seven steps as the team's tools. Keep my four
+roles' instructions; put each role's instructions in its own file in a folder named roles.
+The process is a graph in code. The graph has these nodes, in this order: the steps; the
+Research Analyst; the Financial Analyst; the Investment Advisor; the Strategy Manager; the
+Verifier. The order is the same on every run. A model never decides which node runs next.
+Each role node is one model call with the instructions from its file. Each role node
+receives only the state the graph gives it, as JSON: the task, the context and the expected
+output. The Manager checks that the five parts are present and consistent (Overview; Market
+Positioning and Growth Outlook; Valuation Insights; Future Developments and Strategic
+Recommendations; Investment Recommendation). If a part fails, the Manager sends that part
+back to its role one time only. Then the Manager compiles the report. No role runs more
+than two times in one run. The Verifier runs after the Manager, on every run. No option
+turns it off. It receives only the compiled report, the saved filing texts and the saved
+facts. It skips the Investment Advisor's thesis. For every other sourced number it checks,
+in code: a number sourced to an XBRL tag and period, against the facts file, exactly; a
+number sourced to a line, that the line appears in that filing's text, allowing for spacing
+and formatting differences; a ratio, by recomputing it from its quoted inputs. Then, with
+the model, it checks that the line states that number for that period in that definition.
+A number with no source is unsupported. A ratio with no definition, where the filing
+offers two, is unsupported. The Verifier marks each number correct, wrong or unsupported.
+It corrects wrong and unsupported numbers from the filings, with the real line or tag
+beside each. Every run saves, in its own folder named by company, date and time, never
+overwriting an earlier run: the filing texts, the facts, each node's input and output, the
+report, and the verified report with the table of marks under the first line. The first
+line stays the filings line. The program takes a ticker, an optional --peers list of
+tickers, an optional --price number, and an optional --verify-only path to a saved run.
+With --verify-only it runs the Verifier on that run and nothing else. Print each node's
+name as it starts. Nothing in the code names a company. Read my key as API_KEY from .env.
+Tell me the exact command to install the packages, the exact command to run the team on a
+ticker with peers and a price, and the exact command to verify a saved run.</p>
+</blockquote>
+<ol start="2">
+<li>Run the install command your agent gives you, then the run command:
+   <code>COST --peers WMT,TGT,BJ --price P</code>, with the close your Lab 03 run used. <em>Expect:</em> the node
+   names print in the graph's order, then the path of the verified report with its table of
+   marks.</li>
+<li><strong>While it runs:</strong> open a second AI chat and work one item from your gap list. Never
+   collected.</li>
+<li>Run it again on COST. <em>Expect:</em> the same node order; a new run folder; the first run
+   untouched.</li>
+<li>Something not working? Debug with your AI: paste the exact command and the exact error text.</li>
+</ol>
+<h2 id="v--prove-it-on-the-known-answer">V — prove it on the known answer</h2>
+<ol>
+<li><strong>The seeded error.</strong> Ask your agent to copy your saved Costco run and, in the copy's report,
+   change the diluted EPS to a figure one dollar higher, with its source line changed to match.
+   Verify the copy with <code>--verify-only</code>. <em>Expect:</em> that EPS marked wrong and corrected to the
+   10-K's figure, with the 10-K's per-share line beside it.</li>
+<li><strong>The invented number.</strong> In another copy, add a sentence that states revenue growth four
+   percentage points above what the 10-K's two revenue figures give, with those two figures
+   quoted. <em>Expect:</em> marked wrong or unsupported; the arithmetic from the quoted inputs beside
+   it.</li>
+<li><strong>The clean report.</strong> Verify the run your Lab 03 audit marked correct on all eleven core
+   claims (if your audit found an error, fix that number first). <em>Expect:</em> all eleven marked
+   correct. A verifier that flags correct numbers is too eager, and that costs you as much as
+   one that misses.</li>
+<li><strong>The skip test.</strong> Search the code for a way to run the team without the Verifier. <em>Expect:</em>
+   none. If your agent added a flag that turns it off, have it removed.</li>
+</ol>
+<p>Your partner checks the marks of test 1 against the 10-K, open at the line.</p>
+<h2 id="orchestrator-and-evaluator--learn-on-your-own">Orchestrator and evaluator — Learn on your own</h2>
+<ol>
+<li>What is it? Anthropic's <em>Building effective agents</em> names two workflows: orchestrator-workers
+   (one call splits the task; workers do the parts) and evaluator-optimizer (one call produces; a
+   separate call checks). Which is your Manager, and which is your Verifier?</li>
+<li>How does it work here: what the Verifier receives, and what it never receives?</li>
+<li>Explain it: why would letting the Verifier see the roles' instructions make it weaker?</li>
+</ol>
+<h2 id="reflect">Reflect</h2>
+<p>Explain to your partner: 1. one thing a model decided in your Lab 03 desk that code decides now;
+2. one thing your verifier cannot catch, by design.</p>
+<p><strong>Before Session 5 — do these:</strong> the list on the <a href="index.html#before-session-5--about-45-minutes">Week 3 page</a>, about 45 minutes.</p>
+<p><strong>Next:</strong> Lab 05 makes each role's work yours: a persona that must draw an insight, proved on a
+company your partner picks. Teams form; Checkpoint 2.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main></body></html>

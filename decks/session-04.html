@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 04 — The Team</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<style>
+ .reveal { font-size: 26px; }
+ .reveal h1 { font-size: 1.6em; } .reveal h2 { font-size: 1.2em; color:#8e6f3e; }
+ .reveal blockquote { width: 95%; font-size: 0.72em; text-align:left; }
+ .reveal table { font-size: 0.62em; } .reveal li { font-size: 0.9em; }
+ .footer { position: fixed; bottom: 8px; left: 16px; font-size: 14px; color: #777; }
+ .reveal div.mermaid { width: 100%; margin: 0 auto; font-size: 16px; line-height: 1.5; white-space: normal; text-align: center; }
+ .reveal div.mermaid p { margin: 0; line-height: 1.5; }
+ .reveal div.mermaid svg { max-width: 100%; max-height: 540px; }
+</style></head><body>
+<div class="reveal"><div class="slides">
+<section data-markdown><textarea data-template>
+# Lab 04 — The Team
+
+**One thing today: rebuild your desk as an agentic analyst team whose process is a graph in code, with a verifier no run can skip, and prove the verifier on a seeded error.** (45 minutes, after the teaching.)
+
+**You arrive with:** your desk from Lab 03 with every number sourced, your Costco and
+partner-pick reports on GitHub, your framework chosen, your one line on who decides which role
+runs next.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Open — the paired review (10 minutes)
+
+1. **Tools alive.** Your desk runs on COST; your saved Costco report opens; your AI agent answers
+   in your work folder.
+2. **Defend.** Show your partner the source under one number in your report. Partner opens the
+   filing and finds it, or does not, in under a minute.
+3. **Gap check.** In your Lab 03 desk, what decides which role runs next: code or a model? Write
+   one line. If you do not know, read your Manager's code until you do.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 1 — process is the thing to own
+
+The paper's team is hierarchical: a manager agent decides which role to call, when, and with
+what. That is a model deciding the process. It is also why the paper cannot say, for any report,
+why a number is there: the path that produced it was never the same twice. Every framework on the
+list offers the other way, a fixed order in code. Yours is a graph: a state, nodes, edges. The
+nodes, in order: the steps from Lab 02; the Research Analyst; the Financial Analyst; the
+Investment Advisor; the Strategy Manager; the Verifier. The edges are code. Run it twice on the
+same ticker and the same nodes run in the same order on the same inputs. What differs is what
+each role writes.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 1 — process is the thing to own (continued)
+
+```mermaid
+flowchart LR
+    S[the steps<br/>filings, facts, ratios<br/>code, no model] --> RA[Research Analyst<br/>one model call]
+    S --> FA[Financial Analyst<br/>one model call]
+    RA --> IA[Investment Advisor<br/>one model call]
+    FA --> IA
+    RA --> SM[Strategy Manager<br/>checks the five parts<br/>sends a part back once]
+    FA --> SM
+    IA --> SM
+    SM --> VF[Verifier<br/>runs on every run<br/>no flag turns it off]
+    VF --> R[the verified report<br/>and the table of marks<br/>saved with the run]
+```
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 1 — process is the thing to own (continued)
+
+The week's rule: **the process is deterministic; the work inside each node is dynamic.** Code
+decides who runs, what each node sees, what comes back for a second try, and what is saved. The
+model decides what the business is, which development is the catalyst, what the thesis is, and
+what the one insight is. A team that lets the model decide the first list cannot be audited:
+nobody can say why a node ran. A team that lets code fill the second list has nothing to say: a
+template with numbers in it is not analysis.
+
+| Code decides | The model decides |
+|---|---|
+| which node runs next, and when the run stops | what the business is and where it stands |
+| what each node is shown, as JSON: task, context, expected output | which development is the catalyst |
+| that a part missing from the template goes back to its role, once | the thesis, and the one number that decides it |
+| that the Verifier runs after the Manager, on every run | whether a line states that number, for that period, in that definition |
+| what is saved, and where | the one insight the headline does not state |
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 2 — the verifier as a node
+
+One run produces a report and saves everything it read: the filing texts and the XBRL facts. The
+Verifier is the next node. It receives only those and the report. It never sees the other roles'
+instructions and never reruns them. For every sourced number in the report it does two checks.
+In code: a number sourced to an XBRL tag and period is compared with the facts file exactly; a
+number sourced to a line is found in the filing text, allowing for spacing; a ratio is recomputed
+from its quoted inputs. With the model: does that line state that number, for that period, in
+that definition? Most of the Financial Analyst's part is checked in code alone, which is why the
+run saves the facts it read.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 2 — the verifier as a node (continued)
+
+**Worked example, the shape, not a figure.** A report states diluted EPS one dollar above the
+10-K's per-share line and sources it to that line. The code check fails: the facts file holds
+the 10-K's figure, and no line in the 10-K says the report's. Marked wrong, corrected, the real
+line beside it. A report states a revenue growth rate and quotes its two inputs, but the inputs
+give a different rate: marked wrong, corrected. A report states a return on equity with no
+definition, where the filing gives both average and year-end equity: unsupported, because the
+report did not say which. Lab 04 seeds each of these into a copy of your own run.
+
+Two things a verifier cannot catch by design. A report that sources a true line for a claim the
+client did not ask about, in place of the one they did: the right number, the wrong claim, and
+that is judgment, the audit's "missing" mark. And the Investment Advisor's thesis, which no
+filing can confirm. Say both out loud when you present your team.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 3 — the persona: dynamic work in a fixed slot
+
+A persona is a role's instruction file that fixes what the role values, what it is given and
+what it must return. The model fills it on the filings of the day, differently each run. The
+shape, adapted from the expert template in the instructor's
+[FAskills](https://github.com/CinderZhang/FAskills), six parts:
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teaching 3 — the persona: dynamic work in a fixed slot (continued)
+
+1. **Identity.** Who the role is, in two sentences.
+2. **How it reads a company.** What it looks at first, and what it ignores.
+3. **What it is given.** Which steps' output, named; nothing else.
+4. **The criteria it scores.** Each with a number and the line or tag it came from.
+5. **What would change its view.** The one thing in the next filing that would.
+6. **The output.** The part of the template it owns, ending with one line that begins "Insight:"
+   and states a claim the filings support and the release's first paragraph does not, with the
+   line it came from.
+
+The verifier checks the number in the insight line like any other. Whether the insight matters
+is for your partner, and later your client, to judge. You write the personas yourself, on
+Thursday, in your own words: they are the part of the desk that is yours.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Better than the paper's team
+
+- The process is in code, drawn as a graph, the same on every run; the paper's manager model
+  decided it.
+- A verifier node the paper did not have, after the Manager, with no flag that turns it off.
+- Every role sees only the state the graph sends it; every run saves what every node read and
+  wrote.
+- The tools are your Week 2 steps, in code, so every number carries its line; the paper's web
+  search is optional.
+- Each role must draw an insight, and the Manager refuses a part that only restates the
+  headline.
+- The run stops: the Manager sends a part back once, no role runs more than twice, and the run
+  says so. The tokens are yours.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Three levels, from this week on
+
+- **Must.** The team with the verifier as a node no run can skip, three personas with insight
+  lines, proved on your partner's pick. Checkpoint 2 on the [grading page](../grading.html).
+- **Expand.** A second model as a second verifier node, its marks compared with the first's;
+  peers chosen by the Financial Analyst's own criteria; a run that stops itself when a role's
+  output is empty, with the reason saved.
+- **Ship.** Your team's repository has a README that states the command, the graph drawn, and a
+  first release tag. Every week from here names one move toward a product someone else could
+  run.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Teams
+
+Three students. Form by the end of Session 5 (the [schedule](../schedule.html)); the instructor
+places anyone unplaced then. From Week 4 the team's desk writes the
+[live record](../project.html#the-live-record). How you make one team out of three, and where you
+keep it, is yours to decide.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## D — the question, the same for everyone
+
+> Can the same four roles run as a team whose process is fixed in code, the same on every run,
+> with a verifier that runs every time, and does that verifier catch a number the filings do not
+> support?
+</textarea></section>
+<section data-markdown><textarea data-template>
+## R — what you work from
+
+| Input | Where |
+|---|---|
+| Your desk, its roles' instruction files and its saved runs | your repository |
+| The paper's team, the thing to beat | Francis & Zhang (2026), Section 3.1 |
+| The graph and the verifier | [Week 3 page](../week-03/index.html), Teaching 1 and 2 |
+| A framework | one of the four the Week 3 page names; your choice goes in the bracket |
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build it from the instruction
+
+1. Send your AI coding agent this request word for word, filling the bracket:
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build it from the instruction (continued)
+
+   > Rebuild my desk as an agentic analyst team in Python with [LangGraph, the OpenAI Agents
+   > SDK, PydanticAI or CrewAI Flows]. Keep my seven steps as the team's tools. Keep my four
+   > roles' instructions; put each role's instructions in its own file in a folder named roles.
+   > The process is a graph in code. The graph has these nodes, in this order: the steps; the
+   > Research Analyst; the Financial Analyst; the Investment Advisor; the Strategy Manager; the
+   > Verifier. The order is the same on every run. A model never decides which node runs next.
+   > Each role node is one model call with the instructions from its file. Each role node
+   > receives only the state the graph gives it, as JSON: the task, the context and the expected
+   > output. The Manager checks that the five parts are present and consistent (Overview; Market
+   > Positioning and Growth Outlook; Valuation Insights; Future Developments and Strategic
+   > Recommendations; Investment Recommendation). If a part fails, the Manager sends that part
+   > back to its role one time only. Then the Manager compiles the report. No role runs more
+   > than two times in one run. The Verifier runs after the Manager, on every run. No option
+   > turns it off. It receives only the compiled report, the saved filing texts and the saved
+   > facts. It skips the Investment Advisor's thesis. For every other sourced number it checks,
+   > in code: a number sourced to an XBRL tag and period, against the facts file, exactly; a
+   > number sourced to a line, that the line appears in that filing's text, allowing for spacing
+   > and formatting differences; a ratio, by recomputing it from its quoted inputs. Then, with
+   > the model, it checks that the line states that number for that period in that definition.
+   > A number with no source is unsupported. A ratio with no definition, where the filing
+   > offers two, is unsupported. The Verifier marks each number correct, wrong or unsupported.
+   > It corrects wrong and unsupported numbers from the filings, with the real line or tag
+   > beside each. Every run saves, in its own folder named by company, date and time, never
+   > overwriting an earlier run: the filing texts, the facts, each node's input and output, the
+   > report, and the verified report with the table of marks under the first line. The first
+   > line stays the filings line. The program takes a ticker, an optional --peers list of
+   > tickers, an optional --price number, and an optional --verify-only path to a saved run.
+   > With --verify-only it runs the Verifier on that run and nothing else. Print each node's
+   > name as it starts. Nothing in the code names a company. Read my key as API_KEY from .env.
+   > Tell me the exact command to install the packages, the exact command to run the team on a
+   > ticker with peers and a price, and the exact command to verify a saved run.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build it from the instruction (continued)
+
+2. Run the install command your agent gives you, then the run command:
+   `COST --peers WMT,TGT,BJ --price P`, with the close your Lab 03 run used. *Expect:* the node
+   names print in the graph's order, then the path of the verified report with its table of
+   marks.
+3. **While it runs:** open a second AI chat and work one item from your gap list. Never
+   collected.
+4. Run it again on COST. *Expect:* the same node order; a new run folder; the first run
+   untouched.
+5. Something not working? Debug with your AI: paste the exact command and the exact error text.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## V — prove it on the known answer
+
+1. **The seeded error.** Ask your agent to copy your saved Costco run and, in the copy's report,
+   change the diluted EPS to a figure one dollar higher, with its source line changed to match.
+   Verify the copy with `--verify-only`. *Expect:* that EPS marked wrong and corrected to the
+   10-K's figure, with the 10-K's per-share line beside it.
+2. **The invented number.** In another copy, add a sentence that states revenue growth four
+   percentage points above what the 10-K's two revenue figures give, with those two figures
+   quoted. *Expect:* marked wrong or unsupported; the arithmetic from the quoted inputs beside
+   it.
+3. **The clean report.** Verify the run your Lab 03 audit marked correct on all eleven core
+   claims (if your audit found an error, fix that number first). *Expect:* all eleven marked
+   correct. A verifier that flags correct numbers is too eager, and that costs you as much as
+   one that misses.
+4. **The skip test.** Search the code for a way to run the team without the Verifier. *Expect:*
+   none. If your agent added a flag that turns it off, have it removed.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## V — prove it on the known answer (continued)
+
+Your partner checks the marks of test 1 against the 10-K, open at the line.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Orchestrator and evaluator — Learn on your own
+
+1. What is it? Anthropic's *Building effective agents* names two workflows: orchestrator-workers
+   (one call splits the task; workers do the parts) and evaluator-optimizer (one call produces; a
+   separate call checks). Which is your Manager, and which is your Verifier?
+2. How does it work here: what the Verifier receives, and what it never receives?
+3. Explain it: why would letting the Verifier see the roles' instructions make it weaker?
+</textarea></section>
+<section data-markdown><textarea data-template>
+## Reflect
+
+Explain to your partner: 1. one thing a model decided in your Lab 03 desk that code decides now;
+2. one thing your verifier cannot catch, by design.
+
+**Before Session 5 — do these:** the list on the [Week 3 page](../week-03/index.html#before-session-5--about-45-minutes), about 45 minutes.
+
+**Next:** Lab 05 makes each role's work yours: a persona that must draw an insight, proved on a
+company your partner picks. Teams form; Checkpoint 2.
+</textarea></section>
+</div></div>
+<div class="footer">FIN 67110 · Lab 04 — The Team</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+<script>
+// Charts are authored as ```mermaid blocks on the pages; the markdown plugin leaves them as code.
+// Each is drawn by mermaid.render, which measures in a scratch node outside reveal's scaled slides
+// (measuring inside them clips the labels), and the finished SVG replaces the code block.
+mermaid.initialize({ startOnLoad: false });
+Reveal.initialize({ hash: true, slideNumber: true, plugins: [ RevealMarkdown ] }).then(async () => {
+  const codes = [...document.querySelectorAll('.reveal code.mermaid, .reveal code.language-mermaid')];
+  for (let i = 0; i < codes.length; i++) {
+    const { svg } = await mermaid.render('chart' + i, codes[i].textContent);
+    const div = document.createElement('div'); div.className = 'mermaid'; div.innerHTML = svg;
+    codes[i].parentElement.replaceWith(div);
+  }
+  Reveal.layout();
+});
+</script>
+</body></html>

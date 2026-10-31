@@ -1,0 +1,151 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Lab 05 — Make the Team Yours · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
+<h1 id="lab-05--make-the-team-yours">Lab 05 — Make the Team Yours</h1>
+<p><strong>One thing today: give each analyst role a persona you wrote that must draw an insight, prove the team on a company your partner picks, file Checkpoint 2, and form your team.</strong></p>
+<p><strong>You arrive with:</strong> Tuesday's team running with the verifier, the seeded-error marks saved and
+pushed, your three persona drafts from the Week 3 list.</p>
+<h2 id="open--the-paired-review-10-minutes">Open — the paired review (10 minutes)</h2>
+<ol>
+<li><strong>Tools alive.</strong> The team runs on COST; the seeded-error marks open; your AI agent answers.</li>
+<li><strong>Defend.</strong> Show your partner the node order printed by two runs. Partner asks: what would
+   the verifier do with a number that is in the release but belongs to a different quarter?</li>
+<li><strong>Gap check.</strong> Write one line: the one claim in your Costco report that the release's first
+   paragraph does not state. If every claim restates it, that is today's gap.</li>
+</ol>
+<h2 id="d--the-question-the-same-for-everyone">D — the question, the same for everyone</h2>
+<blockquote>
+<p>With the process fixed, can each role's work be yours: a persona that reads the filings its
+own way and states one claim the headline does not, and does the team hold up, verified, on a
+company you did not choose?</p>
+</blockquote>
+<h2 id="r--what-you-work-from">R — what you work from</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tuesday's team and its roles folder</td>
+<td>your repository</td>
+</tr>
+<tr>
+<td>The persona's six parts</td>
+<td><a href="index.html">Week 3 page</a>, Teaching 3</td>
+</tr>
+<tr>
+<td>A company you did not choose</td>
+<td>your partner picks it: any U.S. company that reported this month. Start here: <a href="https://www.sec.gov/edgar/search/#/q=%22Exhibit%2099.1%22&amp;forms=8-K">EDGAR full-text search</a>; the team takes its ticker</td>
+</tr>
+</tbody>
+</table>
+<h2 id="i--make-it-yours">I — make it yours</h2>
+<ol>
+<li><strong>Write the personas yourself.</strong> For each of the three analyst roles (the Manager keeps its
+   checklist), rewrite the role's instruction file in your own words, in the six parts: identity;
+   how it reads a company; what it is given; the criteria it scores, each with a number and its
+   source; what would change its view; the output, ending with one line that begins "Insight:"
+   and states a claim the filings support and the release's first paragraph does not, with the
+   line it came from. No AI writes a persona: this is the part of the desk that is yours. Twenty
+   minutes.</li>
+<li>Send your AI coding agent this request word for word:</li>
+</ol>
+<blockquote>
+<p>In my team, each analyst role's output must end with one line that begins "Insight:" and
+states one claim, with the filing and the line it comes from. Add two checks to the Strategy
+Manager: a part fails if it has no Insight line; a part fails if its Insight line only
+restates a figure that the earnings release's first paragraph states. Send a failing part
+back to its role one time only, as now. The Verifier checks the number in each Insight line
+like every other sourced number. Do not change the graph's order. Nothing in the code names
+a company. Tell me the exact command to run the team.</p>
+</blockquote>
+<ol start="3">
+<li>Run it on COST with the same peers and price as Tuesday. <em>Expect:</em> three Insight lines in the
+   verified report, each with a mark; the node order unchanged.</li>
+<li><strong>The partner's pick.</strong> Your partner names the company. Run the team on its ticker, with
+   peers you choose. <em>Expect:</em> a verified five-part report about that company, every number with
+   its source, three Insight lines, the table of marks. Not running with twenty minutes left?
+   The <a href="../week-02/index.html#the-fallback">fallback</a> produces a report; Checkpoint 2 needs
+   Tuesday's marks, which you already have.</li>
+<li><strong>While it runs:</strong> work one item from your gap list in a second AI chat. Never collected.</li>
+</ol>
+<h2 id="v--prove-it-general">V — prove it general</h2>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Expect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The node order on the partner's pick</td>
+<td>the same as on COST, printed</td>
+</tr>
+<tr>
+<td>The Verifier</td>
+<td>ran without being asked; its table sits under the first line</td>
+</tr>
+<tr>
+<td>Each Insight line</td>
+<td>names a line the filing contains; your partner opens one and finds it</td>
+</tr>
+<tr>
+<td>Two core claims of the partner's pick</td>
+<td>your partner checks them by hand against the filings and writes both marks at the top of the report</td>
+</tr>
+<tr>
+<td>The roles folder</td>
+<td>three files in your words; nothing in them names a company</td>
+</tr>
+</tbody>
+</table>
+<h2 id="teams--form-now">Teams — form now</h2>
+<p>Three students. Write the three names and one team name on paper and show the instructor before
+the end of class. Anyone unplaced at the end of class is placed by the instructor.</p>
+<h2 id="persona-not-prompt--learn-on-your-own">Persona, not prompt — Learn on your own</h2>
+<ol>
+<li>What is it (an instruction file that fixes what a role values, what it is given and what it
+   must return; the model fills it differently on every run)?</li>
+<li>How does it work here (which part of your persona the verifier can check, and which part only
+   a reader can judge)?</li>
+<li>Explain it: open the first screen of <a href="https://github.com/CinderZhang/FAskills">FAskills</a>,
+   where seven investor personas each score one stock. What does a persona that scores add that
+   a role that describes lacks?</li>
+</ol>
+<h2 id="reflect">Reflect</h2>
+<p>Explain to your partner: 1. the Insight line you would trust least, and why; 2. which member's
+team your team starts from, and what it lacks.</p>
+<h2 id="checkout--checkpoint-2">Checkout — Checkpoint 2</h2>
+<p>By the end of the day (<a href="../schedule.html">the schedule</a>), in Brightspace → <strong>Checkpoint 2</strong>: a
+permalink (commit link) to your repository holding the team, with the verifier's marks on the
+seeded-error test.</p>
+<p><strong>Before Session 6 — do these:</strong> the list on the <a href="../week-04/index.html">Week 4 page</a>, about 45 minutes.</p>
+<p><strong>Next:</strong> Lab 06 turns one investor's tests into a skill your agent runs, with a hook that
+checks every number.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main></body></html>
