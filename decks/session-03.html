@@ -57,25 +57,31 @@
 <section data-markdown><textarea data-template>
 ## I — build the app, then audit it (continued)
 
-   > Add the four roles of Francis & Zhang (2026), Figure 1, on top of my seven steps, using the
-   > official Python SDK of [your model provider: for example OpenAI, Anthropic or Google] with my
-   > key read as API_KEY from .env. Each role is a separate model call with its own instructions
-   > that receives only what the Strategy Manager sends it, as JSON with the task, the context and
-   > the expected output: (1) Research Analyst — business model, competitive position, catalysts
-   > and recent developments, from the 10-K's business and MD&A sections and the earnings
-   > release, every claim quoting its line; (2) Financial Analyst — the statement analysis from
-   > step 4's facts and step 5's ratios, the quarter from step 6, the peers from step 7, every
-   > number with its filing and its line or tag and period, every ratio with its arithmetic, the
-   > definition stated wherever a filing offers two; it may ask the calculator for more ratios
-   > but never compute in the model; (3) Investment Advisor — a thesis and Buy, Hold or Sell,
-   > with the one number that decides it, from the two roles' outputs and nothing else; (4)
-   > Strategy Manager — check that the five parts are present and consistent (Overview; Market
-   > Positioning and Growth Outlook; Valuation Insights; Future Developments and Strategic
-   > Recommendations; Investment Recommendation), send any failing part back to its role once,
-   > then compile the report. Print each role's name as it runs. Save the report as Markdown in
-   > the run's folder, with the filings read and their accession numbers on the first line and
-   > the run time on the second, and print its path. Nothing in the code names a company. Tell me
-   > the exact command to run the desk on a ticker with peers and a price.
+   > Now add the four roles of Francis & Zhang (2026), Figure 1, on top of my seven steps. Use
+   > the official Python SDK of [your model provider: for example OpenAI, Anthropic or Google],
+   > with my key read as API_KEY from .env. Each role is its own model call with its own
+   > instructions, and it receives only what the Strategy Manager sends it, as JSON with the
+   > task, the context and the expected output. The Research Analyst covers the business model,
+   > competitive position, catalysts and recent developments, from the 10-K's business and MD&A
+   > sections and the earnings release, and every claim quotes its line. The Financial Analyst
+   > does the statement analysis from step 4's facts and step 5's ratios, the quarter from step
+   > 6 and the peers from step 7; every number carries its filing and its line or tag and
+   > period, every ratio shows its arithmetic, and wherever a filing offers two definitions it
+   > says which one it used; it may ask the calculator for more ratios but never computes in the
+   > model. The Investment Advisor writes a thesis and Buy, Hold or Sell, with the one number
+   > that decides it, from the two roles' outputs and nothing else. The Strategy Manager checks
+   > that the five parts are present and consistent (Overview; Market Positioning and Growth
+   > Outlook; Valuation Insights; Future Developments and Strategic Recommendations; Investment
+   > Recommendation), sends any failing part back to its role once, then compiles the report.
+   > Print each role's name as it runs. Save the report as Markdown in the run's folder, with
+   > the filings read and their accession numbers on the first line and the run time on the
+   > second, and print its path. Nothing in the code names a company. Tell me the exact command
+   > to run the desk on a ticker with peers and a price.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — build the app, then audit it (continued)
+
+   The same request, written to the standard: [requests](../week-02/requests.html#lab-03-the-four-roles-on-the-steps).
 </textarea></section>
 <section data-markdown><textarea data-template>
 ## I — build the app, then audit it (continued)

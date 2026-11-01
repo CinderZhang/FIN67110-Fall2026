@@ -72,30 +72,32 @@ compute the core ratios, every number matching the 10-K?</p>
 <li>In your AI coding agent, in your work folder, send this request word for word:</li>
 </ol>
 <blockquote>
-<p>Build the data side of an equity-research desk in Python, modeled on Section 3.1 of Francis
-&amp; Zhang (2026); the model roles come later. Read my SEC User-Agent as SEC_USER_AGENT from
-the .env file in this folder and send it on every request. The program takes a ticker as its
-argument, an optional --peers list of tickers, an optional --price number, and an optional
---step number to run one step only. Nothing in the code names a company. Seven steps, each
-printed as it runs: (1) resolve the ticker to its CIK from SEC's company_tickers.json; (2)
-list the company's filings from the EDGAR submissions API and pick the latest 10-K, the
-latest 10-Q, and the latest 8-K whose document reports Item 2.02, the earnings release,
-printing each one's accession number and the "Accepted" time shown on its EDGAR index page; (3)
-download the three documents, the 8-K's Exhibit 99.1 for the release, convert each to plain
-text and save them in a folder named by company, date and time of the run; (4) fetch the
-XBRL company facts and, for the latest fiscal year, print total revenue, operating income,
-net income, diluted EPS, stockholders' equity, long-term debt and its current portion, cash
-from operations and additions to property and equipment, each with its tag, period end and
-filing, choosing among a concept's candidate tags the one whose latest year is newest and
-reading every concept for the same fiscal year as revenue, with the prior year beside it; (5)
-a calculator, in code, that prints with its arithmetic revenue growth, operating margin,
-return on average equity, debt to equity with the current portion included, free cash flow
-as cash from operations minus additions to property and equipment, and P/E from --price;
-(6) from the release text, print the lines that state the quarter's total revenue and diluted
-EPS; (7) for each peer, the same facts and the operating margin on the same definition. Save
-the facts beside the texts. When you finish, tell me the exact command to install any
-packages it needs and the exact command to run it on a ticker with peers and a price.</p>
+<p>I am building the data side of an equity-research desk in Python, following Section 3.1 of
+Francis &amp; Zhang (2026); the model roles come later. Read my SEC User-Agent as
+SEC_USER_AGENT from the .env file here and send it with every request. The program takes a
+ticker, and optionally --peers with a list of tickers, --price with a number, and --step
+with a number to run one step only. Nothing in the code names a company. It runs seven
+steps and prints each one as it goes. First, resolve the ticker to its CIK from SEC's
+company_tickers.json. Second, list the company's filings from the EDGAR submissions API and
+pick the latest 10-K, the latest 10-Q and the latest 8-K whose document reports Item 2.02,
+the earnings release; print each one's accession number and the "Accepted" time shown on
+its EDGAR index page. Third, download the three documents, taking the 8-K's Exhibit 99.1
+for the release, convert each to plain text and save them in a folder named by company and
+the date and time of the run. Fourth, fetch the XBRL company facts and, for the latest
+fiscal year, print total revenue, operating income, net income, diluted EPS, stockholders'
+equity, long-term debt and its current portion, cash from operations and additions to
+property and equipment, each with its tag, period end and filing; when a concept has
+several candidate tags, choose the one whose latest year is newest, and read every concept
+for the same fiscal year as revenue, with the prior year beside it. Fifth, a calculator in
+code that prints, with its arithmetic, revenue growth, operating margin, return on average
+equity, debt to equity with the current portion included, free cash flow as cash from
+operations minus additions to property and equipment, and P/E from --price. Sixth, from the
+release text, print the lines that state the quarter's total revenue and diluted EPS.
+Seventh, for each peer, the same facts and the operating margin on the same definition.
+Save the facts beside the texts. When you are done, tell me the exact command to install
+any packages and the exact command to run it on a ticker with peers and a price.</p>
 </blockquote>
+<p>The same request, written to the standard: <a href="requests.html#lab-02-the-desk-s-seven-steps">requests</a>.</p>
 <ol start="2">
 <li>Run the install command your agent gives you, then the run command:
    <code>COST --peers WMT,TGT,BJ --price P</code>, where P is the close the instructor's run used. <em>Expect:</em> seven steps print, in the order the demo showed, ending with a saved folder.</li>

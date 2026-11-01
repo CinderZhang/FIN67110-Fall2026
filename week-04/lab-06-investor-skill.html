@@ -76,37 +76,38 @@ Send it as it is or in your own words, and keep every sentence that says "never.
 <li>Send your coding agent the request:</li>
 </ol>
 <blockquote>
-<p>Make a skill for my coding agent, in the folder where my agent reads skills, named for what
-it seeks. It finds U.S. spinoffs on SEC EDGAR whose distribution date is on or after a start
-date I give. It reads EDGAR's
-form indexes for Form 10 registrations, their amendments, the exchanges' CERT filings and
-the 8-Ks filed at a distribution, and it reads each filing's folder on EDGAR for the facts
-it needs. It sends my SEC User-Agent from .env on every request and stays under the rate
-EDGAR allows. It keeps a registry file of facts established by reading a filing: the
-parent, the distribution ratio, the record and distribution dates, each with the filing
-and the section it came from. The skill fills the registry from the filings it can read;
-a fact it cannot find stays blank, and the report says so. It never estimates a fact. It
-drops a registrant that is not a spinoff, with the reason and the filing beside it: a Form 10
-with no information statement, a fund, or a company registering shares it already has, is
-dropped unless a later filing shows a parent distributing the business. It gives each name
-a stage: registered, listing approved, trading, in its window, or past it. The distribution
-8-K is often the parent's, so the skill reads the parent's filings from the registry's parent
-CIK; a 10-Q, a 10-K or a Form 4 in the new company's own filing list proves it trades. A
-name's first price is the first close after the distribution date, never a when-issued
-price. It takes closes from my closes reader and prints the price date beside every price.
-It ranks the names in their window by the factors in a file I write, each with its weight
-and direction; the same file states the window's length in days after the distribution. It
-prints each name's points per factor. A name missing a date it needs is listed unranked,
-with the reason. It writes a report with the run
-date, the price date and the index date on the first line, the names in their window by
-rank, the watch list of registered names not yet trading, what was dropped and why, what
-the data cannot show, and the line "screens, not recommendations" at the end. The report
-is saved with the date and time it ran. Every rule has a test on made-up data, and a rule
-changes only after its test does. Nothing in the code names a company. Tell me the exact
-command to run the seeker from a start date and the exact command to run its tests.</p>
+<p>Make a skill for my coding agent, in the folder where my agent reads skills, and name it
+for what it seeks. It finds U.S. spinoffs on SEC EDGAR whose distribution date is on or
+after a start date I give. It reads EDGAR's form indexes for Form 10 registrations, their
+amendments, the exchanges' CERT filings and the 8-Ks filed at a distribution, and it reads
+each filing's folder on EDGAR for the facts it needs, sending my SEC User-Agent from .env
+on every request and staying under the rate EDGAR allows. It keeps a registry file of facts
+it established by reading a filing: the parent, the distribution ratio, the record and
+distribution dates, each with the filing and the section it came from. It fills the
+registry from the filings it can read; a fact it cannot find stays blank, and the report
+says so. It never estimates a fact. It drops a registrant that is not a spinoff, with the
+reason and the filing beside it: a Form 10 with no information statement, a fund, or a
+company registering shares it already has is dropped, unless a later filing shows a parent
+distributing the business. It gives each name a stage: registered, listing approved,
+trading, in its window, or past it. The distribution 8-K is often the parent's, so the
+skill reads the parent's filings from the registry's parent CIK; a 10-Q, a 10-K or a Form 4
+in the new company's own filing list proves it trades. A name's first price is the first
+close after the distribution date, never a when-issued price. It takes closes from my
+closes reader and prints the price date beside every price. It ranks the names in their
+window by the factors in a file I write, each with its weight and direction, and the same
+file states the window's length in days after the distribution; it prints each name's
+points per factor, and a name missing a date it needs is listed unranked, with the reason.
+It writes a report with the run date, the price date and the index date on the first line,
+the names in their window by rank, the watch list of registered names not yet trading, what
+was dropped and why, what the data cannot show, and the line "screens, not recommendations"
+at the end, saved with the date and time it ran. Every rule has a test on made-up data, and
+a rule changes only after its test does. Nothing in the code names a company. Tell me the
+exact command to run the seeker from a start date and the exact command to run its tests.</p>
 </blockquote>
+<p>The same request, written to the standard: <a href="requests.html#lab-06-the-seeker">requests</a>.</p>
 <ol start="2">
-<li>Run the tests, then the seeker, from a start date about a year back. <em>Expect:</em> the report with
+<li>Run the tests, then the seeker, from a start date about a year back, then put the screen on
+   your page: a start date in, the report out. <em>Expect:</em> the report with
    its three dates on the first line; names in their window with points per factor; a watch list;
    a dropped list with a reason and a filing beside each; the last line. The shape of one row,
    not your answer: <code>[name] | [parent] | distributed [date] | window ends [date] | [price] on

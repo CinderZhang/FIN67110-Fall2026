@@ -195,40 +195,41 @@ keep it, is yours to decide.
 <section data-markdown><textarea data-template>
 ## I — build it from the instruction (continued)
 
-   > Rebuild my desk as an agent team in Python with [LangGraph, the OpenAI Agents
-   > SDK, PydanticAI or CrewAI Flows]. Keep my seven steps as the team's tools. Keep my four
-   > roles' instructions; put each role's instructions in its own file in a folder named roles.
-   > The process is a graph in code. The graph has these nodes, in this order: the steps; the
-   > Research Analyst; the Financial Analyst; the Investment Advisor; the Strategy Manager; the
-   > Verifier. The order is the same on every run. A model never decides which node runs next.
-   > Each role node is one model call with the instructions from its file. Each role node
-   > receives only the state the graph gives it, as JSON: the task, the context and the expected
-   > output. The Manager checks that the five parts are present and consistent (Overview; Market
-   > Positioning and Growth Outlook; Valuation Insights; Future Developments and Strategic
-   > Recommendations; Investment Recommendation). If a part fails, the Manager sends that part
-   > back to its role one time only. Then the Manager compiles the report. No role runs more
-   > than two times in one run. The Verifier runs after the Manager, on every run. No option
-   > turns it off. It receives only the compiled report, the saved filing texts and the saved
-   > facts. It skips the Investment Advisor's thesis. For every other sourced number it checks,
-   > in code: a number sourced to an XBRL tag and period, against the facts file, exactly; a
-   > number sourced to a line, that the line appears in that filing's text, allowing for spacing
-   > and formatting differences; a ratio, by recomputing it from its quoted inputs. Then, with
-   > the model, it checks that the line states that number for that period in that definition.
-   > A number with no source is unsupported. A ratio with no definition, where the filing
-   > offers two, is unsupported. The Verifier marks each number correct, wrong or unsupported.
-   > It corrects wrong and unsupported numbers from the filings, with the real line or tag
-   > beside each. Every run saves, in its own folder named by company, date and time, never
-   > overwriting an earlier run: the filing texts, the facts, each node's input and output, the
-   > report, and the verified report with the table of marks under the first line. The first
-   > line stays the filings line. The program takes a ticker, an optional --peers list of
-   > tickers, an optional --price number, and an optional --verify-only path to a saved run.
-   > With --verify-only it runs the Verifier on that run and nothing else. Print each node's
-   > name as it starts. Nothing in the code names a company. Read my key as API_KEY from .env.
-   > Tell me the exact command to install the packages, the exact command to run the agent team on a
+   > Rebuild my desk as an agent team in Python with [LangGraph, the OpenAI Agents SDK,
+   > PydanticAI or CrewAI Flows]. Keep my seven steps as the team's tools, and keep my four
+   > roles' instructions, each in its own file in a folder named roles. The process is a graph
+   > in code, with these nodes in this order: the steps; the Research Analyst; the Financial Analyst; the Investment
+   > Advisor; the Strategy Manager; the Verifier. The order is the same
+   > on every run. A model never decides which node runs next. Each role node is one model call
+   > with the instructions from its file, and it receives only the state the graph gives it, as
+   > JSON: the task, the context and the expected output. The Manager checks that the five parts
+   > are present and consistent (Overview; Market Positioning and Growth Outlook; Valuation
+   > Insights; Future Developments and Strategic Recommendations; Investment Recommendation); if
+   > a part fails, the Manager sends that part back to its role one time only, then compiles the
+   > report. No role runs more than two times in one run. The Verifier runs after the Manager,
+   > on every run. No option turns it off. It receives only the compiled report, the saved
+   > filing texts and the saved facts, and it skips the Investment Advisor's thesis. For every
+   > other sourced number it checks, in code: a number sourced to an XBRL tag and period against
+   > the facts file, exactly; a number sourced to a line, that the line appears in that filing's
+   > text, allowing for spacing and formatting; a ratio, by recomputing it from its quoted
+   > inputs. Then, with the model, it checks that the line states that number for that period in
+   > that definition. A number with no source is unsupported, and so is a ratio with no
+   > definition where the filing offers two. The Verifier marks each number correct, wrong or
+   > unsupported, and corrects wrong and unsupported numbers from the filings, with the real
+   > line or tag beside each. Every run saves, in its own folder named by company, date and time
+   > and never overwriting an earlier run: the filing texts, the facts, each node's input and
+   > output, the report, and the verified report with the table of marks under the first line;
+   > the first line stays the filings line. The program takes a ticker, an optional --peers
+   > list, an optional --price number, and an optional --verify-only path to a saved run; with
+   > --verify-only it runs the Verifier on that run and nothing else. Print each node's name as
+   > it starts. Nothing in the code names a company. Read my key as API_KEY from .env. Tell me
+   > the exact command to install the packages, the exact command to run the agent team on a
    > ticker with peers and a price, and the exact command to verify a saved run.
 </textarea></section>
 <section data-markdown><textarea data-template>
 ## I — build it from the instruction (continued)
+
+   The same request, written to the standard: [requests](../week-03/requests.html#lab-04-the-agent-team-as-a-graph-in-code).
 
 2. Run the install command your agent gives you, then the run command:
    `COST --peers WMT,TGT,BJ --price P`, with the close your Lab 03 run used. *Expect:* the node

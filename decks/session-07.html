@@ -59,34 +59,35 @@ decided to own.
 
    > Make a second skill, named for the worksheet. It runs on a saved run of my agent team for
    > one ticker and on the filings the run saved. When the ticker is in my seeker's registry, it
-   > also fetches the Form 10 and its information statement from EDGAR by the registry's accession
-   > and saves them with the run; otherwise the spinoff parts print "not applicable" and the rest
-   > runs. In code, it fills the facts of the worksheet from the filings, one line per fact with
-   > an amount, and "not known" where the filing states none, never a list of sentences: the parent, the ratio and the dates from the information statement; the
-   > debt raised and where the cash went; the liabilities and the restrictions the parent left,
-   > each with the filing and the section; insiders' purchases from Form 4, code P only, which
-   > is an open-market or private purchase; the median daily dollar volume from the closes and
-   > volumes my reader supplies, against the client's purchase size in my worksheet file. Each
-   > figure is marked historical, pro forma, or reported after the spin, by the statement it came
-   > from. It computes owner cash flow as after-tax earnings
-   > plus depreciation minus capital spending, from the statements, with the arithmetic printed,
-   > and a value range, low and mid, by the method written in my worksheet file, with the rates
-   > stated. It prints the price against the low case. Then one model call, with the persona
-   > file I wrote, writes the judgment from the filing facts, the value range and the price
-   > against the low case, and nothing else from the reader: why the name may be cheap or why it
-   > is not that story, and what in the next filing would change the view. The liquidity line is
-   > added after the call, in code. The skill ends with a view on the release, more or less than
-   > the price, with the one number that decides it and its filing or line; a conviction, high
-   > or low, by the rule in my worksheet file; and a "not known" list of what it could
-   > not find. When the close is "not available," the price lines and the view print "not
-   > computed." The skill saves the worksheet with the run, with the date and time it ran. No
-   > model computes a number. Nothing in the code names a company. Tell me the exact command to
-   > run it on a saved run.
+   > also fetches the Form 10 and its information statement from EDGAR by the registry's
+   > accession and saves them with the run; otherwise the spinoff parts print "not applicable"
+   > and the rest runs. In code, it fills the facts of the worksheet from the filings, one line
+   > per fact with an amount, and "not known" where the filing states none, never a list of
+   > sentences: the parent, the ratio and the dates from the information statement; the debt
+   > raised and where the cash went; the liabilities and the restrictions the parent left, each
+   > with the filing and the section; insiders' purchases from Form 4, code P only; and the median daily dollar volume from the closes and
+   > volumes my reader supplies, against the client's purchase size in my worksheet file. Mark
+   > each figure historical, pro forma, or reported after the spin, by the statement it came
+   > from. Compute owner cash flow as after-tax earnings plus depreciation minus capital
+   > spending, from the statements, with the arithmetic printed, and a value range, low and mid,
+   > by the method written in my worksheet file, with the rates stated, and print the price
+   > against the low case. Then make one model call, with the persona file I wrote, to write the
+   > judgment from the filing facts, the value range and the price against the low case, and
+   > nothing else from the reader: why the name may be cheap or why it is not that story, and
+   > what in the next filing would change the view. Add the liquidity line after the call, in
+   > code. End with a view on the release, more or less than the price, with the one number that
+   > decides it and its filing or line; a conviction, high or low, by the rule in my worksheet
+   > file; and a "not known" list of what it could not find. When the close is "not available,"
+   > the price lines and the view print "not computed." Save the worksheet with the run, dated. No model computes a number. Nothing in the code names a company.
+   > Tell me the exact command to run it on a saved run.
 </textarea></section>
 <section data-markdown><textarea data-template>
 ## I — the worksheet, the hook, then make it yours (continued)
 
-2. Run the agent team on the name your partner picked, then the worksheet. *Expect:* every fact
+   The same request, written to the standard: [requests](../week-04/requests.html#lab-07-the-worksheet).
+
+2. Run the agent team on the name your partner picked, then the worksheet, then put the worksheet
+   on your page beside the report. *Expect:* every fact
    with a filing and a section; owner cash flow with its arithmetic; a low and a mid case; the
    price against the low case; a judgment that ends with what would change it; the view with one
    number; the "not known" list. The shape of one line, not your answer: `debt raised: [amount];
@@ -96,14 +97,21 @@ decided to own.
 <section data-markdown><textarea data-template>
 ## I — the worksheet, the hook, then make it yours (continued)
 
-   > Add a hook to my agent that runs when a skill has written its output. The hook runs a script
-   > that reads every number in the saved worksheet itself, not in a file written for the hook. A number that claims a tag and a period is looked up
-   > in the run's facts file, exactly. A number that claims a filing and a line is found in that
-   > filing's saved text. A number computed from printed inputs is recomputed from them. A rate
-   > or a weight is matched against the skill's file. A price is matched against the reader's
-   > output. A date, an accession number or a line number is an identifier, not a claim, and is
-   > skipped. A number of no such kind is a failure. On any failure the hook refuses "done" and prints the line that failed. Show me the hook's file
-   > before you enable it. Tell me the exact command to test the hook on a saved run.
+   > Add a hook to my agent that runs when a skill has written its output. The hook runs a
+   > script that reads every number in the saved worksheet itself, not in a file written for the
+   > hook. A number that claims a tag and a period is looked up in the run's facts file,
+   > exactly; a number that claims a filing and a line is found in that filing's saved text; a
+   > number computed from printed inputs is recomputed from them; a rate or a weight is matched
+   > against the skill's file; a price is matched against the reader's output. A date, an
+   > accession number or a line number is an identifier, not a claim, and is skipped. A number
+   > of no such kind is a failure. On any failure the hook refuses "done" and prints the line
+   > that failed. Show me the hook's file before you enable it. Tell me the exact command to
+   > test the hook on a saved run.
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — the worksheet, the hook, then make it yours (continued)
+
+   The same request, written to the standard: [requests](../week-04/requests.html#lab-07-the-hook).
 </textarea></section>
 <section data-markdown><textarea data-template>
 ## I — the worksheet, the hook, then make it yours (continued)
@@ -131,7 +139,7 @@ decided to own.
 8. **The live report.** If this week's release has filed, run the agent team and the worksheet
    skill on it now, into `runs/live`, and upload the verified report with the skill's output
    under it to Brightspace → **Live record** before its window closes; the product manual scores the
-   view in that upload. If it files later this week, the member you chose runs it then.
+   view in that upload. If it files later this week, run it then.
 9. **While it runs:** one item from your gap list, in a second AI chat. Never collected.
 </textarea></section>
 <section data-markdown><textarea data-template>
@@ -164,8 +172,7 @@ the worksheet you trust least, and why.
 **Before Session 8 — do these:** the list on the [Week 5 page](../week-05/index.html), about
 90 minutes.
 
-**Next:** Lab 08 joins the seeker, the worksheet and the hook to your agent team under one
-command.
+**Next:** Lab 08 joins the team and the skills under one command.
 </textarea></section>
 </div></div>
 <div class="footer">FIN 67110 · Lab 07 — Your Investor</div>

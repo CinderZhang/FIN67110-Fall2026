@@ -1,0 +1,116 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>The requests, written to the standard · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
+<h1 id="the-requests-written-to-the-standard">The requests, written to the standard</h1>
+<p>Each lab shows its request in natural language. This page holds the same request written 80% of the
+way to ASD-STE100: one instruction per sentence, active voice, every number, condition and "never"
+kept. Send either one. They ask for the same thing.</p>
+<h2 id="lab-06--the-seeker">Lab 06 — the seeker</h2>
+<blockquote>
+<p>Make a skill for my coding agent, in the folder where my agent reads skills, named for what it
+seeks. It finds U.S. spinoffs on SEC EDGAR whose distribution date is on or after a start date
+I give. It reads EDGAR's form indexes for Form 10 registrations, their amendments, the
+exchanges' CERT filings and the 8-Ks filed at a distribution, and it reads each filing's
+folder on EDGAR for the facts it needs. It sends my SEC User-Agent from .env on every request
+and stays under the rate EDGAR allows. It keeps a registry file of facts established by
+reading a filing: the parent, the distribution ratio, the record and distribution dates, each
+with the filing and the section it came from. The skill fills the registry from the filings it
+can read; a fact it cannot find stays blank, and the report says so. It never estimates a
+fact. It drops a registrant that is not a spinoff, with the reason and the filing beside it: a
+Form 10 with no information statement, a fund, or a company registering shares it already has,
+is dropped unless a later filing shows a parent distributing the business. It gives each name
+a stage: registered, listing approved, trading, in its window, or past it. The distribution
+8-K is often the parent's, so the skill reads the parent's filings from the registry's parent
+CIK; a 10-Q, a 10-K or a Form 4 in the new company's own filing list proves it trades. A
+name's first price is the first close after the distribution date, never a when-issued price.
+It takes closes from my closes reader and prints the price date beside every price. It ranks
+the names in their window by the factors in a file I write, each with its weight and
+direction; the same file states the window's length in days after the distribution. It prints
+each name's points per factor. A name missing a date it needs is listed unranked, with the
+reason. It writes a report with the run date, the price date and the index date on the first
+line, the names in their window by rank, the watch list of registered names not yet trading,
+what was dropped and why, what the data cannot show, and the line "screens, not
+recommendations" at the end. The report is saved with the date and time it ran. Every rule has
+a test on made-up data, and a rule changes only after its test does. Nothing in the code names
+a company. Tell me the exact command to run the seeker from a start date and the exact command
+to run its tests.</p>
+</blockquote>
+<h2 id="lab-07--the-worksheet">Lab 07 — the worksheet</h2>
+<blockquote>
+<p>Make a second skill, named for the worksheet. It runs on a saved run of my agent team for one
+ticker and on the filings the run saved. When the ticker is in my seeker's registry, it also
+fetches the Form 10 and its information statement from EDGAR by the registry's accession and
+saves them with the run; otherwise the spinoff parts print "not applicable" and the rest runs.
+In code, it fills the facts of the worksheet from the filings, one line per fact with an
+amount, and "not known" where the filing states none, never a list of sentences: the parent,
+the ratio and the dates from the information statement; the debt raised and where the cash
+went; the liabilities and the restrictions the parent left, each with the filing and the
+section; insiders' purchases from Form 4, code P only, which is an open-market or private
+purchase; the median daily dollar volume from the closes and volumes my reader supplies,
+against the client's purchase size in my worksheet file. Each figure is marked historical, pro
+forma, or reported after the spin, by the statement it came from. It computes owner cash flow
+as after-tax earnings plus depreciation minus capital spending, from the statements, with the
+arithmetic printed, and a value range, low and mid, by the method written in my worksheet
+file, with the rates stated. It prints the price against the low case. Then one model call,
+with the persona file I wrote, writes the judgment from the filing facts, the value range and
+the price against the low case, and nothing else from the reader: why the name may be cheap or
+why it is not that story, and what in the next filing would change the view. The liquidity
+line is added after the call, in code. The skill ends with a view on the release, more or less
+than the price, with the one number that decides it and its filing or line; a conviction, high
+or low, by the rule in my worksheet file; and a "not known" list of what it could not find.
+When the close is "not available," the price lines and the view print "not computed." The
+skill saves the worksheet with the run, with the date and time it ran. No model computes a
+number. Nothing in the code names a company. Tell me the exact command to run it on a saved
+run.</p>
+</blockquote>
+<h2 id="lab-07--the-hook">Lab 07 — the hook</h2>
+<blockquote>
+<p>Add a hook to my agent that runs when a skill has written its output. The hook runs a script
+that reads every number in the saved worksheet itself, not in a file written for the hook. A
+number that claims a tag and a period is looked up in the run's facts file, exactly. A number
+that claims a filing and a line is found in that filing's saved text. A number computed from
+printed inputs is recomputed from them. A rate or a weight is matched against the skill's
+file. A price is matched against the reader's output. A date, an accession number or a line
+number is an identifier, not a claim, and is skipped. A number of no such kind is a failure.
+On any failure the hook refuses "done" and prints the line that failed. Show me the hook's
+file before you enable it. Tell me the exact command to test the hook on a saved run.</p>
+</blockquote>
+<h2 id="week-4-prework--the-closes-reader">Week 4 prework — the closes reader</h2>
+<blockquote>
+<p>Add a closes reader to my agent team, in its own file, with two functions: the official daily
+closes for a ticker between two dates; and the last close before a date and time, taking a
+trading day's close as 4:00 PM Eastern. Implement them with LSEG's Data Library for Python,
+lseg-data. Open a desktop session with the App Key from LSEG_APP_KEY in my .env. Take the
+field names from its documentation. If I give you a file path in .env instead, read the closes
+from that file. If the source has nothing for a ticker, the function returns "not available"
+and the agent team still finishes. Do not run the reader yourself; I run it. The agent team
+reads the earnings 8-K's "Accepted" date and time from its EDGAR index page and saves it with
+the run; a --filed option in the form YYYY-MM-DDTHH:MM:SS, Eastern, overrides it. The last
+close before the filing time replaces --price: the Financial Analyst's valuation uses it, in
+code, as the one market number. No role receives anything else from the reader. Nothing in the
+code names a company. Tell me the exact command to install the library and the exact command
+to print the last close before a filing time for a ticker.</p>
+</blockquote>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main></body></html>

@@ -75,14 +75,16 @@ company you did not choose?</p>
 <li>Send your AI coding agent this request word for word:</li>
 </ol>
 <blockquote>
-<p>In my agent team, each analyst role's output must end with one line that begins "Insight:" and
-states one claim, with the filing and the line it comes from. Add two checks to the Strategy
-Manager: a part fails if it has no Insight line; a part fails if its Insight line only
-restates a figure that the earnings release's first paragraph states. Send a failing part
-back to its role one time only, as now. The Verifier checks the number in each Insight line
-like every other sourced number. Do not change the graph's order. Nothing in the code names
-a company. Tell me the exact command to run the agent team.</p>
+<p>In my agent team, I want each analyst role's output to end with one line that begins
+"Insight:" and states one claim, with the filing and the line it comes from. Add two checks
+to the Strategy Manager: a part fails if it has no Insight line, and a part fails if its
+Insight line only restates a figure that the earnings release's first paragraph already
+states. Send a failing part back to its role one time only, as now. The Verifier checks the
+number in each Insight line like every other sourced number. Do not change the graph's
+order. Nothing in the code names a company. Tell me the exact command to run the agent
+team.</p>
 </blockquote>
+<p>The same request, written to the standard: <a href="requests.html#lab-05-the-insight-line">requests</a>.</p>
 <ol start="3">
 <li>Run it on COST with the same peers and price as Tuesday. <em>Expect:</em> three Insight lines in the
    verified report, each with a mark; the node order unchanged.</li>
@@ -91,8 +93,19 @@ a company. Tell me the exact command to run the agent team.</p>
    its source, three Insight lines, the table of marks. Not running with twenty minutes left?
    The <a href="../week-02/index.html#the-fallback">fallback</a> produces a report; Checkpoint 2 needs
    Tuesday's marks, which you already have.</li>
-<li><strong>While it runs:</strong> work one item from your gap list in a second AI chat. Never collected.</li>
+<li><strong>Wrap it in a UI.</strong> The logic is done; now a person who never opens a terminal must be able
+   to run it. Send your agent:</li>
 </ol>
+<blockquote>
+<p>Put a user interface on my agent team: a page where a person types a ticker, optional peers
+and a price, presses run, watches each node's name appear as it runs, and reads the
+verified report with its marks when it ends, without opening a terminal. Keep every command
+working as it is. Tell me the exact command to start the page.</p>
+</blockquote>
+<p>The same request, written to the standard: <a href="requests.html#lab-05-the-ui">requests</a>.
+   <em>Expect:</em> your partner runs the agent team on their pick from the page, and reads the verified
+   report there. From here on, each new piece of the desk goes behind this page.
+6. <strong>While it runs:</strong> work one item from your gap list in a second AI chat. Never collected.</p>
 <h2 id="v--prove-it-general">V — prove it general</h2>
 <table>
 <thead>
@@ -102,6 +115,10 @@ a company. Tell me the exact command to run the agent team.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>The page</td>
+<td>your partner runs the agent team on their pick from the page, no terminal</td>
+</tr>
 <tr>
 <td>The node order on the partner's pick</td>
 <td>the same as on COST, printed</td>

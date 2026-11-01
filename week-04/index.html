@@ -280,20 +280,22 @@ NVIDIA, AMD, Broadcom, Dell, Super Micro, Vertiv. The calendar says which week e
    contract and reads as one:</li>
 </ol>
 <blockquote>
-<p>Add a closes reader to my agent team, in its own file, with two functions: the official daily
-closes for a ticker between two dates; and the last close before a date and time, taking a
-trading day's close as 4:00 PM Eastern. Implement them with LSEG's Data Library for Python,
-lseg-data. Open a desktop session with the App Key from LSEG_APP_KEY in my .env. Take the
-field names from its documentation. If I give you a file path in .env instead, read the
-closes from that file. If the source has nothing for a ticker, the function returns "not
-available" and the agent team still finishes. Do not run the reader yourself; I run it. The
-agent team reads the earnings 8-K's "Accepted" date and time from its EDGAR index page and
-saves it with the run; a --filed option in the form YYYY-MM-DDTHH:MM:SS, Eastern, overrides
-it. The last close before the filing time replaces --price: the Financial Analyst's
-valuation uses it, in code, as the one market number. No role receives anything else from
-the reader. Nothing in the code names a company. Tell me the exact command to install the
-library and the exact command to print the last close before a filing time for a ticker.</p>
+<p>Add a closes reader to my agent team, in its own file, with two functions: the official
+daily closes for a ticker between two dates, and the last close before a date and time,
+taking a trading day's close as 4:00 PM Eastern. Implement them with LSEG's Data Library
+for Python, lseg-data: open a desktop session with the App Key from LSEG_APP_KEY in my
+.env, and take the field names from its documentation. If I give you a file path in .env
+instead, read the closes from that file. If the source has nothing for a ticker, the
+function returns "not available" and the agent team still finishes. Do not run the reader
+yourself; I run it. Have the agent team read the earnings 8-K's "Accepted" date and time
+from its EDGAR index page and save it with the run; a --filed option in the form YYYY-MM-
+DDTHH:MM:SS, Eastern, overrides it. The last close before the filing time replaces --price:
+the Financial Analyst's valuation uses it, in code, as the one market number, and no role
+receives anything else from the reader. Nothing in the code names a company. Tell me the
+exact command to install the library and the exact command to print the last close before a
+filing time for a ticker.</p>
 </blockquote>
+<p>The same request, written to the standard: <a href="requests.html#week-4-prework-the-closes-reader">requests</a>.</p>
 <p>Check one close it prints against the exchange's official close for that date.
 2. Read the two chapters and write your two lines.
 3. Find two filers on EDGAR by hand. Start here:

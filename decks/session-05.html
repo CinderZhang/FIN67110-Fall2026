@@ -63,13 +63,16 @@ pushed, your three persona drafts from the Week 3 list.
 <section data-markdown><textarea data-template>
 ## I — make it yours (continued)
 
-   > In my agent team, each analyst role's output must end with one line that begins "Insight:" and
-   > states one claim, with the filing and the line it comes from. Add two checks to the Strategy
-   > Manager: a part fails if it has no Insight line; a part fails if its Insight line only
-   > restates a figure that the earnings release's first paragraph states. Send a failing part
-   > back to its role one time only, as now. The Verifier checks the number in each Insight line
-   > like every other sourced number. Do not change the graph's order. Nothing in the code names
-   > a company. Tell me the exact command to run the agent team.
+   > In my agent team, I want each analyst role's output to end with one line that begins
+   > "Insight:" and states one claim, with the filing and the line it comes from. Add two checks
+   > to the Strategy Manager: a part fails if it has no Insight line, and a part fails if its
+   > Insight line only restates a figure that the earnings release's first paragraph already
+   > states. Send a failing part back to its role one time only, as now. The Verifier checks the
+   > number in each Insight line like every other sourced number. Do not change the graph's
+   > order. Nothing in the code names a company. Tell me the exact command to run the agent
+   > team.
+
+   The same request, written to the standard: [requests](../week-03/requests.html#lab-05-the-insight-line).
 </textarea></section>
 <section data-markdown><textarea data-template>
 ## I — make it yours (continued)
@@ -81,13 +84,28 @@ pushed, your three persona drafts from the Week 3 list.
    its source, three Insight lines, the table of marks. Not running with twenty minutes left?
    The [fallback](../week-02/index.html#the-fallback) produces a report; Checkpoint 2 needs
    Tuesday's marks, which you already have.
-5. **While it runs:** work one item from your gap list in a second AI chat. Never collected.
+5. **Wrap it in a UI.** The logic is done; now a person who never opens a terminal must be able
+   to run it. Send your agent:
+</textarea></section>
+<section data-markdown><textarea data-template>
+## I — make it yours (continued)
+
+   > Put a user interface on my agent team: a page where a person types a ticker, optional peers
+   > and a price, presses run, watches each node's name appear as it runs, and reads the
+   > verified report with its marks when it ends, without opening a terminal. Keep every command
+   > working as it is. Tell me the exact command to start the page.
+
+   The same request, written to the standard: [requests](../week-03/requests.html#lab-05-the-ui).
+   *Expect:* your partner runs the agent team on their pick from the page, and reads the verified
+   report there. From here on, each new piece of the desk goes behind this page.
+6. **While it runs:** work one item from your gap list in a second AI chat. Never collected.
 </textarea></section>
 <section data-markdown><textarea data-template>
 ## V — prove it general
 
 | Check | Expect |
 |---|---|
+| The page | your partner runs the agent team on their pick from the page, no terminal |
 | The node order on the partner's pick | the same as on COST, printed |
 | The Verifier | ran without being asked; its table sits under the first line |
 | Each Insight line | names a line the filing contains; your partner opens one and finds it |
