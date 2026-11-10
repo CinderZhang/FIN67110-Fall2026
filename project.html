@@ -32,14 +32,14 @@ and each of you can defend it. Due date: the <a href="schedule.html">schedule</a
 <a href="grading.html">grading</a>.</p>
 <h2 id="the-project-on-one-chart">The project on one chart</h2>
 <pre class="mermaid">flowchart TD
-    subgraph P [&quot;WHAT YOU BUILD · an intelligent research desk a firm could use&quot;]
+    subgraph P [&quot;WHAT YOU BUILD · a desk a firm could use&quot;]
         direction TB
         P1[&quot;Your desk reads any U.S. company's filings&lt;br/&gt;and its earnings release.&quot;] --&gt; P2[&quot;An agent team writes the report,&lt;br/&gt;and a verifier checks every run.&quot;]
         P2 --&gt; P3[&quot;You build a spinoff seeker, a valuation worksheet,&lt;br/&gt;and a hook that blocks any number without a source.&quot;]
         P3 --&gt; P4[&quot;One command runs the desk, behind a UI,&lt;br/&gt;and writes a report with a view for the client.&quot;]
     end
     P --&gt; I
-    subgraph I [&quot;HOW IT IS CHECKED · six examples, not a limit&quot;]
+    subgraph I [&quot;HOW IT IS CHECKED · six examples&quot;]
         direction TB
         I1[&quot;Another team runs your desk from your README&lt;br/&gt;on two companies it picks (Session 10).&quot;]
         I2[&quot;Each week your desk reports a company that filed that week,&lt;br/&gt;within 24 hours, into the live record in your repository.&quot;]
@@ -50,15 +50,16 @@ and each of you can defend it. Due date: the <a href="schedule.html">schedule</a
         I1 ~~~ I2 ~~~ I3 ~~~ I4 ~~~ I5 ~~~ I6
     end
     I --&gt; M
-    subgraph M [&quot;THE FLOORS · what every team must clear; whether your calls were right never counts&quot;]
+    subgraph M [&quot;THE FLOORS · every team clears them&quot;]
         direction TB
+        M0[&quot;Whether your calls were right never counts.&quot;]
         M1[&quot;No live report ever, or no product manual: Fail.&quot;]
         M2[&quot;A part missing, or another team could not&lt;br/&gt;run it from the README: Submitted.&quot;]
         M3[&quot;Ran from the README, but fewer than three live weeks,&lt;br/&gt;or a wrong number in the two reports for the other team:&lt;br/&gt;Standard (ready to adopt).&quot;]
-        M1 --&gt; M2 --&gt; M3
+        M0 ~~~ M1 --&gt; M2 --&gt; M3
     end
     M --&gt; R
-    subgraph R [&quot;THE RANKING · competitive, among the teams that cleared the floors&quot;]
+    subgraph R [&quot;THE RANKING · among the teams that cleared&quot;]
         direction TB
         R1[&quot;Three or more live weeks, and no wrong number&lt;br/&gt;in those two reports: eligible for Top.&quot;]
         R2[&quot;Ranked by four questions, in order: the audits hold;&lt;br/&gt;it runs on any company; the writing is honest;&lt;br/&gt;each member can explain it.&quot;]
