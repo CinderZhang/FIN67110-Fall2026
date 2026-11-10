@@ -13,6 +13,7 @@ pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px
 code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
 pre code { background:none; padding:0; }
 pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+pre.mermaid svg { max-width:100%; height:auto; }
 table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
 th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
 hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
@@ -32,7 +33,7 @@ and each of you can defend it. Due date: the <a href="schedule.html">schedule</a
 <h2 id="the-project-on-one-chart">The project on one chart</h2>
 <pre class="mermaid">flowchart TD
     subgraph P [&quot;WHAT YOU BUILD · an intelligent research desk a firm could use&quot;]
-        direction LR
+        direction TB
         P1[&quot;Your desk reads any U.S. company's filings&lt;br/&gt;and its earnings release.&quot;] --&gt; P2[&quot;An agent team writes the report,&lt;br/&gt;and a verifier checks every run.&quot;]
         P2 --&gt; P3[&quot;You build a spinoff seeker, a valuation worksheet,&lt;br/&gt;and a hook that blocks any number without a source.&quot;]
         P3 --&gt; P4[&quot;One command runs the desk, behind a UI,&lt;br/&gt;and writes a report with a view for the client.&quot;]
@@ -46,6 +47,7 @@ and each of you can defend it. Due date: the <a href="schedule.html">schedule</a
         I4[&quot;Your product manual says only what the evidence shows.&quot;]
         I5[&quot;Your desk runs live in the room,&lt;br/&gt;and each member answers one question.&quot;]
         I6[&quot;The checkpoints: the proposal (Session 9),&lt;br/&gt;the first draft (Session 12).&quot;]
+        I1 ~~~ I2 ~~~ I3 ~~~ I4 ~~~ I5 ~~~ I6
     end
     I --&gt; M
     subgraph M [&quot;THE FLOORS · what every team must clear; whether your calls were right never counts&quot;]
@@ -64,10 +66,11 @@ and each of you can defend it. Due date: the <a href="schedule.html">schedule</a
         R1 --&gt; R2 --&gt; R3
     end
     subgraph W [&quot;UP TO YOU&quot;]
-        direction LR
+        direction TB
         W1[&quot;You choose what extra to build: an intelligent app, not a standard one.&lt;br/&gt;Examples: a second seeker, a factor check, a plugin, a mandate, or your own idea.&quot;]
         W2[&quot;You choose which decision the desk serves: the company's stock,&lt;br/&gt;its bonds, or a portfolio that holds it.&quot;]
         W3[&quot;You choose how you build the desk&lt;br/&gt;and how you work as a team.&quot;]
+        W1 ~~~ W2 ~~~ W3
     end
     P -.-&gt; W
 </pre>
@@ -146,6 +149,8 @@ when you submitted. Its shape:</p>
    if the network or a model provider fails.</li>
 </ol>
 <h2 id="the-live-record">The live record</h2>
+<p>The live record is for you first: it is how you test, improve and polish your desk, week by week,
+on real releases. The audits, the hit rate and the decision log are read from it. It is also a gate.</p>
 <p><strong>The rule in one line:</strong> each week in Weeks 4 to 7, your desk runs on a company that filed its
 earnings release, or another SEC report, that week, and reports it within 24 hours. One missed week
 costs nothing; two missed weeks keep the team out of the top tier; no report ever is the fail
