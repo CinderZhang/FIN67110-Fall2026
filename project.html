@@ -32,39 +32,43 @@ and each of you can defend it. Due date: the <a href="schedule.html">schedule</a
 <a href="grading.html">grading</a>.</p>
 <h2 id="the-project-on-one-chart">The project on one chart</h2>
 <pre class="mermaid">flowchart TD
-    subgraph P [&quot;WHAT YOU BUILD · a desk a firm could use&quot;]
+    subgraph P [&quot;WHAT YOU BUILD&quot;]
         direction TB
+        P0[&quot;A desk a firm could use.&quot;]
         P1[&quot;Your desk reads any U.S. company's filings&lt;br/&gt;and its earnings release.&quot;] --&gt; P2[&quot;An agent team writes the report,&lt;br/&gt;and a verifier checks every run.&quot;]
         P2 --&gt; P3[&quot;You build a spinoff seeker, a valuation worksheet,&lt;br/&gt;and a hook that blocks any number without a source.&quot;]
+        P0 ~~~ P1
         P3 --&gt; P4[&quot;One command runs the desk, behind a UI,&lt;br/&gt;and writes a report with a view for the client.&quot;]
     end
     P --&gt; I
-    subgraph I [&quot;HOW IT IS CHECKED · six examples&quot;]
+    subgraph I [&quot;HOW IT IS CHECKED&quot;]
         direction TB
+        I0[&quot;Six examples, not a limit.&quot;]
         I1[&quot;Another team runs your desk from your README&lt;br/&gt;on two companies it picks (Session 10).&quot;]
         I2[&quot;Each week your desk reports a company that filed that week,&lt;br/&gt;within 24 hours, into the live record in your repository.&quot;]
         I3[&quot;You audit four reports by hand against the filings.&quot;]
         I4[&quot;Your product manual says only what the evidence shows.&quot;]
         I5[&quot;Your desk runs live in the room,&lt;br/&gt;and each member answers one question.&quot;]
         I6[&quot;The checkpoints: the proposal (Session 9),&lt;br/&gt;the first draft (Session 12).&quot;]
-        I1 ~~~ I2 ~~~ I3 ~~~ I4 ~~~ I5 ~~~ I6
+        I0 ~~~ I1 ~~~ I2 ~~~ I3 ~~~ I4 ~~~ I5 ~~~ I6
     end
     I --&gt; M
-    subgraph M [&quot;THE FLOORS · every team clears them&quot;]
+    subgraph M [&quot;THE FLOORS&quot;]
         direction TB
-        M0[&quot;Whether your calls were right never counts.&quot;]
+        M0[&quot;Every team clears them. Whether your&lt;br/&gt;calls were right never counts.&quot;]
         M1[&quot;No live report ever, or no product manual: Fail.&quot;]
         M2[&quot;A part missing, or another team could not&lt;br/&gt;run it from the README: Submitted.&quot;]
         M3[&quot;Ran from the README, but fewer than three live weeks,&lt;br/&gt;or a wrong number in the two reports for the other team:&lt;br/&gt;Standard (ready to adopt).&quot;]
         M0 ~~~ M1 --&gt; M2 --&gt; M3
     end
     M --&gt; R
-    subgraph R [&quot;THE RANKING · among the teams that cleared&quot;]
+    subgraph R [&quot;THE RANKING&quot;]
         direction TB
+        R0[&quot;Competitive, among the teams&lt;br/&gt;that cleared the floors.&quot;]
         R1[&quot;Three or more live weeks, and no wrong number&lt;br/&gt;in those two reports: eligible for Top.&quot;]
         R2[&quot;Ranked by four questions, in order: the audits hold;&lt;br/&gt;it runs on any company; the writing is honest;&lt;br/&gt;each member can explain it.&quot;]
         R3[&quot;Top (adopted): the highest ranked, up to one third of the teams&lt;br/&gt;that passed the fail rule, ties included. The rest: Standard.&quot;]
-        R1 --&gt; R2 --&gt; R3
+        R0 ~~~ R1 --&gt; R2 --&gt; R3
     end
     subgraph W [&quot;UP TO YOU&quot;]
         direction TB
