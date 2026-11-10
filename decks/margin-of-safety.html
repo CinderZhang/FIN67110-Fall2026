@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--ARTIFACT-START-->
+<title>Margin of Safety</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one slide on screen at a time, like the course's session decks; a notes drawer the instructor opens with N. */
+:root {
+  --bg: #fbfaf6; --panel: #f1ede4; --fg: #1f2328; --muted: #5d6066; --line: #d9d3c6;
+  --accent: #8e6f3e; --value: #2f6f8f; --price: #c0652a; --good: #3a7d5c; --bad: #b3392f;
+  --display: 'Source Serif 4', Georgia, serif; --body: 'Source Sans 3', 'Segoe UI', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #15171b; --panel: #1f2228; --fg: #e9e6df; --muted: #a8a59c; --line: #3a3d44;
+  --accent: #d2b273; --value: #7fb3d1; --price: #e59a6a; --good: #7cc29a; --bad: #e07b72; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #15171b; --panel: #1f2228; --fg: #e9e6df; --muted: #a8a59c; --line: #3a3d44;
+  --accent: #d2b273; --value: #7fb3d1; --price: #e59a6a; --good: #7cc29a; --bad: #e07b72; color-scheme: dark }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 20px; line-height: 1.4; }
+[hidden] { display: none !important; }
+.deck { height: 100%; display: flex; flex-direction: column; }
+.slide { flex: 1; min-height: 0; overflow: auto; padding-block: 28px 20px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.slide > .inner { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+h1, h2 { font-family: var(--display); font-weight: 600; line-height: 1.15; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(34px, 5vw, 60px); }
+h2 { font-size: clamp(26px, 3.4vw, 40px); color: var(--accent); }
+h3 { font-size: 21px; margin: 0 0 6px; font-weight: 600; }
+p { margin: 0; }
+ul { margin: 0; padding-left: 1.2em; } li { margin: 4px 0; }
+.lead { font-size: clamp(20px, 2.2vw, 26px); color: var(--muted); max-width: 42em; }
+.eyebrow { font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.cards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.card { background: var(--panel); border-left: 4px solid var(--accent); padding: 14px 16px; min-width: 0; }
+.card.value { border-left-color: var(--value); } .card.price { border-left-color: var(--price); }
+.two { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.widget { background: var(--panel); padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; }
+.controls label { display: flex; flex-direction: column; gap: 2px; font-size: 16px; color: var(--muted); }
+.controls input[type=range] { width: 200px; max-width: 60vw; accent-color: var(--accent); }
+.controls input[type=number] { width: 80px; font: inherit; font-size: 16px; padding: 2px 6px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
+.readout { font-size: 20px; font-weight: 600; min-height: 1.4em; }
+.readout.good { color: var(--good); } .readout.bad { color: var(--bad); } .readout.wait { color: var(--value); }
+.small { font-size: 15px; color: var(--muted); }
+svg { width: 100%; height: auto; display: block; }
+button { font: inherit; font-size: 17px; padding: 6px 14px; border: 1px solid var(--accent); background: var(--bg); color: var(--fg); cursor: pointer; border-radius: 4px; }
+button:hover, button:focus-visible { background: var(--accent); color: var(--bg); outline: none; }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding: 8px 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); font-size: 15px; color: var(--muted); }
+.bar .nav { display: flex; gap: 8px; }
+.bar button { font-size: 15px; padding: 3px 10px; }
+.notes { background: var(--panel); border-top: 1px solid var(--line); padding: 10px 16px; font-size: 16px; max-height: 30vh; overflow: auto; }
+.notes b { color: var(--accent); }
+.end { font-family: var(--display); font-size: clamp(22px, 2.6vw, 30px); color: var(--accent); }
+.legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 15px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 12px; height: 12px; margin-right: 6px; vertical-align: -1px; background: var(--accent); }
+.legend .v::before { background: var(--value); } .legend .p::before { background: var(--price); }
+a { color: var(--value); }
+@media (prefers-reduced-motion: no-preference) { .readout { transition: color .2s; } }
+</style>
+<!--ARTIFACT-END-->
+</head><body>
+<!--BODY-START-->
+<div class="deck">
+
+<section class="slide" data-note="You read Chapter 10, the spinoff pages, before class. This deck gives you the rest of the 1991 book so you can build the skill in Lab 06."><div class="inner">
+  <p class="eyebrow">FIN 67110 · Week 4 reading</p>
+  <h1>Margin of Safety</h1>
+  <p class="lead">The key philosophies of Seth Klarman's 1991 book, in one sitting.</p>
+  <ul>
+    <li>You read the spinoff pages of Chapter 10 for Week 4.</li>
+    <li>This deck gives you the whole book's philosophy before Lab 06.</li>
+    <li>In Lab 06 you turn these rules into a value-investor skill for your coding agent.</li>
+    <li>Three slides have things to move: the margin, the three value ranges, the catalyst.</li>
+  </ul>
+  <p class="small">Klarman, S. A. (1991). <i>Margin of Safety: Risk-Averse Value Investing Strategies for the Thoughtful Investor.</i> HarperCollins. The book is out of print; the <a href="../lessons/week-04/README.md">Week 4 page</a> says how to get it. Keys: ← → to move, N for the instructor's notes.</p>
+</div></section>
+
+<section class="slide" data-note="Two people can buy the exact same security on the same day. The person who buys for business cash flows is an investor, and the person who buys for a price jump is a speculator."><div class="inner">
+  <h2>Investing versus speculation</h2>
+  <div class="two">
+    <div class="card value"><h3>The investor</h3><p>Buys a claim on a business and its underlying cash flows. The return comes from what the business earns and what it is worth.</p></div>
+    <div class="card price"><h3>The speculator</h3><p>Buys a security only because the price will rise. The return comes from what the next buyer pays.</p></div>
+  </div>
+  <ul>
+    <li>The buyer's purpose separates investing from speculation.</li>
+    <li>An asset with no cash flow of its own can only be speculated on.</li>
+  </ul>
+</div></section>
+
+<section class="slide" data-note="Benjamin Graham created this concept, and Klarman made it the core of his 1991 book. You leave a gap between price and value because your valuation might be wrong. Move the price slider under the range and watch the margin."><div class="inner">
+  <h2>The margin of safety</h2>
+  <ul>
+    <li>You buy a security only at a large discount to a conservative value estimate.</li>
+    <li>This discount absorbs the impact when the future turns out worse than you expected.</li>
+    <li>Valuation is an imprecise art, and every analyst makes mistakes.</li>
+  </ul>
+  <div class="widget">
+    <div class="controls">
+      <label>Value range, low <input type="range" id="m-low" min="0" max="200" value="80"></label>
+      <label>Value range, high <input type="range" id="m-high" min="0" max="200" value="120"></label>
+      <label>Price <input type="range" id="m-price" min="0" max="200" value="60"></label>
+    </div>
+    <svg id="m-svg" viewBox="0 0 1000 110" aria-label="A value range as a band and the price as a marker under it"></svg>
+    <p class="readout" id="m-out"></p>
+    <p class="small">Illustrative units per share. The numbers are yours: move them. The margin is measured from the low end of the range, never the middle.</p>
+  </div>
+</div></section>
+
+<section class="slide" data-note="Academic finance uses price volatility as risk because volatility is easy to measure. For Klarman, a falling price on a sound business is an opportunity, not a risk. Press the button to show which path is the loss."><div class="inner">
+  <h2>Risk is not volatility</h2>
+  <div class="two">
+    <ul>
+      <li>Risk is the probability of a loss combined with the size of that loss.</li>
+      <li>Your first job is to avoid losing money, not to chase a high return.</li>
+      <li>Volatility only measures how much a market price moves around.</li>
+      <li>A permanent loss happens when the business value was never there.</li>
+    </ul>
+    <div class="widget">
+      <svg id="r-svg" viewBox="0 0 600 240" aria-label="Two price paths: one jumps around and ends higher; one slides down and stays down"></svg>
+      <div class="controls"><button id="r-btn" type="button">Which path is the risk?</button><p class="readout" id="r-out"></p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="slide" data-note="These three traits work together to keep you out of trouble. Ask them in this order about every name: what is it worth, does it meet my standard, how much can I lose."><div class="inner">
+  <h2>Three traits of a value investor</h2>
+  <div class="cards">
+    <div class="card"><h3>Bottom-up</h3><p>You study one security at a time instead of forecasting the economy.</p></div>
+    <div class="card"><h3>Absolute performance</h3><p>You measure against your own standard, not against an index this quarter.</p></div>
+    <div class="card"><h3>Risk-averse</h3><p>You ask how much you can lose before you ask what you can make.</p></div>
+  </div>
+</div></section>
+
+<section class="slide" data-note="Fund managers know these rules, yet they still fail to follow them because they fear losing clients. Their career pressure is the reason mispriced securities exist for you to find."><div class="inner">
+  <h2>Why institutions fail at value</h2>
+  <div class="cards">
+    <div class="card"><h3>Relative performance</h3><p>Judged against peers every quarter.</p></div>
+    <div class="card"><h3>Short horizons</h3><p>A year is long; a decade is unthinkable.</p></div>
+    <div class="card"><h3>Fully invested</h3><p>A rule to buy whatever is popular, with no cash to wait.</p></div>
+    <div class="card"><h3>Career risk</h3><p>Standing apart from the crowd and looking wrong alone.</p></div>
+  </div>
+  <p class="lead">The crowd's constraints are the individual investor's best bargains.</p>
+</div></section>
+
+<section class="slide" data-note="Graham invented Mr. Market, and Klarman uses him to keep you calm. When a stock drops, the market is offering you a quote, not telling you that your analysis is wrong. Press Next day a few times."><div class="inner">
+  <h2>Mr. Market serves you</h2>
+  <ul>
+    <li>Mr. Market offers to buy or sell securities at a new price every day.</li>
+    <li>You treat his daily price as a service to use, not a verdict to obey.</li>
+    <li>Price is only what the market quotes today. Value is what the business is worth.</li>
+  </ul>
+  <div class="widget">
+    <div class="controls">
+      <button id="mm-btn" type="button">Next day</button>
+      <label>Your required margin: <span id="mm-mv">30</span>% <input type="range" id="mm-margin" min="10" max="50" value="30"></label>
+      <p class="small">Your conservative value is 100 units. You buy at or below 100 minus the margin. You sell when price reaches 100.</p>
+    </div>
+    <svg id="mm-svg" viewBox="0 0 1000 120" aria-label="The last ten daily quotes as dots against your value and your buy line"></svg>
+    <p class="readout" id="mm-out">Press Next day.</p>
+  </div>
+</div></section>
+
+<section class="slide" data-note="You never use a single point estimate when you value a business. You calculate a range across these three methods and look for where they overlap. Type your own ranges."><div class="inner">
+  <h2>Value a business three ways</h2>
+  <ul>
+    <li><b>Net present value</b> of conservative future cash flows. Small changes in growth or the discount rate swing the result.</li>
+    <li><b>Liquidation value</b>: what the assets would fetch if the business sold them.</li>
+    <li><b>Stock-market value</b>: what comparable public businesses sell for.</li>
+  </ul>
+  <div class="widget">
+    <div class="controls">
+      <label>NPV, low to high <span><input type="number" id="v-npv-lo" value="90" min="0" max="300"> – <input type="number" id="v-npv-hi" value="130" min="0" max="300"></span></label>
+      <label>Liquidation, low to high <span><input type="number" id="v-liq-lo" value="60" min="0" max="300"> – <input type="number" id="v-liq-hi" value="80" min="0" max="300"></span></label>
+      <label>Market, low to high <span><input type="number" id="v-mkt-lo" value="85" min="0" max="300"> – <input type="number" id="v-mkt-hi" value="115" min="0" max="300"></span></label>
+      <label>Price <input type="number" id="v-price" value="70" min="0" max="300"></label>
+    </div>
+    <svg id="v-svg" viewBox="0 0 1000 190" aria-label="Three value ranges as bars, their overlap, and the price as a line"></svg>
+    <p class="readout" id="v-out"></p>
+    <p class="small">Illustrative units. Each method gives a range, never a point. Where the ranges disagree, the most conservative one sets your standard.</p>
+  </div>
+</div></section>
+
+<section class="slide" data-note="Look for the seller's motive before you buy any cheap security. In Chapter 10 you saw institutions sell small spinoffs they did not choose to own."><div class="inner">
+  <h2>Where bargains come from</h2>
+  <p class="lead">Forced or uneconomic selling: someone sells for a reason that has nothing to do with value.</p>
+  <div class="cards">
+    <div class="card"><h3>Spinoffs</h3><p>Index funds and institutions sell what they did not choose and what does not fit their mandate.</p></div>
+    <div class="card"><h3>Bankruptcies and distressed debt</h3><p>Holders who cannot own defaulted paper sell it, whatever the recovery.</p></div>
+    <div class="card"><h3>Thrift conversions</h3><p>Shares sold at a price set by a formula, not by a market.</p></div>
+    <div class="card"><h3>Small and complex</h3><p>Size and legal complexity keep most analysts away.</p></div>
+  </div>
+</div></section>
+
+<section class="slide" data-note="Without a catalyst, a cheap security can stay cheap for years while you wait on the market's mood. A catalyst puts a clock on the discount. Slide the catalyst month."><div class="inner">
+  <h2>Catalysts close the gap</h2>
+  <ul>
+    <li>A catalyst is a corporate event that forces the market price toward business value.</li>
+    <li>Liquidations, tender offers, restructurings and completed spinoffs act as catalysts.</li>
+    <li>Partial catalysts unlock part of the value and shorten your waiting time.</li>
+  </ul>
+  <div class="widget">
+    <div class="controls">
+      <label>Catalyst month: <span id="c-mv">none</span> <input type="range" id="c-month" min="0" max="36" value="0"></label>
+      <div class="legend"><span class="v">Value</span><span class="p">Price</span></div>
+    </div>
+    <svg id="c-svg" viewBox="0 0 1000 220" aria-label="Price drifting under a flat value line over 36 months, jumping to value at the catalyst"></svg>
+    <p class="readout" id="c-out"></p>
+    <p class="small">Illustrative. The price path is the same each time; only the catalyst moves.</p>
+  </div>
+</div></section>
+
+<section class="slide" data-note="Holding cash takes discipline when everyone else is buying. Once a bargain reaches its conservative value range, you sell it and go back to cash."><div class="inner">
+  <h2>Cash is a position</h2>
+  <div class="cards">
+    <div class="card"><h3>Wait</h3><p>When no security meets your margin-of-safety standard, you hold cash and wait.</p></div>
+    <div class="card"><h3>Refuse the rule</h3><p>The crowd stays fully invested at all times. You do not.</p></div>
+    <div class="card"><h3>Sell at value</h3><p>You sell when the price reaches your value range. You never fall in love with a holding.</p></div>
+    <div class="card"><h3>Diversify enough</h3><p>Enough to survive a mistake, not so much that you own securities you did not study.</p></div>
+  </div>
+</div></section>
+
+<section class="slide" data-note="In Lab 06 you split Klarman's philosophy between code, model judgment and a verification hook. Keep the habit strict, and let the hook guard the numbers."><div class="inner">
+  <h2>The book as a skill, for Lab 06</h2>
+  <div class="cards">
+    <div class="card value"><h3>Code runs the tests</h3><p>On the filing: the discount to a value range, the forced seller, the catalyst, the balance sheet.</p></div>
+    <div class="card"><h3>The model judges, in a persona</h3><p>Which value method fits this business. What the margin should be here.</p></div>
+    <div class="card price"><h3>The hook checks every number</h3><p>Every figure the model writes, against the source filing. A number of no such kind fails.</p></div>
+  </div>
+  <p class="end">The margin of safety is the habit, not the formula.</p>
+  <p class="small">Next: <a href="../lessons/week-04/README.md">the Week 4 page</a>, then Lab 06.</p>
+</div></section>
+
+<div class="notes" id="notes" hidden></div>
+<div class="bar">
+  <span>Margin of Safety · the key philosophies</span>
+  <span id="counter"></span>
+  <div class="nav"><button type="button" id="prev" aria-label="Previous slide">←</button><button type="button" id="notesbtn">Notes</button><button type="button" id="next" aria-label="Next slide">→</button></div>
+</div>
+</div>
+
+<script>
+(function () {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const notes = document.getElementById('notes'), counter = document.getElementById('counter');
+  let i = 0;
+  function show(n, push) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => { s.hidden = k !== i; });
+    counter.textContent = (i + 1) + ' / ' + slides.length;
+    notes.innerHTML = '<b>Notes</b> ' + (slides[i].dataset.note || '');
+    if (push !== false) { try { location.hash = 'slide-' + (i + 1); } catch (e) {} }
+    slides[i].scrollTop = 0;
+  }
+  function fromHash() { const m = /slide-(\d+)/.exec(location.hash || ''); show(m ? parseInt(m[1], 10) - 1 : 0, false); }
+  document.getElementById('prev').onclick = () => show(i - 1);
+  document.getElementById('next').onclick = () => show(i + 1);
+  document.getElementById('notesbtn').onclick = () => { notes.hidden = !notes.hidden; };
+  document.addEventListener('keydown', (e) => {
+    const t = e.target.tagName;
+    if (t === 'INPUT' || t === 'TEXTAREA' || t === 'BUTTON') return;
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === 'n' || e.key === 'N') { notes.hidden = !notes.hidden; }
+  });
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+
+  const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const txt = (x, y, s, extra) => '<text x="' + x + '" y="' + y + '" font-size="22" font-family="' + css('--body').replace(/"/g, '') + '" fill="' + css('--fg') + '" ' + (extra || '') + '>' + esc(s) + '</text>';
+
+  // --- Slide 3: the margin ---
+  const mLow = document.getElementById('m-low'), mHigh = document.getElementById('m-high'), mPrice = document.getElementById('m-price');
+  function drawMargin() {
+    let lo = +mLow.value, hi = +mHigh.value, p = +mPrice.value;
+    if (lo > hi) { [lo, hi] = [hi, lo]; }
+    const x = (v) => 60 + v / 200 * 880;
+    let s = '<line x1="60" y1="60" x2="940" y2="60" stroke="' + css('--line') + '" stroke-width="2"/>';
+    s += '<rect x="' + x(lo) + '" y="40" width="' + Math.max(2, x(hi) - x(lo)) + '" height="40" fill="' + css('--value') + '" opacity="0.8"/>';
+    s += txt(x(lo), 32, 'value ' + lo, 'text-anchor="middle"') + txt(x(hi), 32, lo === hi ? '' : String(hi), 'text-anchor="middle"');
+    s += '<polygon points="' + x(p) + ',84 ' + (x(p) - 12) + ',104 ' + (x(p) + 12) + ',104" fill="' + css('--price') + '"/>';
+    if (p < lo) s += '<rect x="' + x(p) + '" y="56" width="' + (x(lo) - x(p)) + '" height="8" fill="' + css('--price') + '"/>';
+    document.getElementById('m-svg').innerHTML = s;
+    const out = document.getElementById('m-out');
+    if (lo === 0 && hi === 0) { out.textContent = 'Set a value range first.'; out.className = 'readout'; return; }
+    if (p < lo) { const m = Math.round((lo - p) / lo * 100); out.textContent = 'Price ' + p + ' is ' + m + '% below the low end of the range: the margin of safety is ' + m + '%.'; out.className = 'readout ' + (m >= 30 ? 'good' : 'wait'); }
+    else if (p <= hi) { out.textContent = 'Price ' + p + ' sits inside the range: no margin. If the estimate is a little wrong, you lose.'; out.className = 'readout wait'; }
+    else { out.textContent = 'Price ' + p + ' is above the range: you would pay more than the business is worth.'; out.className = 'readout bad'; }
+  }
+  [mLow, mHigh, mPrice].forEach((el) => el.addEventListener('input', drawMargin));
+
+  // --- Slide 4: risk versus volatility ---
+  const rOut = document.getElementById('r-out');
+  let rShown = false;
+  function drawRisk() {
+    const A = [120, 100, 135, 90, 125, 105, 140, 110, 150, 130, 160], B = [120, 118, 112, 108, 100, 92, 84, 76, 70, 66, 64];
+    const pts = (arr) => arr.map((v, k) => (40 + k * 52) + ',' + (220 - v)).join(' ');
+    const dim = css('--muted');
+    let s = '<line x1="40" y1="220" x2="580" y2="220" stroke="' + css('--line') + '"/>';
+    s += '<polyline points="' + pts(A) + '" fill="none" stroke="' + (rShown ? dim : css('--value')) + '" stroke-width="4"/>';
+    s += '<polyline points="' + pts(B) + '" fill="none" stroke="' + (rShown ? css('--bad') : css('--price')) + '" stroke-width="' + (rShown ? 6 : 4) + '"/>';
+    s += txt(46, 48, 'A: jumps around, ends higher', 'font-size="18"') + txt(300, 215, 'B: slides down and stays down', 'font-size="18"');
+    document.getElementById('r-svg').innerHTML = s;
+    rOut.textContent = rShown ? 'B is the risk: value that was never there. A is volatility: a price that moves.' : '';
+    rOut.className = 'readout ' + (rShown ? 'bad' : '');
+  }
+  document.getElementById('r-btn').addEventListener('click', () => { rShown = !rShown; drawRisk(); });
+
+  // --- Slide 7: Mr. Market ---
+  const mmBtn = document.getElementById('mm-btn'), mmMargin = document.getElementById('mm-margin'), mmOut = document.getElementById('mm-out');
+  let quotes = [], mood = 0;
+  function nextDay() {
+    mood = Math.max(-0.5, Math.min(0.4, mood * 0.6 + (Math.random() - 0.52) * 0.5));
+    quotes.push(Math.round(100 * (1 + mood)));
+    if (quotes.length > 10) quotes.shift();
+    drawMarket();
+  }
+  function drawMarket() {
+    const margin = +mmMargin.value, buyAt = 100 - margin;
+    document.getElementById('mm-mv').textContent = margin;
+    const x = (k) => 80 + k * 92, y = (v) => 110 - v * 0.7;
+    let s = '<line x1="40" y1="' + y(100) + '" x2="960" y2="' + y(100) + '" stroke="' + css('--value') + '" stroke-width="2"/>' + txt(44, y(100) - 6, 'value 100', 'font-size="18"');
+    s += '<line x1="40" y1="' + y(buyAt) + '" x2="960" y2="' + y(buyAt) + '" stroke="' + css('--good') + '" stroke-width="2" stroke-dasharray="8 6"/>' + txt(44, y(buyAt) - 6, 'buy at ' + buyAt, 'font-size="18"');
+    quotes.forEach((q, k) => { s += '<circle cx="' + x(k) + '" cy="' + y(q) + '" r="9" fill="' + css('--price') + '"/>' + txt(x(k), y(q) + 30, String(q), 'text-anchor="middle" font-size="18"'); });
+    document.getElementById('mm-svg').innerHTML = s;
+    if (!quotes.length) return;
+    const q = quotes[quotes.length - 1];
+    if (q <= buyAt) { mmOut.textContent = 'Quote ' + q + '. Buy: ' + (100 - q) + '% below value meets your ' + margin + '% margin.'; mmOut.className = 'readout good'; }
+    else if (q < 100) { mmOut.textContent = 'Quote ' + q + '. Wait: below value, but not by enough. The quote is a service, not a verdict.'; mmOut.className = 'readout wait'; }
+    else { mmOut.textContent = 'Quote ' + q + '. Price has reached value: sell what you hold. Do not buy.'; mmOut.className = 'readout bad'; }
+  }
+  mmBtn.addEventListener('click', nextDay);
+  mmMargin.addEventListener('input', drawMarket);
+
+  // --- Slide 8: three value ranges ---
+  const vIds = ['v-npv-lo', 'v-npv-hi', 'v-liq-lo', 'v-liq-hi', 'v-mkt-lo', 'v-mkt-hi', 'v-price'];
+  function drawValues() {
+    const g = (id) => Math.max(0, +document.getElementById(id).value || 0);
+    const rows = [['NPV', g('v-npv-lo'), g('v-npv-hi')], ['Liquidation', g('v-liq-lo'), g('v-liq-hi')], ['Market', g('v-mkt-lo'), g('v-mkt-hi')]].map(([n, a, b]) => [n, Math.min(a, b), Math.max(a, b)]);
+    const price = g('v-price');
+    const top = Math.max(150, price, ...rows.map((r) => r[2])) * 1.1;
+    const x = (v) => 200 + v / top * 760;
+    let s = '';
+    rows.forEach((r, k) => {
+      const yy = 30 + k * 50;
+      s += txt(190, yy + 28, r[0], 'text-anchor="end"');
+      s += '<rect x="' + x(r[1]) + '" y="' + yy + '" width="' + Math.max(3, x(r[2]) - x(r[1])) + '" height="36" fill="' + css('--value') + '" opacity="0.75"/>';
+      s += txt(x(r[1]) - 6, yy + 26, String(r[1]), 'text-anchor="end" font-size="18"') + txt(x(r[2]) + 6, yy + 26, String(r[2]), 'font-size="18"');
+    });
+    const lo = Math.max(...rows.map((r) => r[1])), hi = Math.min(...rows.map((r) => r[2]));
+    if (lo <= hi) s += '<rect x="' + x(lo) + '" y="20" width="' + Math.max(3, x(hi) - x(lo)) + '" height="150" fill="' + css('--accent') + '" opacity="0.25"/>';
+    s += '<line x1="' + x(price) + '" y1="14" x2="' + x(price) + '" y2="176" stroke="' + css('--price') + '" stroke-width="4"/>' + txt(x(price), 188, 'price ' + price, 'text-anchor="middle" font-size="18"');
+    document.getElementById('v-svg').innerHTML = s;
+    const out = document.getElementById('v-out'), floor = Math.min(...rows.map((r) => r[1]));
+    let msg = lo <= hi ? 'All three methods agree between ' + lo + ' and ' + hi + '. ' : 'The three methods share no common ground. The most conservative range sets your standard. ';
+    if (price < floor && floor > 0) { msg += 'Price ' + price + ' is ' + Math.round((floor - price) / floor * 100) + '% under the lowest low (' + floor + ').'; out.className = 'readout good'; }
+    else { msg += 'Price ' + price + ' is not under every method’s low end: no margin by the strictest reading.'; out.className = 'readout wait'; }
+    out.textContent = msg;
+  }
+  vIds.forEach((id) => document.getElementById(id).addEventListener('input', drawValues));
+
+  // --- Slide 10: the catalyst ---
+  const cMonth = document.getElementById('c-month');
+  const path = (() => { let seed = 7, v = 62, out = [];
+    const rnd = () => { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; };
+    for (let m = 0; m <= 36; m++) { out.push(v); v = v + (68 - v) * 0.15 + (rnd() - 0.5) * 10; } return out; })();
+  function drawCatalyst() {
+    const m = +cMonth.value;
+    document.getElementById('c-mv').textContent = m ? 'month ' + m : 'none';
+    const x = (k) => 60 + k / 36 * 900, y = (v) => 200 - v * 1.5;
+    let s = '<line x1="60" y1="200" x2="960" y2="200" stroke="' + css('--line') + '"/>';
+    [0, 12, 24, 36].forEach((k) => { s += txt(x(k), 218, k + ' mo', 'text-anchor="middle" font-size="16"'); });
+    s += '<line x1="60" y1="' + y(100) + '" x2="960" y2="' + y(100) + '" stroke="' + css('--value') + '" stroke-width="3"/>' + txt(64, y(100) - 8, 'value 100', 'font-size="18"');
+    const pts = path.map((v, k) => x(k) + ',' + y(m && k >= m ? 100 : v)).join(' ');
+    s += '<polyline points="' + pts + '" fill="none" stroke="' + css('--price') + '" stroke-width="4"/>';
+    if (m) s += '<line x1="' + x(m) + '" y1="20" x2="' + x(m) + '" y2="200" stroke="' + css('--accent') + '" stroke-width="2" stroke-dasharray="6 6"/>' + txt(x(m) + 6, 36, 'catalyst', 'font-size="18"');
+    document.getElementById('c-svg').innerHTML = s;
+    const out = document.getElementById('c-out');
+    if (m) { out.textContent = 'The gap closes in month ' + m + '. You waited ' + m + ' month' + (m > 1 ? 's' : '') + ' with a date on the wall.'; out.className = 'readout good'; }
+    else { out.textContent = 'No catalyst: the price drifts under value for three years. The wait is the market’s mood, with no date.'; out.className = 'readout wait'; }
+  }
+  cMonth.addEventListener('input', drawCatalyst);
+
+  function drawAll() { drawMargin(); drawRisk(); drawMarket(); drawValues(); drawCatalyst(); }
+  drawAll();
+  if (window.matchMedia) { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', drawAll); }
+  new MutationObserver(drawAll).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+})();
+</script>
+<!--BODY-END-->
+</body></html>

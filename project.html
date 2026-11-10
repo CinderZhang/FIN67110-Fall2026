@@ -41,7 +41,7 @@ and each of you can defend it. Due date: the <a href="schedule.html">schedule</a
     subgraph I [&quot;HOW IT IS CHECKED · six examples, not a limit&quot;]
         direction TB
         I1[&quot;Another team runs your desk from your README&lt;br/&gt;on two companies it picks (Session 10).&quot;]
-        I2[&quot;Your desk writes a live report on each week's&lt;br/&gt;earnings release within 24 hours for the Live record.&quot;]
+        I2[&quot;Each week your desk reports a company that filed that week,&lt;br/&gt;within 24 hours, into the live record in your repository.&quot;]
         I3[&quot;You audit four reports by hand against the filings.&quot;]
         I4[&quot;Your product manual says only what the evidence shows.&quot;]
         I5[&quot;Your desk runs live in the room,&lt;br/&gt;and each member answers one question.&quot;]
@@ -93,12 +93,12 @@ mandate names. The parts, the ranking and the calendar are the same for every te
 <h2 id="what-you-submit-five-parts-one-brightspace-upload">What you submit: five parts, one Brightspace upload</h2>
 <p>The five parts, like the checkpoints before them, are not assignments. They are examples of how
 the product is inspected, and the reader may inspect it any way the product allows. Upload one
-Markdown file to <strong>Project</strong> that links to parts 1, 3 and 4 on github.com, wherever
+Markdown file to <strong>Project</strong> that links to parts 1 to 4 on github.com, wherever
 your team keeps them, and names your session from the posted order. Use permanent links (github.com's "Copy permalink" on a file), which freeze each file as it was
 when you submitted. Its shape:</p>
 <pre><code class="language-text"># Project — Team Ledger (pete123, maria45, jchen)
 1. Desk: https://github.com/pete123/fin67110-desk/tree/3f2a9c1
-2. Live record: in Brightspace
+2. Live record: https://github.com/pete123/fin67110-desk/tree/3f2a9c1/runs/live
 3. Audits: https://github.com/pete123/fin67110-desk/blob/3f2a9c1/audits.md
 4. Product manual: https://github.com/pete123/fin67110-desk/blob/3f2a9c1/manual.md
 5. We present in Session 13.
@@ -110,7 +110,8 @@ when you submitted. Its shape:</p>
    "not applicable." It has a UI: a person runs it on a ticker and reads the report without a
    terminal. The repository's README is enough for a team that is not
    yours to run it; another team does, in Session 10.</li>
-<li><strong>The live record.</strong> Already in Brightspace. Nothing to resubmit. The rule is below.</li>
+<li><strong>The live record.</strong> In your repository, where each weekly report was committed. The rule is
+   below.</li>
 <li><strong>The audits.</strong> The <a href="reference/audit-checklist.html">report audit</a> of two of your own live
    reports and of the two reports your own run of another team's desk produced, from its README
    alone, on two companies you chose (the exchange in Session 10), each against the filings the
@@ -124,7 +125,7 @@ when you submitted. Its shape:</p>
    - the question and the client;
    - how the desk works, with one diagram of the agent team, the verifier, the tools, the skills,
      the hook and the one command, and which join it uses where (Week 5);
-   - the live record: a table of every report, its release, its filing time, its upload time, and
+   - the live record: a table of every report, its release, its filing time, its commit time, and
      whether it was inside the window;
    - the audits: both counts for all four reports, and why you chose the two of your own;
    - what the desk told the client, with the hit-rate table and the base rate under it, what
@@ -145,18 +146,22 @@ when you submitted. Its shape:</p>
    if the network or a model provider fails.</li>
 </ol>
 <h2 id="the-live-record">The live record</h2>
-<p><strong>The rule in one line:</strong> a report every week in Weeks 4 to 7; one missed week costs nothing;
-two missed weeks keep the team out of the top tier; no report ever is the fail rule. Week 6, Thanksgiving
-week, is the week most teams will miss, and that is fine.</p>
+<p><strong>The rule in one line:</strong> each week in Weeks 4 to 7, your desk runs on a company that filed its
+earnings release, or another SEC report, that week, and reports it within 24 hours. One missed week
+costs nothing; two missed weeks keep the team out of the top tier; no report ever is the fail
+rule. Week 6, Thanksgiving week, is the week most teams will miss, and that is fine.</p>
 <p>A week runs Monday to Sunday; the <a href="schedule.html">schedule</a> gives the dates of Weeks 4 to 7. In
-each, your team's desk runs on at least one company whose earnings release was filed that week,
-and the report goes to Brightspace → <strong>Live record</strong> within 24 hours of the release's filing time
-on EDGAR, the "Accepted" time on the filing's index page (your Lab 02 steps print it). The report names the filings it read, that release among them. Which companies report that week: start here,
+each, your team's desk runs on at least one company whose earnings release, or other SEC report, was
+filed that week, and the report is committed and pushed to your team's repository on GitHub within
+24 hours of the filing time on EDGAR, the "Accepted" time on the filing's index page (your Lab 02 steps print it).
+The report names the filings it read, that release among them. Which companies report that week: start here,
 <a href="https://www.nasdaq.com/market-activity/earnings">the Nasdaq earnings calendar</a>, then find the
 release on <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany">EDGAR</a> (8-K, Exhibit 99.1).
-More reports are welcome and never required. Brightspace keeps every submission with its timestamp:
-that is the record that your desk read a real release in real time. Week 8 has no live obligation;
-Brightspace outages are on the <a href="grading.html#absences-and-outages">grading page</a>.</p>
+More reports are welcome and never required. The commit's timestamp is the record. Nothing goes to
+Brightspace for it: from Checkpoint 3 on, your checkpoint upload lists your live record so far, and
+the project ledger links to it. It is not
+graded. It is a gate: it shows that your team actively monitors the companies reporting. Week 8 has no live
+obligation; GitHub outages are on the <a href="grading.html#absences-and-outages">grading page</a>.</p>
 <h2 id="the-peer-evaluation">The peer evaluation</h2>
 <p>After the presentations, each member evaluates their teammates alone, in Brightspace → <strong>Peer
 evaluation</strong>. The rule, the score and the deadline are on the
@@ -182,7 +187,7 @@ those that do not, and the next question orders within each group.</p>
 <tbody>
 <tr>
 <td>Ran live (a gate)</td>
-<td>A report inside its 24-hour window in at least three of Weeks 4 to 7, each naming the release it read; the Brightspace timestamp against the EDGAR "Accepted" time decides, or the email's timestamp under the outage rule on the grading page.</td>
+<td>A report inside its 24-hour window in at least three of Weeks 4 to 7, each on a company that filed that week and naming the release or report it read; the commit's timestamp against the EDGAR "Accepted" time decides.</td>
 </tr>
 <tr>
 <td>Adopted (a gate)</td>
