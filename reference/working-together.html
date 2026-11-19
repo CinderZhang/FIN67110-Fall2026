@@ -1,0 +1,75 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Working together on GitHub: issue, pull request, merge · FIN 67110</title><style>
+:root { --bg:#ffffff; --fg:#14181d; --muted:#5a6572; --rule:#dfe3e8; --accent:#0b5fa5; --code-bg:#f4f6f8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1419; --fg:#e9ecf0; --muted:#9aa4b2; --rule:#2a323c; --accent:#6fb3f2; --code-bg:#182029; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 48rem; margin: 0 auto; padding: 2.25rem 1.25rem 4.5rem; }
+h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; letter-spacing:-.01em; }
+h2 { font-size:1.4rem; line-height:1.25; margin:2.2rem 0 .8rem; }
+h3 { font-size:1.1rem; margin:1.8rem 0 .6rem; }
+p, li { margin:.7rem 0; } li { margin:.35rem 0; } strong { font-weight:650; } a { color:var(--accent); }
+blockquote { margin:1.1rem 0; padding:.5rem 0 .5rem 1.1rem; border-left:3px solid var(--accent); color:var(--muted); }
+pre { background:var(--code-bg); border:1px solid var(--rule); border-radius:8px; padding:.9rem 1.1rem; overflow-x:auto; font:13.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+code { font:.9em ui-monospace, Menlo, Consolas, monospace; background:var(--code-bg); padding:.08em .3em; border-radius:4px; }
+pre code { background:none; padding:0; }
+pre.mermaid { background:none; border:0; text-align:center; font:inherit; overflow-x:auto; }
+pre.mermaid svg { max-width:100%; height:auto; }
+table { border-collapse:collapse; margin:1.1rem 0; font-size:.92rem; max-width:100%; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--rule); padding:.45rem .7rem; text-align:left; vertical-align:top; } th { background:var(--code-bg); }
+hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
+@media (max-width:600px) { body { font-size:16px; } h1 { font-size:1.6rem; } }
+.nav { margin: 0 0 1.5rem; font-size:.9rem; color:var(--muted); } .nav a { color: var(--accent); text-decoration: none; margin-right:.9rem; } .nav a:hover { text-decoration: underline; }
+.foot { margin-top:3rem; font-size:.85rem; color:var(--muted); }
+</style></head>
+<body><main>
+<div class='nav'><a href='../index.html'>FIN 67110</a><a href='../schedule.html'>Schedule</a><a href='../grading.html'>Grading</a><a href='../project.html'>Project</a><a href='../syllabus.html'>Syllabus</a><a href='../decks/index.html'>Decks</a></div>
+<h1 id="working-together-on-github-issue-pull-request-merge">Working together on GitHub: issue, pull request, merge</h1>
+<p>Your AI agent already knows how to run Git for you, though it cannot know what you want. These three words let you ask for it. Nothing on this page is required, because how your team works is your team's business. This page gives you the words, and your team may use them or not.</p>
+<h2 id="what-the-three-words-mean">What the three words mean</h2>
+<p>Think of a research note your desk is about to publish. The published version is the one everyone trusts. In your repository that version is called <code>main</code>, and it is the copy a stranger runs. A <strong>branch</strong> is your own working copy beside it, where you can change things without touching what your teammates run.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Word</th>
+<th style="text-align: left;">What it means</th>
+<th style="text-align: left;">Research-note comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Issue</strong></td>
+<td style="text-align: left;">a suggestion</td>
+<td style="text-align: left;">A comment in the margin. It is words only, so nothing in the repository changes. It has a number, people can reply to it, and someone closes it when it is settled.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pull request</strong> (PR)</td>
+<td style="text-align: left;">new code or a new idea, proposed</td>
+<td style="text-align: left;">Your redraft handed over with the tracked changes showing. It carries the change itself, line by line, and teammates can read it and comment before it goes in.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Merge</strong></td>
+<td style="text-align: left;">agreed and adopted</td>
+<td style="text-align: left;">The sign-off. The team accepts the pull request, and the change becomes part of <code>main</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>One simple test separates the first two: if you have only words, open an issue, and if you have the change itself, open a pull request.</p>
+<h2 id="when-to-use-each-one">When to use each one</h2>
+<p>You will use an issue when you want to point something out without changing any files yourself. A teammate might read one of your desk's reports and see that the diluted EPS does not match the company's earnings release. That is an issue. You might also run another team's desk from its README and find that it stops at step 3 with an error. That is an issue too, opened on their repository, with the first line of the error in it.</p>
+<p>You will reach for a pull request when you have actual work to hand over for review. Perhaps you rewrote the verifier's prompt and want a teammate to read it before the desk uses it. That is a pull request. Or perhaps a teammate built a rough second seeker and wants the team to consider it. That is also a pull request, because it is a new idea with the code attached.</p>
+<p>Once the team has read the pull request, the tests still pass, and everyone agrees, you merge it. Sometimes two of you will have changed the same file. When that happens, Git stops and reports a conflict, which only means it will not choose between your lines for you. Ask your agent to show you both versions and explain the difference, and then you decide.</p>
+<h2 id="what-to-say-to-your-agent">What to say to your agent</h2>
+<p>You can tell your agent what to do in plain words, just as you would speak to a colleague.</p>
+<ul>
+<li>"Open an issue on this repository. The diluted EPS in the latest live report does not match the earnings release. Quote both numbers and where each comes from."</li>
+<li>"Open an issue on the other team's repository, at this link. Their README stopped at step 3. Here is the first line of the error."</li>
+<li>"Put my changes on a new branch and open a pull request. In the description, say what I changed and why, in plain words."</li>
+<li>"Show me the open pull requests and explain what each one changes, in plain words."</li>
+<li>"My teammates agreed. Merge pull request 4, then update my copy."</li>
+<li>"There is a merge conflict. Show me both versions and explain the difference. Do not pick one for me."</li>
+</ul>
+<p>To open issues and pull requests from the terminal, your agent uses GitHub's own command-line tool, <code>gh</code>, from <a href="https://cli.github.com">cli.github.com</a>, which you install and log into once. Your agent can walk you through that setup. Without it, both live on github.com under the Issues tab and the Pull requests tab of the repository, and either way works.</p>
+<h2 id="two-cautions">Two cautions</h2>
+<p>Your repository is public, so every issue and every pull request is public too, which means you must never paste a key or licensed data into one. The clock on a live report is the time of its commit, so commit and push it first, and discuss it afterward.</p>
+<p class='foot'>FIN 67110 Mastering AI for Finance · Purdue University, Daniels School of Business · Fall 2026</p>
+</main></body></html>
