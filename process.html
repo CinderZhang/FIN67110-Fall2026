@@ -32,7 +32,7 @@ hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
     W3[&quot;Week 3 · S4 S5&lt;br/&gt;Your agent team&lt;br/&gt;personas · teams form&quot;]
     W4[&quot;Week 4 · S6 S7&lt;br/&gt;The investor's desk: books become skills&lt;br/&gt;live record begins&quot;]
     W5[&quot;Week 5 · S8 S9&lt;br/&gt;One desk: the agent team and the skills together&lt;br/&gt;team proposal&quot;]
-    W6[&quot;Week 6 · S10&lt;br/&gt;Building week&lt;br/&gt;the exchange run · Thanksgiving&quot;]
+    W6[&quot;Week 6 · S10&lt;br/&gt;Building week&lt;br/&gt;the README run · Thanksgiving&quot;]
     W7[&quot;Week 7 · S11 S12&lt;br/&gt;Building week&lt;br/&gt;the first draft&quot;]
     W8[&quot;Week 8 · S13 S14&lt;br/&gt;Present, live run&lt;br/&gt;project due: the schedule&quot;]
     W1 --&gt; W2 --&gt; W3 --&gt; W4 --&gt; W5 --&gt; W6 --&gt; W7 --&gt; W8
@@ -54,7 +54,7 @@ hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
     L07[&quot;Lab 07 Your investor&lt;br/&gt;→ the worksheet on one name, the hook,&lt;br/&gt;the thing the team owns, hit-rate table, first live report&quot;]
     L08[&quot;Lab 08 One desk&lt;br/&gt;→ one command, one run folder, the hook on every output&quot;]
     L09[&quot;Lab 09 Prove it together&lt;br/&gt;→ partner-picked runs, the three-column table, the proposal&quot;]
-    L10[&quot;Lab 10 Building hours, the exchange&lt;br/&gt;→ another team's desk run from its README, the build list moved&quot;]
+    L10[&quot;Lab 10 Building hours&lt;br/&gt;→ the desk run from its README by a teammate, the build list moved&quot;]
     L11[&quot;Lab 11 Building hours&lt;br/&gt;→ the four tables in manual.md, the build list moved&quot;]
     L12[&quot;Lab 12 The first draft&lt;br/&gt;→ client paragraph, decision log, each member's role in their own commit&quot;]
     L13[&quot;Lab 13 · 14 Present&lt;br/&gt;→ eleven minutes, the live run, one question each&quot;]
@@ -64,14 +64,14 @@ hr { border:0; border-top:1px solid var(--rule); margin:2rem 0; }
     L04 --&gt; L05 -- &quot;closes reader, factor list by hand before S6&quot; --&gt; L06 --&gt; L07 --&gt; L08
     L08 --&gt; L09
     L09 -- &quot;own-report audits, the README before S10&quot; --&gt; L10
-    L10 -- &quot;the exchange audits before S11&quot; --&gt; L11
+    L10 -- &quot;the two report audits before S11&quot; --&gt; L11
     L11 --&gt; L12 --&gt; L13
     L03 -. &quot;Checkpoint 1&quot; .-&gt; L04
     L05 -. &quot;Checkpoint 2&quot; .-&gt; L06
     L09 -. &quot;Checkpoint 3&quot; .-&gt; L10
     L12 -. &quot;Checkpoint 4&quot; .-&gt; L13
     L07 == &quot;live reports, Weeks 4 to 7&quot; ==&gt; L11
-    L10 == &quot;the other team's reports&quot; ==&gt; L11
+    L10 == &quot;the ready-check report&quot; ==&gt; L11
 </pre>
 <p>Every edge is stated on a student page: each lab's "You arrive with" names the inputs, and each
 week page's "Before Session N" list is the hand-off.</p>
@@ -91,7 +91,7 @@ week page's "Before Session N" list is the hand-off.</p>
 </pre>
 <p>Exceptions the instructor calls in the room: Session 3's partner pick is called at minute 40.
 Sessions 10 to 12 run the building clock instead: a ten-minute stand-up, seventy minutes of building
-with the instructor walking the room, a ten-minute close; Session 10's exchange run is inside the build. </p>
+with the instructor walking the room, a ten-minute close; Session 10's README run is inside the build. </p>
 <h2 id="4-the-data-path--one-ticker-through-the-desk">4. The data path — one ticker through the desk</h2>
 <pre class="mermaid">flowchart TD
     E[&quot;SEC EDGAR&lt;br/&gt;ticker → CIK · the filing list · the latest 10-K, 10-Q&lt;br/&gt;and earnings 8-K · the XBRL company facts · the Accepted time&quot;] --&gt; DL[&quot;the desk's tools, in code&lt;br/&gt;filings reader · facts · calculator&quot;]
@@ -111,7 +111,7 @@ with the instructor walking the room, a ten-minute close; Session 10's exchange 
     VN --&gt; IV[&quot;the investor's skills, joined to the team by one command (Week 5)&lt;br/&gt;the seeker: spinoffs from EDGAR, priced by the reader, ranked by declared factors&lt;br/&gt;the worksheet: facts from the filings, owner cash flow, a value range against the price&lt;br/&gt;one model call: the persona's judgment&lt;br/&gt;→ a view, more or less than the price, one number with its source;&lt;br/&gt;a hook refuses done over a number no filing holds&quot;]
     IV --&gt; RX[&quot;reaction check, in code&lt;br/&gt;last close before → first close after&lt;br/&gt;or: reaction not yet available&quot;]
     VN --&gt; BS[&quot;the live record, in the team's repository&lt;br/&gt;the report committed within 24 hours of Accepted&quot;]
-    BS --&gt; AU[&quot;the report audit&lt;br/&gt;by hand: two own, two from another team&lt;br/&gt;(missing claims are the human's to see)&quot;]
+    BS --&gt; AU[&quot;the report audit&lt;br/&gt;by hand: two of your own, plus a cross-check's if any&lt;br/&gt;(missing claims are the human's to see)&quot;]
     AU --&gt; PA[&quot;manual.md&lt;br/&gt;live-record table · audit table · client table&quot;]
     RX --&gt; PA
     PA --&gt; PR[&quot;the presentation&lt;br/&gt;eleven minutes · the instructor's pick, live&quot;]
@@ -195,8 +195,8 @@ it, is on the student's project page (<code>lessons/project.md</code>), where it
 <td>needs a model key</td>
 </tr>
 <tr>
-<td>Lab 10 exchange</td>
-<td>another team's desk ran from its README alone, or the error text; the line above the tables</td>
+<td>Lab 10 README run</td>
+<td>the desk ran from its README alone on a fresh clone, or the error text; the line at the top of the audits file</td>
 <td>—</td>
 <td>the instructor's own README check</td>
 </tr>

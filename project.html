@@ -44,9 +44,9 @@ and each of you can defend it. Due date: the <a href="schedule.html">schedule</a
     subgraph I [&quot;HOW IT IS CHECKED&quot;]
         direction TB
         I0[&quot;Six examples, not a limit.&quot;]
-        I1[&quot;Another team runs your desk from your README&lt;br/&gt;on two companies it picks (Session 10).&quot;]
+        I1[&quot;A teammate who did not write the README runs your desk&lt;br/&gt;from it, on a fresh clone, on a company they pick (Session 10).&quot;]
         I2[&quot;Each week your desk reports a company that filed that week,&lt;br/&gt;within 24 hours, into the live record in your repository.&quot;]
-        I3[&quot;You audit four reports by hand against the filings.&quot;]
+        I3[&quot;You audit two of your own live reports by hand against the filings.&quot;]
         I4[&quot;Your product manual says only what the evidence shows.&quot;]
         I5[&quot;Your desk runs live in the room,&lt;br/&gt;and each member answers one question.&quot;]
         I6[&quot;The checkpoints: the proposal (Session 9),&lt;br/&gt;the first draft (Session 12).&quot;]
@@ -57,17 +57,17 @@ and each of you can defend it. Due date: the <a href="schedule.html">schedule</a
         direction TB
         M0[&quot;Every team clears them. Whether your&lt;br/&gt;calls were right never counts.&quot;]
         M1[&quot;No live report ever, or no product manual: Fail.&quot;]
-        M2[&quot;A part missing, or another team could not&lt;br/&gt;run it from the README: Submitted.&quot;]
-        M3[&quot;Ran from the README, but fewer than three live weeks,&lt;br/&gt;or a wrong number in the two reports for the other team:&lt;br/&gt;Standard (ready to adopt).&quot;]
+        M2[&quot;A part missing, or the desk did not&lt;br/&gt;run from the README alone: Submitted.&quot;]
+        M3[&quot;Ran from the README, but fewer than three live weeks:&lt;br/&gt;Standard (ready to adopt).&quot;]
         M0 ~~~ M1 --&gt; M2 --&gt; M3
     end
     M --&gt; R
     subgraph R [&quot;THE RANKING&quot;]
         direction TB
         R0[&quot;Competitive, among the teams&lt;br/&gt;that cleared the floors.&quot;]
-        R1[&quot;Three or more live weeks, and no wrong number&lt;br/&gt;in those two reports: eligible for Top.&quot;]
+        R1[&quot;Three or more live weeks: eligible for Top.&quot;]
         R2[&quot;Ranked by four questions, in order: the audits hold;&lt;br/&gt;it runs on any company; the writing is honest;&lt;br/&gt;each member can explain it.&quot;]
-        R3[&quot;Top (adopted): the highest ranked, up to one third of the teams&lt;br/&gt;that passed the fail rule, ties included. The rest: Standard.&quot;]
+        R3[&quot;Top: the highest ranked, up to one third of the teams&lt;br/&gt;that passed the fail rule, ties included. The rest: Standard.&quot;]
         R0 ~~~ R1 --&gt; R2 --&gt; R3
     end
     subgraph W [&quot;UP TO YOU&quot;]
@@ -117,18 +117,17 @@ when you submitted. Its shape:</p>
    the client's skill. It runs on any U.S. company that files with EDGAR, from its ticker, reading the filings
    and the earnings release itself. A name the seeker never saw runs too, with the spinoff parts
    "not applicable." It has a UI: a person runs it on a ticker and reads the report without a
-   terminal. The repository's README is enough for a team that is not
-   yours to run it; another team does, in Session 10.</li>
+   terminal. The repository's README is enough for a member of your team who did not
+   write it (or another team) to run it from a fresh clone; they do, in Session 10.</li>
 <li><strong>The live record.</strong> In your repository, where each weekly report was committed. The rule is
    below.</li>
 <li><strong>The audits.</strong> The <a href="reference/audit-checklist.html">report audit</a> of two of your own live
-   reports and of the two reports your own run of another team's desk produced, from its README
-   alone, on two companies you chose (the exchange in Session 10), each against the filings the
-   desk read: four tables, with the error and missing counts at the top of each. Above the other
-   team's two tables, one line: the command you ran, the date, and whether you needed that team's
-   help. That line is the other team's ready check, and with your two tables it is their adoption
-   evidence, so write it as it was. List your own two first; the reader checks the first one and
-   may check any of the four.</li>
+   reports, each against the filings the desk read: two tables, with the error and missing counts
+   at the top of each. At the top of the audits file, write one line for the ready check: the
+   command, the date, who ran it, and whether they needed help. If you cross-checked with another
+   team, you may add your audits of the reports your run of its desk produced, credited to its
+   authors, with the line above them. The reader checks the first of your own tables and may
+   check the other.</li>
 <li><strong>The product manual,</strong> in Markdown: a client reads it in one sitting, runs the desk from it,
    and judges its record from it. The four tables and the sentences they need:
    - the question and the client;
@@ -136,7 +135,8 @@ when you submitted. Its shape:</p>
      the hook and the one command, and which join it uses where (Week 5);
    - the live record: a table of every report, its release, its filing time, its commit time, and
      whether it was inside the window;
-   - the audits: both counts for all four reports, and why you chose the two of your own;
+   - the audits: both counts for your two reports (and any cross-check reports), and why you chose
+     the two of your own;
    - what the desk told the client, with the hit-rate table and the base rate under it, what
      happened afterward, and what four weeks can and cannot show. Conclusions cover the reports you audited and the desk you built, nothing wider;
    - the decision log: what your AI agents got wrong, how you caught it, and what you would not
@@ -181,12 +181,15 @@ shared statement; the peer evaluation is shared with nobody.</p>
 <h2 id="how-it-is-ranked">How it is ranked</h2>
 <p>First, the fail rule on the <a href="grading.html#the-project-ranked-once">grading page</a> is checked. A
 project that passes it but misses one of the five parts is in the submitted tier. Then the ready
-check: another team ran your desk from its README alone, on its own machine, on
-companies it chose, and the run produced a report. The line above that team's audit tables says
-so, and the reader may rerun the command. A desk that needed your help to run, or did not run,
-is complete but not ready, and is in the submitted tier. Every other project is read. Two gates
-decide who can reach the top tier: "ran live" and "adopted". The others are ordered by the
-remaining four questions in sequence: each question sorts the teams into those that meet it and
+check: a member of your team who did not write the README ran your desk from its README alone,
+from a fresh clone on their own machine, on a company they chose, and the run produced a report.
+A run by another team, if you cross-checked, counts the same way. One line at the top of the
+audits file records it: the command, the date, who ran it, and whether they needed help, and the
+reader may rerun the command. A desk that needed help to run, or did not run, is complete but not
+ready, and is in the submitted tier. A team may find another team itself and run each other's
+desks from the README; that cross-check is welcome, never required, and no gate or question reads
+it beyond the ready check. Every other project is read. One gate decides who can reach the top
+tier: "ran live". The other four questions order the teams in sequence: each question sorts the teams into those that meet it and
 those that do not, and the next question orders within each group.</p>
 <table>
 <thead>
@@ -199,10 +202,6 @@ those that do not, and the next question orders within each group.</p>
 <tr>
 <td>Ran live (a gate)</td>
 <td>A report inside its 24-hour window in at least three of Weeks 4 to 7, each on a company that filed that week and naming the release or report it read; the commit's timestamp against the EDGAR "Accepted" time decides.</td>
-</tr>
-<tr>
-<td>Adopted (a gate)</td>
-<td>Another team ran your desk from its README alone, on companies it chose, and its audit of the two reports that run produced found no wrong claim in either table: the missing counts may be above zero, the error counts may not. The reader may check that team's tables against the filings. A reader outside the course who ran your desk from its README alone and wrote what they used it for counts the same way, their writing linked from the product manual in place of the second team's tables; welcome, never required.</td>
 </tr>
 <tr>
 <td>Audits hold</td>
@@ -223,7 +222,7 @@ those that do not, and the next question orders within each group.</p>
 </tbody>
 </table>
 <p>The top tier is at least the top third of the projects that pass the fail rule, rounded up (for
-example 4 of 10). If fewer projects than that pass the two gates, only those that pass are in the top tier. Ranking waits for any
+example 4 of 10). If fewer projects than that pass the gate, only those that pass are in the top tier. Ranking waits for any
 part extended by an excused absence. Teams tied with the last team inside the top third after the four questions are all placed in
 the top tier, even where that exceeds a third. <strong>How your desk's calls turned out, in returns or in beats, is never a
 criterion.</strong> A desk that was wrong for its client every week, reported honestly, can rank at the
